@@ -1,30 +1,34 @@
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="relative py-24 overflow-hidden bg-gold">
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-navy" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-navy" />
-      </div>
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-condensed font-extrabold text-navy text-5xl md:text-7xl uppercase leading-none mb-4">
-          Ready to Play?
-        </h2>
-        <p className="text-navy/70 text-lg md:text-xl mb-10 max-w-xl mx-auto">
-          Join hundreds of LA youth athletes. Register for a camp, clinic, or private lesson today.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <section className="relative z-10 bg-cream px-4 pb-0 pt-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 overflow-hidden rounded-2xl border border-gold/35 bg-navy px-6 py-7 shadow-2xl shadow-navy/20 sm:px-8 lg:grid-cols-[auto_1fr_auto]">
+        <Image
+          src="/images/logo-white.png"
+          alt="LA Sports World"
+          width={128}
+          height={80}
+          className="hidden h-20 w-auto object-contain opacity-65 lg:block"
+        />
+        <div>
+          <h2 className="font-condensed text-4xl font-extrabold uppercase leading-none text-white md:text-5xl">
+            Ready to Get Started?
+          </h2>
+          <p className="mt-2 text-sm font-semibold text-white/70 md:text-base">Join the LA Sports World family today.</p>
+        </div>
+        <div className="flex flex-wrap gap-3">
           <Link
             href="/registration"
-            className="bg-navy text-white font-bold uppercase tracking-wide px-10 py-4 rounded-full hover:bg-navy-light transition-colors text-base"
+            className="inline-flex items-center gap-3 rounded-lg bg-gold px-8 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light"
           >
-            Register Now
+            Book Now <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/contact"
-            className="border-2 border-navy text-navy font-bold uppercase tracking-wide px-10 py-4 rounded-full hover:bg-navy/10 transition-colors text-base"
+            className="inline-flex items-center rounded-lg border border-white/55 px-8 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-white hover:text-navy"
           >
             Contact Us
           </Link>

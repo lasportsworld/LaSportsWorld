@@ -1,103 +1,129 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { ArrowRight, CalendarDays, ShieldCheck, Sparkles, Star, Users } from "lucide-react";
 
-const slides = [
-  { src: "/images/lasw_slideshow_0014.jpg", alt: "Youth basketball training" },
-  { src: "/images/lasw_slideshow_013.jpg", alt: "Summer camp action" },
-  { src: "/images/lasw_slideshow_0015.jpg", alt: "Coaching session" },
-  { src: "/images/lasw_slideshow_001.jpg", alt: "Sports camp kids" },
+const trustBadges = [
+  { Icon: Users, label: "Ages 4-16", sub: "Programs for every stage of growth" },
+  { Icon: ShieldCheck, label: "Safe & Supervised", sub: "Trained staff and premier facilities" },
+  { Icon: Star, label: "Built for Fun", sub: "Active, engaging, confidence-building" },
 ];
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background slideshow */}
-      {slides.map((slide, i) => (
-        <div
-          key={slide.src}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            i === current ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Image
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            className="object-cover"
-            priority={i === 0}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
-        </div>
-      ))}
+    <section className="relative isolate min-h-[720px] overflow-hidden bg-cream pt-20 lg:min-h-[780px]">
+      <Image
+        src="/images/hero-soccer-2.jpg"
+        alt="Kids playing soccer at LA Sports World"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 object-cover object-center"
+      />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#faf8f2_0%,rgba(250,248,242,.96)_33%,rgba(250,248,242,.65)_58%,rgba(250,248,242,.16)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-[linear-gradient(180deg,rgba(28,51,37,.28),transparent)]" />
+      <div
+        aria-hidden
+        className="absolute left-0 top-16 h-72 w-72 opacity-[.08]"
+        style={{
+          backgroundImage: "repeating-radial-gradient(circle at center, #1c3325 0 1px, transparent 1px 12px)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute left-0 top-20 h-80 w-[44rem] opacity-[.08]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 40c45-28 88-28 128 0s83 28 128 0M-20 82c45-28 88-28 128 0s83 28 128 0M-20 124c45-28 88-28 128 0s83 28 128 0' fill='none' stroke='%231c3325' stroke-width='1.4'/%3E%3C/svg%3E\")",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-4 py-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span className="text-gold text-sm font-semibold uppercase tracking-widest">
-              Los Angeles Youth Sports
-            </span>
-          </div>
-
+      <div className="relative mx-auto grid min-h-[640px] w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:px-8 lg:py-16">
+        <div className="max-w-2xl">
+          <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.2em] text-gold">
+            Play. Learn. Grow.
+          </p>
           <h1
-            className="font-condensed font-extrabold text-white leading-none mb-4"
-            style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
+            className="font-condensed text-navy font-extrabold uppercase leading-[.9]"
+            style={{ fontSize: "clamp(3rem, 6vw, 5.8rem)" }}
           >
-            GO BEYOND THE{" "}
-            <span className="text-gradient">FUNDAMENTALS.</span>
+            Confidence
+            <br />
+            Through Play.
+            <br />
+            Friends For Life.
           </h1>
-
-          <p className="text-white/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
-            Elite youth sports coaching for ages 4–18. Private lessons, camps, clinics, and parties — built for kids who want to get serious about sport.
+          <p className="mt-6 max-w-[32rem] text-base leading-7 text-navy/70 md:text-lg">
+            Fun, structured sports and enrichment programs that help kids grow, learn, and thrive in a safe,
+            high-energy environment.
           </p>
 
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/camps"
-              className="bg-gold text-navy font-bold uppercase tracking-wide px-8 py-4 rounded-full hover:bg-gold-light transition-all hover:scale-105 text-base"
-            >
-              Explore Camps
-            </Link>
+          <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/programs"
-              className="border border-white/30 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded-full hover:border-gold hover:text-gold transition-all text-base"
+              className="inline-flex items-center gap-3 rounded-lg bg-navy px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white shadow-xl shadow-navy/20 transition hover:bg-navy-light"
             >
-              View Programs
+              Explore Programs <ArrowRight className="h-4 w-4" />
             </Link>
+            <Link
+              href="/registration"
+              className="inline-flex items-center gap-3 rounded-lg border border-navy/25 bg-white/65 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-navy backdrop-blur transition hover:border-gold hover:text-gold"
+            >
+              Book A Camp <CalendarDays className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {trustBadges.map(({ Icon, label, sub }) => (
+              <div key={label} className="flex items-start gap-3">
+                <Icon className="mt-1 h-7 w-7 shrink-0 text-navy/55" strokeWidth={1.5} />
+                <div>
+                  <p className="text-sm font-extrabold text-navy">{label}</p>
+                  <p className="mt-1 text-xs leading-5 text-navy/55">{sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative hidden h-[590px] lg:block">
+          <div className="absolute left-6 top-0 h-[520px] w-[360px] overflow-hidden rounded-[24px] border-[7px] border-white shadow-2xl shadow-navy/25">
+            <Image
+              src="/images/lasw_slideshow_005.jpg"
+              alt="Young athlete running at camp"
+              fill
+              priority
+              sizes="360px"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="absolute left-2 top-6 h-[520px] w-[360px] rounded-[24px] border-2 border-navy/20" />
+          <div className="absolute right-2 top-10 rotate-[7deg] bg-white p-3 pb-10 shadow-2xl shadow-navy/25">
+            <div className="relative h-40 w-56 overflow-hidden">
+              <Image src="/images/lasw_slideshow_008.jpg" alt="Kids smiling with a basketball" fill className="object-cover" />
+            </div>
+          </div>
+          <div className="absolute right-8 top-64 rotate-[-3deg] bg-white p-3 pb-10 shadow-2xl shadow-navy/20">
+            <div className="relative h-40 w-52 overflow-hidden">
+              <Image src="/images/lasw_slideshow_004.jpg" alt="Kids playing soccer at camp" fill className="object-cover" />
+            </div>
+          </div>
+          <div className="absolute bottom-16 right-0 rotate-[-7deg] text-center font-condensed text-2xl font-bold leading-none text-gold">
+            <Sparkles className="mx-auto mb-2 h-5 w-5" />
+            More than
+            <br />
+            just sports
+          </div>
+          <div className="absolute bottom-2 right-24 grid h-24 w-24 place-items-center rounded-full border-2 border-navy bg-cream/80 text-center font-condensed text-[11px] font-extrabold uppercase tracking-[.22em] text-navy shadow-xl">
+            Play
+            <br />
+            Learn
+            <br />
+            Grow
           </div>
         </div>
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              i === current ? "bg-gold w-8" : "bg-white/30 w-4"
-            }`}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-[-1px] h-16 bg-white [clip-path:polygon(0_48%,8%_58%,19%_44%,30%_56%,43%_45%,56%_58%,70%_46%,84%_58%,100%_44%,100%_100%,0_100%)]" />
     </section>
   );
 }

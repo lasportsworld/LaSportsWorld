@@ -2,91 +2,75 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   {
     label: "Programs",
     href: "/programs",
     children: [
+      { label: "All Camps", href: "/camps" },
       { label: "Private Lessons", href: "/programs/private-lessons" },
       { label: "Clinics", href: "/programs/clinics" },
-      { label: "Parties & Events", href: "/programs/parties" },
+      { label: "Birthday Parties", href: "/programs/parties" },
     ],
   },
-  {
-    label: "Camps",
-    href: "/camps",
-    children: [
-      { label: "Summer Camp", href: "/camps/summer" },
-      { label: "Winter Camp", href: "/camps/winter" },
-      { label: "Day Camp", href: "/camps/day" },
-      { label: "Passover Camp", href: "/camps/passover" },
-    ],
-  },
-  { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-navy/95 backdrop-blur-md shadow-lg shadow-black/20"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 shrink-0">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-navy/95 shadow-lg shadow-navy/20 backdrop-blur">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src="/images/logo_header_wh_v2.png"
+            src="/images/logo-white.png"
             alt="LA Sports World"
-            width={160}
-            height={48}
-            className="h-10 w-auto object-contain"
+            width={190}
+            height={190}
+            className="h-16 w-auto object-contain"
             priority
           />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden items-center gap-2 lg:flex">
           {navLinks.map((link) => (
             <div
               key={link.label}
-              className="relative group"
+              className="relative"
               onMouseEnter={() => link.children && setOpenDropdown(link.label)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <Link
                 href={link.href}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-semibold tracking-wide text-white/80 hover:text-gold transition-colors uppercase"
+                className={`flex items-center gap-1 border-b-2 px-3 py-7 text-sm font-extrabold text-white transition ${
+                  isActive(link.href) ? "border-gold" : "border-transparent hover:border-gold/55"
+                }`}
               >
                 {link.label}
-                {link.children && <ChevronDown className="w-3.5 h-3.5" />}
+                {link.children && <ChevronDown className="h-3.5 w-3.5" />}
               </Link>
 
               {link.children && openDropdown === link.label && (
-                <div className="absolute top-full left-0 pt-2 min-w-[200px]">
-                  <div className="bg-navy-dark border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                <div className="absolute left-0 top-full min-w-[220px] pt-2">
+                  <div className="overflow-hidden rounded-lg border border-navy/10 bg-white shadow-xl">
                     {link.children.map((child) => (
                       <Link
                         key={child.label}
                         href={child.href}
-                        className="block px-5 py-3 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+                        className="block border-b border-navy/5 px-5 py-3 text-sm font-semibold text-navy/70 transition last:border-0 hover:bg-cream hover:text-gold"
                       >
                         {child.label}
                       </Link>
@@ -98,45 +82,40 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden lg:block">
-          <Link
-            href="/registration"
-            className="bg-gold text-navy font-bold text-sm uppercase tracking-wide px-6 py-3 rounded-full hover:bg-gold-light transition-colors"
-          >
-            Register Now
-          </Link>
-        </div>
+        <Link
+          href="/registration"
+          className="hidden items-center gap-3 rounded-lg bg-gold px-7 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light lg:inline-flex"
+        >
+          Book Now <ArrowRight className="h-4 w-4" />
+        </Link>
 
-        {/* Mobile toggle */}
         <button
-          className="lg:hidden text-white p-2"
+          className="grid h-11 w-11 place-items-center rounded-lg border border-white/20 text-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
-      {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="lg:hidden bg-navy-dark border-t border-white/10 px-4 py-6 space-y-2">
+        <div className="border-t border-white/10 bg-navy px-4 py-5 shadow-xl lg:hidden">
           {navLinks.map((link) => (
             <div key={link.label}>
               <Link
                 href={link.href}
-                className="block py-2 text-base font-semibold text-white/80 uppercase tracking-wide"
+                className={`block py-2 text-base font-extrabold text-white ${isActive(link.href) ? "text-gold" : ""}`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </Link>
               {link.children && (
-                <div className="pl-4 space-y-1">
+                <div className="pb-2 pl-4">
                   {link.children.map((child) => (
                     <Link
                       key={child.label}
                       href={child.href}
-                      className="block py-1.5 text-sm text-white/60 hover:text-gold"
+                      className="block py-1.5 text-sm text-white/60"
                       onClick={() => setMobileOpen(false)}
                     >
                       {child.label}
@@ -146,15 +125,13 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <div className="pt-4">
-            <Link
-              href="/registration"
-              className="block text-center bg-gold text-navy font-bold text-sm uppercase tracking-wide px-6 py-3 rounded-full"
-              onClick={() => setMobileOpen(false)}
-            >
-              Register Now
-            </Link>
-          </div>
+          <Link
+            href="/registration"
+            className="mt-4 flex items-center justify-center gap-3 rounded-lg bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            Book Now <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       )}
     </header>

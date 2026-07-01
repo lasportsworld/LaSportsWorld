@@ -1,24 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0A1628;
-  --color-navy-dark: #060e1e;
-  --color-navy-light: #142038;
-  --color-gold: #F9C712;
-  --color-gold-light: #FCD940;
-  --color-gold-dark: #D4A800;
+  /* "navy" is now our dark forest green brand color */
+  --color-navy: #1C3325;
+  --color-navy-dark: #122019;
+  --color-navy-light: #274035;
+  /* "gold" is now warm amber */
+  --color-gold: #C4852A;
+  --color-gold-light: #D49C3F;
+  --color-gold-dark: #A5691A;
+  /* Cream background palette */
+  --color-cream: #FAF8F2;
+  --color-cream-dark: #F0E9D8;
   --font-sans: var(--font-geist-sans);
   --font-condensed: var(--font-barlow);
 }
 
 :root {
-  --background: #0A1628;
-  --foreground: #ffffff;
+  --background: #FAF8F2;
+  --foreground: #1c1c1c;
 }
 
 body {
-  background: #0A1628;
-  color: #ffffff;
+  background: #FAF8F2;
+  color: #1c1c1c;
   font-family: var(--font-sans), Arial, sans-serif;
 }
 
@@ -26,18 +31,16 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Utility: sport gradient text */
 .text-gradient {
-  background: linear-gradient(135deg, #F9C712, #FCD940);
+  background: linear-gradient(135deg, #C4852A, #D49C3F);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Divider line gold */
 .divider-gold {
   width: 60px;
   height: 4px;
-  background: #F9C712;
+  background: #C4852A;
   border-radius: 2px;
 }
