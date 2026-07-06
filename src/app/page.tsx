@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowRight, Instagram, PartyPopper, Users, Zap } from "lucide-react";
+import { ArrowRight, PartyPopper, Users, Zap } from "lucide-react";
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+    </svg>
+  );
+}
 
 const services = [
   {
@@ -163,7 +171,7 @@ export default function HomePage() {
             rel="noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy/15 px-6 py-3 font-bold text-navy transition hover:border-gold hover:text-gold"
           >
-            <Instagram className="h-5 w-5" />
+            <InstagramIcon className="h-5 w-5" />
             @lasportsworld
           </a>
         </div>
