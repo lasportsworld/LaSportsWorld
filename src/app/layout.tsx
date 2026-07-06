@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Barlow_Condensed } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${barlow.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
