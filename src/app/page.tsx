@@ -11,8 +11,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <AboutSection />
       <ProgramsSection />
+      <AboutSection />
       <WhyUsSection />
       <HowItWorksSection />
       <GalleryStripSection />
