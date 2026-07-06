@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowLeft, ArrowRight, AtSign, Building2, CalendarDays, School, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Building2, CalendarDays, School, Users } from "lucide-react";
 
 const organizationServices = [
   "School programs",
@@ -11,6 +11,22 @@ const organizationServices = [
   "Soft play setups",
   "Ongoing partnerships",
 ];
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
+    </svg>
+  );
+}
 
 export default function OrganizationsPage() {
   return (
@@ -25,15 +41,8 @@ export default function OrganizationsPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/90 to-navy" />
 
-        <div className="relative mx-auto grid min-h-screen max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-12">
+        <div className="relative mx-auto grid min-h-screen max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8 lg:py-12">
           <div className="flex flex-col justify-center">
-            <Link
-              href="/"
-              className="mb-6 inline-flex w-fit items-center gap-2 text-sm font-bold text-white/75 transition hover:text-gold"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Parent / individual inquiry
-            </Link>
             <p className="mb-4 inline-flex w-fit rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em] text-gold">
               Website under development
             </p>
@@ -45,30 +54,30 @@ export default function OrganizationsPage() {
               program. We will follow up with the right options.
             </p>
 
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            <div className="mt-7 rounded-xl border-2 border-gold/70 bg-white/10 p-5 shadow-xl shadow-black/20">
+              <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-gold">
+                Parents and families
+              </p>
+              <h2 className="mt-2 font-condensed text-3xl font-extrabold uppercase leading-none text-white sm:text-4xl">
+                Looking for a party, coaching, or small group?
+              </h2>
+              <p className="mt-2 text-sm font-semibold leading-6 text-white/75">
+                Use the parent / individual inquiry page instead so we route you correctly.
+              </p>
+              <Link
+                href="/"
+                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-5 py-4 text-sm font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light sm:w-auto"
+              >
+                Go to Parent Form <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {organizationServices.map((service) => (
                 <div key={service} className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold text-white/85">
                   {service}
                 </div>
               ))}
-            </div>
-
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-extrabold uppercase tracking-wide text-white transition hover:border-gold hover:text-gold"
-              >
-                Birthday, coaching, or small group? <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href="https://www.instagram.com/lasportsworld/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-bold text-white transition hover:border-gold hover:text-gold"
-              >
-                <AtSign className="h-4 w-4" />
-                @lasportsworld
-              </a>
             </div>
           </div>
 
@@ -82,7 +91,8 @@ export default function OrganizationsPage() {
                   Start Here
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-navy/70">
-                  Fill out this quick form and we will follow up about your group, event, or program.
+                  For schools, camps, businesses, nonprofits, community events, and organization
+                  programs, fill out this form and we will follow up.
                 </p>
               </div>
               <div
@@ -115,6 +125,20 @@ export default function OrganizationsPage() {
           </div>
         </div>
       </section>
+
+      <footer className="border-t border-navy/10 px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-center">
+          <a
+            href="https://www.instagram.com/lasportsworld/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-bold text-navy/65 transition hover:text-gold"
+          >
+            <InstagramIcon className="h-5 w-5" />
+            @lasportsworld
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
