@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowLeft, ArrowRight, Building2, CalendarDays, Instagram, School, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, AtSign, Building2, CalendarDays, School, Users } from "lucide-react";
 
 const organizationServices = [
   { title: "School programs", icon: School },
@@ -121,7 +121,7 @@ export default function OrganizationsPage() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy/15 px-6 py-3 font-bold text-navy transition hover:border-gold hover:text-gold"
             >
-              <Instagram className="h-5 w-5" />
+              <AtSign className="h-5 w-5" />
               @lasportsworld
             </a>
           </div>
