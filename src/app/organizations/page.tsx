@@ -4,126 +4,114 @@ import Script from "next/script";
 import { ArrowLeft, ArrowRight, AtSign, Building2, CalendarDays, School, Users } from "lucide-react";
 
 const organizationServices = [
-  { title: "School programs", icon: School },
-  { title: "Camp activities", icon: CalendarDays },
-  { title: "Sports clinics", icon: Users },
-  { title: "Event activities", icon: Building2 },
-  { title: "Soft play setups", icon: Users },
-  { title: "Ongoing partnerships", icon: CalendarDays },
+  "School programs",
+  "Camp activities",
+  "Sports clinics",
+  "Event activities",
+  "Soft play setups",
+  "Ongoing partnerships",
 ];
 
 export default function OrganizationsPage() {
   return (
-    <div className="bg-cream text-navy">
-      <section className="relative isolate overflow-hidden bg-navy pt-28 text-white sm:pt-32">
+    <div className="min-h-screen bg-cream text-navy">
+      <section className="relative isolate overflow-hidden bg-navy text-white">
         <Image
           src="/images/hero-kids-group.jpg"
           alt="Group sports activities with LA Sports World"
           fill
           priority
-          className="object-cover opacity-35"
+          className="object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/80 to-navy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/90 to-navy" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <Link
-            href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-white/75 transition hover:text-gold"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Parent / individual inquiry
-          </Link>
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.25em] text-gold">
-              Organization Inquiries
-            </p>
-            <h1 className="font-condensed text-5xl font-extrabold uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl">
-              Programs & Activities for Schools, Camps, and Organizations
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-white/85">
-              Bring LA Sports World to your school, camp, event, business, nonprofit, or community
-              program.
-            </p>
-            <a
-              href="#organization-form"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light"
-            >
-              Request Organization Info <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mb-8 max-w-2xl">
-          <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-gold">
-            Group Programs
-          </p>
-          <h2 className="mt-2 font-condensed text-4xl font-extrabold uppercase sm:text-5xl">
-            Flexible activities for your group
-          </h2>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {organizationServices.map(({ title, icon: Icon }) => {
-            return (
-              <div key={title} className="rounded-lg border border-navy/10 bg-white p-6 shadow-sm">
-                <Icon className="mb-4 h-7 w-7 text-gold" />
-                <h3 className="font-condensed text-2xl font-bold uppercase">{title}</h3>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section id="organization-form" className="bg-navy px-4 py-14 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-gold">
-              Tell us what you are planning
-            </p>
-            <h2 className="mt-2 font-condensed text-4xl font-extrabold uppercase sm:text-5xl">
-              Organization / Business Inquiry
-            </h2>
-            <p className="mt-4 text-base leading-7 text-white/75">
-              Share the event, program, age group, location, and timing you have in mind, and we
-              will follow up with the right next step.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white p-3 text-navy shadow-2xl sm:p-5">
-            <div
-              className="pipedriveWebForms"
-              data-pd-webforms="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn"
-            />
-            <Script src="https://webforms.pipedrive.com/f/loader" strategy="lazyOnload" />
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 rounded-lg bg-white p-7 shadow-sm sm:p-10 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <h2 className="font-condensed text-3xl font-extrabold uppercase">
-              Looking for a birthday party, private coaching, or small group?
-            </h2>
-            <p className="mt-2 text-navy/65">Use the parent and individual inquiry form instead.</p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="relative mx-auto grid min-h-screen max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-12">
+          <div className="flex flex-col justify-center">
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-extrabold uppercase tracking-wide text-white transition hover:bg-navy-light"
+              className="mb-6 inline-flex w-fit items-center gap-2 text-sm font-bold text-white/75 transition hover:text-gold"
             >
-              Go Back Home <ArrowRight className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" />
+              Parent / individual inquiry
             </Link>
-            <a
-              href="https://www.instagram.com/lasportsworld/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy/15 px-6 py-3 font-bold text-navy transition hover:border-gold hover:text-gold"
-            >
-              <AtSign className="h-5 w-5" />
-              @lasportsworld
-            </a>
+            <p className="mb-4 inline-flex w-fit rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.2em] text-gold">
+              Website under development
+            </p>
+            <h1 className="font-condensed text-4xl font-extrabold uppercase leading-[0.95] text-white sm:text-5xl lg:text-6xl">
+              Organization programs while our full site is being built
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
+              Tell us about your school, camp, business, nonprofit, community event, or organization
+              program. We will follow up with the right options.
+            </p>
+
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {organizationServices.map((service) => (
+                <div key={service} className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold text-white/85">
+                  {service}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-extrabold uppercase tracking-wide text-white transition hover:border-gold hover:text-gold"
+              >
+                Birthday, coaching, or small group? <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="https://www.instagram.com/lasportsworld/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-bold text-white transition hover:border-gold hover:text-gold"
+              >
+                <AtSign className="h-4 w-4" />
+                @lasportsworld
+              </a>
+            </div>
+          </div>
+
+          <div id="organization-form" className="flex items-center">
+            <div className="w-full rounded-2xl border border-white/15 bg-white p-4 text-navy shadow-2xl sm:p-6 lg:p-7">
+              <div className="mb-5">
+                <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-gold">
+                  Organization / Business Inquiry
+                </p>
+                <h2 className="mt-2 font-condensed text-4xl font-extrabold uppercase sm:text-5xl">
+                  Start Here
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-navy/70">
+                  Fill out this quick form and we will follow up about your group, event, or program.
+                </p>
+              </div>
+              <div
+                className="pipedriveWebForms"
+                data-pd-webforms="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn"
+              />
+              <Script src="https://webforms.pipedrive.com/f/loader" strategy="lazyOnload" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-4">
+          <div className="rounded-lg bg-white p-5 shadow-sm">
+            <School className="mb-3 h-7 w-7 text-gold" />
+            <h3 className="font-condensed text-2xl font-bold uppercase">Schools</h3>
+          </div>
+          <div className="rounded-lg bg-white p-5 shadow-sm">
+            <CalendarDays className="mb-3 h-7 w-7 text-gold" />
+            <h3 className="font-condensed text-2xl font-bold uppercase">Camps</h3>
+          </div>
+          <div className="rounded-lg bg-white p-5 shadow-sm">
+            <Building2 className="mb-3 h-7 w-7 text-gold" />
+            <h3 className="font-condensed text-2xl font-bold uppercase">Events</h3>
+          </div>
+          <div className="rounded-lg bg-white p-5 shadow-sm">
+            <Users className="mb-3 h-7 w-7 text-gold" />
+            <h3 className="font-condensed text-2xl font-bold uppercase">Groups</h3>
           </div>
         </div>
       </section>
