@@ -120,7 +120,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 py-5 text-xs text-white/42 sm:flex-row">
-          <p>© {new Date().getFullYear()} LA Sports World. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Canfield Holdings LLC dba LA Sports World. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/about" className="transition hover:text-white">Privacy Policy</Link>
             <Link href="/rules" className="transition hover:text-white">Terms of Service</Link>

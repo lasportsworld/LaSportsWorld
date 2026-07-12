@@ -43,7 +43,6 @@ const homepagePrograms = [
 export default function ProgramsSection() {
   return (
     <section className="relative overflow-hidden bg-cream py-16 lg:py-20">
-      <div className="absolute inset-x-0 top-0 h-12 bg-white [clip-path:polygon(0_0,100%_0,100%_44%,88%_58%,70%_44%,52%_60%,34%_48%,16%_62%,0_46%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Heading + Business CTA */}

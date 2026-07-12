@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="relative z-10 bg-cream px-4 pb-0 pt-4 sm:px-6 lg:px-8">
+    <section className="relative z-10 bg-cream px-4 pb-10 pt-4 sm:px-6 sm:pb-12 lg:px-8 lg:pb-14">
       <div className="mx-auto grid max-w-7xl items-center gap-6 overflow-hidden rounded-2xl border border-gold/35 bg-navy px-6 py-7 shadow-2xl shadow-navy/20 sm:px-8 lg:grid-cols-[auto_1fr_auto]">
         <Image
           src="/images/logo-white.png"

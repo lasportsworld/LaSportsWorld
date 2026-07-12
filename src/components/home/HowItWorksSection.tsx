@@ -22,7 +22,6 @@ const steps = [
 export default function HowItWorksSection() {
   return (
     <section className="relative overflow-hidden bg-white py-14 lg:py-16">
-      <div className="absolute inset-x-0 top-0 h-10 bg-[#eef2e6] [clip-path:polygon(0_0,100%_0,100%_44%,82%_58%,63%_45%,45%_59%,25%_46%,8%_60%,0_47%)]" />
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mb-9 text-center">
           <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-gold">
