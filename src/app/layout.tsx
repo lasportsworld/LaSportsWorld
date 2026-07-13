@@ -3,8 +3,7 @@ import { Geist } from "next/font/google";
 import { Barlow_Condensed } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +20,6 @@ export const metadata: Metadata = {
   title: "LA Sports World | Youth Sports Coaching Los Angeles",
   description:
     "Elite youth sports coaching in Los Angeles. Private lessons, camps, clinics & parties for ages 4–18. Basketball, soccer, football and more.",
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
@@ -43,9 +39,7 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         {/* GTM script */}
         <Script
           id="gtm"
