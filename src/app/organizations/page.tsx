@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight } from "lucide-react";
+import PipedriveForm from "@/components/shared/PipedriveForm";
 
 const organizationServices = [
   "School programs",
@@ -94,11 +94,7 @@ export default function OrganizationsPage() {
                   For schools, camps, businesses, nonprofits, community events, and organization programs, fill out this form.
                 </p>
               </div>
-              <div
-                className="pipedriveWebForms"
-                data-pd-webforms="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn"
-              />
-              <Script src="https://webforms.pipedrive.com/f/loader" strategy="lazyOnload" />
+              <PipedriveForm url="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn" />
             </div>
           </div>
         </main>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight } from "lucide-react";
+import PipedriveForm from "@/components/shared/PipedriveForm";
 
 const services = [
   "Birthday parties",
@@ -92,11 +92,7 @@ export default function HomePage() {
                   For birthday parties, private coaching, small groups, and family inquiries, fill out this form.
                 </p>
               </div>
-              <div
-                className="pipedriveWebForms"
-                data-pd-webforms="https://webforms.pipedrive.com/f/6qhytWbE7SHcR13wuYTNhO18oktcwDKzBjz0iUMDHfBiIKkO4K3ZW1GxZfhOoBSkqT"
-              />
-              <Script src="https://webforms.pipedrive.com/f/loader" strategy="lazyOnload" />
+              <PipedriveForm url="https://webforms.pipedrive.com/f/6qhytWbE7SHcR13wuYTNhO18oktcwDKzBjz0iUMDHfBiIKkO4K3ZW1GxZfhOoBSkqT" />
             </div>
           </div>
         </main>
