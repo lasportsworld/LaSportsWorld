@@ -28,8 +28,8 @@ function InstagramIcon({ className }: { className?: string }) {
 
 export default function HomePage() {
   return (
-    <div className="h-screen overflow-hidden bg-navy text-white">
-      <section className="relative isolate flex h-full flex-col overflow-hidden">
+    <div className="min-h-screen bg-navy text-white lg:h-screen lg:overflow-hidden">
+      <section className="relative isolate flex min-h-screen flex-col lg:h-full lg:overflow-hidden">
         <Image
           src="/images/hero-kids-camp.jpg"
           alt="Kids playing sports with LA Sports World"
@@ -39,8 +39,8 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/90 to-navy" />
 
-        <main className="relative mx-auto grid w-full max-w-7xl flex-1 gap-5 overflow-hidden px-4 py-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8 lg:py-6">
-          <div className="flex min-h-0 flex-col justify-center">
+        <main className="relative mx-auto grid w-full max-w-7xl gap-5 px-4 py-6 sm:px-6 lg:flex-1 lg:grid-cols-[0.78fr_1.22fr] lg:overflow-hidden lg:px-8 lg:py-6">
+          <div className="flex flex-col justify-center lg:min-h-0">
             <p className="mb-3 inline-flex w-fit rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
               Website under development
             </p>
@@ -79,8 +79,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div id="request-info" className="flex min-h-0 items-center">
-            <div className="max-h-full w-full overflow-auto rounded-2xl border border-white/15 bg-white p-4 text-navy shadow-2xl sm:p-5 lg:p-6">
+          <div id="request-info" className="flex items-start pt-4 lg:min-h-0 lg:items-center lg:pt-0">
+            <div className="w-full rounded-2xl border border-white/15 bg-white p-4 text-navy shadow-2xl sm:p-5 lg:max-h-full lg:overflow-auto lg:p-6">
               <div className="mb-4">
                 <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">
                   Parent / Individual Inquiry
