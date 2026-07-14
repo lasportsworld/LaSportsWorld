@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, Building2, ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -82,12 +82,22 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link
-          href="/registration"
-          className="hidden items-center gap-3 rounded-lg bg-gold px-7 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light lg:inline-flex"
-        >
-          Book Now <ArrowRight className="h-4 w-4" />
-        </Link>
+        <div className="hidden items-center gap-3 lg:flex">
+          <span className="h-5 w-px bg-white/20" />
+          <Link
+            href="/organizations"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-white/25 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide text-white/75 transition hover:border-gold hover:text-gold"
+          >
+            <Building2 className="h-3.5 w-3.5" />
+            For Organizations
+          </Link>
+          <Link
+            href="/registration"
+            className="inline-flex items-center gap-3 rounded-lg bg-gold px-7 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light"
+          >
+            Book Now <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
 
         <button
           className="grid h-11 w-11 place-items-center rounded-lg border border-white/20 text-white lg:hidden"
@@ -125,6 +135,15 @@ export default function Navbar() {
               )}
             </div>
           ))}
+          <div className="my-3 border-t border-white/10" />
+          <Link
+            href="/organizations"
+            className="flex items-center gap-2 py-2 text-sm font-extrabold text-white/70 transition hover:text-gold"
+            onClick={() => setMobileOpen(false)}
+          >
+            <Building2 className="h-4 w-4" />
+            For Organizations
+          </Link>
           <Link
             href="/registration"
             className="mt-4 flex items-center justify-center gap-3 rounded-lg bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white"
