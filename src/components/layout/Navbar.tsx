@@ -4,24 +4,48 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, Building2, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "/" },
   {
-    label: "Programs",
-    href: "/programs",
+    label: "Coaching",
+    href: "/coaching",
     children: [
-      { label: "All Camps", href: "/camps" },
-      { label: "Private Lessons", href: "/programs/private-lessons" },
-      { label: "Clinics", href: "/programs/clinics" },
-      { label: "Birthday Parties", href: "/programs/parties" },
+      { label: "Private Coaching", href: "/coaching/private" },
+      { label: "Small-Group Training", href: "/coaching/small-groups" },
     ],
   },
-  { label: "About", href: "/about" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Contact", href: "/contact" },
+  { label: "Pods", href: "/pods" },
+  { label: "Parties", href: "/birthday-parties" },
+  {
+    label: "Classes & Camps",
+    href: "/classes-camps",
+    children: [
+      { label: "Current Programs", href: "/register" },
+      { label: "Classes", href: "/classes-camps/classes" },
+      { label: "Summer Camps", href: "/classes-camps/summer" },
+      { label: "Holiday Camps", href: "/classes-camps/holiday" },
+    ],
+  },
+  {
+    label: "Schools & Organizations",
+    href: "/organizations",
+    children: [
+      { label: "School PE Programs", href: "/organizations/school-pe" },
+      { label: "Enrichment & After-School", href: "/organizations/enrichment" },
+      { label: "Camps & Activity Programming", href: "/organizations/camps" },
+      { label: "Community & Org Events", href: "/organizations/events" },
+    ],
+  },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "Our Approach", href: "/about" },
+      { label: "Coach Standards & Safety", href: "/about/coach-standards" },
+      { label: "Service Area", href: "/service-area" },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -82,22 +106,12 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <span className="h-5 w-px bg-white/20" />
-          <Link
-            href="/organizations"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-white/25 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide text-white/75 transition hover:border-gold hover:text-gold"
-          >
-            <Building2 className="h-3.5 w-3.5" />
-            For Organizations
-          </Link>
-          <Link
-            href="/registration"
-            className="inline-flex items-center gap-3 rounded-lg bg-gold px-7 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light"
-          >
-            Book Now <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+        <Link
+          href="/register"
+          className="hidden items-center gap-3 rounded-lg bg-gold px-7 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light lg:inline-flex"
+        >
+          Register <ArrowRight className="h-4 w-4" />
+        </Link>
 
         <button
           className="grid h-11 w-11 place-items-center rounded-lg border border-white/20 text-white lg:hidden"
@@ -135,21 +149,12 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <div className="my-3 border-t border-white/10" />
           <Link
-            href="/organizations"
-            className="flex items-center gap-2 py-2 text-sm font-extrabold text-white/70 transition hover:text-gold"
-            onClick={() => setMobileOpen(false)}
-          >
-            <Building2 className="h-4 w-4" />
-            For Organizations
-          </Link>
-          <Link
-            href="/registration"
+            href="/register"
             className="mt-4 flex items-center justify-center gap-3 rounded-lg bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white"
             onClick={() => setMobileOpen(false)}
           >
-            Book Now <ArrowRight className="h-4 w-4" />
+            Register / Get Started <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       )}
