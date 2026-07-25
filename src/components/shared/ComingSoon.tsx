@@ -26,10 +26,10 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
           Get in Touch <ArrowRight className="h-4 w-4" />
         </Link>
         <Link
-          href="/site-preview"
+          href="/"
           className="inline-flex items-center gap-2 rounded-lg border border-navy/20 px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy/70 transition hover:border-navy hover:text-navy"
         >
-          <ArrowLeft className="h-4 w-4" /> Back
+          <ArrowLeft className="h-4 w-4" /> Back to Home
         </Link>
       </div>
     </section>

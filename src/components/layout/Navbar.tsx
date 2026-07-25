@@ -3,47 +3,49 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
   {
     label: "Coaching",
     href: "/coaching",
     children: [
+      { label: "Coaching Overview", href: "/coaching" },
       { label: "Private Coaching", href: "/coaching/private" },
-      { label: "Small-Group Training", href: "/coaching/small-groups" },
+      { label: "Group Coaching & Pods", href: "/coaching/groups-pods" },
     ],
   },
-  { label: "Pods", href: "/pods" },
-  { label: "Parties", href: "/birthday-parties" },
+  { label: "Parties", href: "/parties" },
   {
     label: "Classes & Camps",
     href: "/classes-camps",
     children: [
-      { label: "Current Programs", href: "/register" },
+      { label: "Overview", href: "/classes-camps" },
       { label: "Classes", href: "/classes-camps/classes" },
-      { label: "Summer Camps", href: "/classes-camps/summer" },
-      { label: "Holiday Camps", href: "/classes-camps/holiday" },
+      { label: "Holiday Camps", href: "/classes-camps/holiday-camps" },
+      { label: "Summer Camp", href: "/classes-camps/summer-camp" },
     ],
   },
   {
     label: "Schools & Organizations",
-    href: "/organizations",
+    href: "/schools-organizations",
     children: [
-      { label: "School PE Programs", href: "/organizations/school-pe" },
-      { label: "Enrichment & After-School", href: "/organizations/enrichment" },
-      { label: "Camps & Activity Programming", href: "/organizations/camps" },
-      { label: "Community & Org Events", href: "/organizations/events" },
+      { label: "Overview", href: "/schools-organizations" },
+      { label: "School PE Programs", href: "/schools-organizations/school-pe" },
+      { label: "Enrichment & After-School", href: "/schools-organizations/enrichment-after-school" },
+      { label: "Camps & Activity Programming", href: "/schools-organizations/camps-activity-programming" },
+      { label: "Community & Organization Events", href: "/schools-organizations/community-events" },
     ],
   },
   {
     label: "About",
     href: "/about",
     children: [
-      { label: "Our Approach", href: "/about" },
-      { label: "Coach Standards & Safety", href: "/about/coach-standards" },
-      { label: "Service Area", href: "/service-area" },
+      { label: "About LASW", href: "/about" },
+      { label: "Our Approach", href: "/about/approach" },
+      { label: "Coach Standards & Safety", href: "/about/coaches-safety" },
+      { label: "Service Area", href: "/about/service-area" },
     ],
   },
 ];
@@ -52,24 +54,37 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
 
-  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-navy/95 shadow-lg shadow-navy/20 backdrop-blur">
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 bg-white transition-all duration-300 ${
+        scrolled ? "h-16 shadow-md border-b border-gray-100" : "h-20 border-b border-gray-100"
+      }`}
+    >
+      <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src="/images/logo-white.png"
+            src="/images/logo-color.png"
             alt="LA Sports World"
-            width={190}
-            height={190}
-            className="h-16 w-auto object-contain"
+            width={180}
+            height={60}
+            className={`w-auto object-contain transition-all duration-300 ${scrolled ? "h-10" : "h-14"}`}
             priority
           />
         </Link>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        {/* Desktop nav */}
+        <div className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map((link) => (
             <div
               key={link.label}
@@ -79,22 +94,22 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className={`flex items-center gap-1 border-b-2 px-3 py-7 text-sm font-extrabold text-white transition ${
-                  isActive(link.href) ? "border-gold" : "border-transparent hover:border-gold/55"
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold text-navy/80 transition hover:text-navy ${
+                  isActive(link.href) ? "text-navy" : ""
                 }`}
               >
                 {link.label}
-                {link.children && <ChevronDown className="h-3.5 w-3.5" />}
+                {link.children && <ChevronDown className="h-3.5 w-3.5 opacity-60" />}
               </Link>
 
               {link.children && openDropdown === link.label && (
-                <div className="absolute left-0 top-full min-w-[220px] pt-2">
-                  <div className="overflow-hidden rounded-lg border border-navy/10 bg-white shadow-xl">
+                <div className="absolute left-0 top-full min-w-[230px] pt-1">
+                  <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
                     {link.children.map((child) => (
                       <Link
                         key={child.label}
                         href={child.href}
-                        className="block border-b border-navy/5 px-5 py-3 text-sm font-semibold text-navy/70 transition last:border-0 hover:bg-cream hover:text-gold"
+                        className="block border-b border-gray-50 px-5 py-3 text-sm font-semibold text-navy/70 transition last:border-0 hover:bg-cream hover:text-navy"
                       >
                         {child.label}
                       </Link>
@@ -104,31 +119,40 @@ export default function Navbar() {
               )}
             </div>
           ))}
+
+          <Link
+            href="/register"
+            className="px-3 py-2 text-sm font-bold text-navy/80 transition hover:text-navy ml-1"
+          >
+            View Schedule
+          </Link>
         </div>
 
         <Link
-          href="/register"
-          className="hidden items-center gap-3 rounded-lg bg-gold px-7 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-light lg:inline-flex"
+          href="/contact"
+          className="hidden items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-navy-light lg:inline-flex"
         >
-          Register <ArrowRight className="h-4 w-4" />
+          Plan an Activity
         </Link>
 
         <button
-          className="grid h-11 w-11 place-items-center rounded-lg border border-white/20 text-white lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-gray-200 text-navy lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-white/10 bg-navy px-4 py-5 shadow-xl lg:hidden">
+        <div className="border-t border-gray-100 bg-white px-4 py-5 shadow-xl lg:hidden">
           {navLinks.map((link) => (
             <div key={link.label}>
               <Link
                 href={link.href}
-                className={`block py-2 text-base font-extrabold text-white ${isActive(link.href) ? "text-gold" : ""}`}
+                className={`block py-2.5 text-base font-bold text-navy ${
+                  isActive(link.href) ? "text-gold" : ""
+                }`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -139,7 +163,7 @@ export default function Navbar() {
                     <Link
                       key={child.label}
                       href={child.href}
-                      className="block py-1.5 text-sm text-white/60"
+                      className="block py-1.5 text-sm text-navy/55"
                       onClick={() => setMobileOpen(false)}
                     >
                       {child.label}
@@ -151,10 +175,17 @@ export default function Navbar() {
           ))}
           <Link
             href="/register"
-            className="mt-4 flex items-center justify-center gap-3 rounded-lg bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white"
+            className="block py-2.5 text-base font-bold text-navy"
             onClick={() => setMobileOpen(false)}
           >
-            Register / Get Started <ArrowRight className="h-4 w-4" />
+            View Schedule
+          </Link>
+          <Link
+            href="/contact"
+            className="mt-4 flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            Plan an Activity
           </Link>
         </div>
       )}
