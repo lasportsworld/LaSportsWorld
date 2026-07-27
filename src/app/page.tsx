@@ -453,9 +453,9 @@ function ReviewStickerRow({
   summary: GoogleReviewsSummary | null;
 }) {
   return (
-    <div className="pointer-events-none absolute -right-3 -top-10 hidden gap-4 lg:flex">
-      <GoogleReviewSticker summary={summary} className="rotate-3 scale-90" />
-      <div className="rounded-full border-2 border-white bg-gold px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-white shadow-lg shadow-navy/10 -rotate-6">
+    <div className="pointer-events-none absolute -right-1 -top-20 hidden items-end gap-3 lg:flex">
+      <GoogleReviewSticker summary={summary} className="rotate-3 scale-75" />
+      <div className="-rotate-6 rounded-full border-2 border-white bg-gold px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-white shadow-lg shadow-navy/10">
         Parent Approved
       </div>
     </div>
@@ -481,7 +481,7 @@ function GoogleReviewsBlock({
             <SafetyReviewCard />
           </div>
           <p className="mt-4 text-xs leading-relaxed text-navy/45">
-            Reviews are shown from <GoogleMapsAttribution /> and ordered by
+            Reviews are shown from <GoogleMapsAttribution />{" "}and ordered by
             Google&apos;s default relevance.
           </p>
         </>
