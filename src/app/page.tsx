@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar, MapPin, Users, Shield } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Users, Shield, Star } from "lucide-react";
+import {
+  getGoogleReviews,
+  type GoogleReviewCard as GoogleReviewData,
+  type GoogleReviewsSummary,
+} from "@/lib/google-reviews";
 
 /* ─── Service mini-badges ─── */
 const miniFeatures = [
@@ -138,7 +143,244 @@ const currentPrograms = [
   },
 ];
 
-export default function HomePage() {
+function formatReviewCount(count: number) {
+  return new Intl.NumberFormat("en-US").format(count);
+}
+
+function GoogleMapsAttribution({ className = "" }: { className?: string }) {
+  return (
+    <span
+      translate="no"
+      className={`text-xs font-normal tracking-normal text-[#5E5E5E] ${className}`}
+    >
+      Google Maps
+    </span>
+  );
+}
+
+function StarRating({
+  rating,
+  className = "h-4 w-4",
+}: {
+  rating: number;
+  className?: string;
+}) {
+  const fullStars = Math.max(0, Math.min(5, Math.round(rating)));
+
+  return (
+    <span
+      className="inline-flex items-center gap-0.5 text-gold"
+      aria-label={`${rating.toFixed(1)} out of 5 stars`}
+    >
+      {Array.from({ length: 5 }).map((_, index) => (
+        <Star
+          key={index}
+          className={`${className} ${
+            index < fullStars ? "fill-current" : "fill-transparent opacity-35"
+          }`}
+        />
+      ))}
+    </span>
+  );
+}
+
+function GoogleRatingBadge({
+  summary,
+  className = "mb-5",
+}: {
+  summary: GoogleReviewsSummary | null;
+  className?: string;
+}) {
+  if (!summary || !summary.rating) {
+    return null;
+  }
+
+  const content = (
+    <>
+      <span className="text-lg font-extrabold leading-none text-navy">
+        {summary.rating.toFixed(1)}
+      </span>
+      <span className="flex flex-col gap-1">
+        <StarRating rating={summary.rating} className="h-3.5 w-3.5" />
+        <span className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-navy/60">
+          {summary.userRatingCount
+            ? `${formatReviewCount(summary.userRatingCount)} reviews`
+            : "Google reviews"}
+        </span>
+      </span>
+      <GoogleMapsAttribution className="ml-1" />
+    </>
+  );
+
+  if (!summary.googleMapsUri) {
+    return (
+      <div
+        className={`${className} inline-flex items-center gap-3 rounded-full border border-gold/30 bg-white/80 px-4 py-2 shadow-sm`}
+      >
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={summary.googleMapsUri}
+      target="_blank"
+      rel="noreferrer"
+      className={`${className} inline-flex items-center gap-3 rounded-full border border-gold/30 bg-white/80 px-4 py-2 shadow-sm transition hover:border-gold/60 hover:bg-white`}
+      aria-label={`Read LA Sports World reviews on Google Maps. ${summary.rating.toFixed(
+        1,
+      )} out of 5 stars.`}
+    >
+      {content}
+    </a>
+  );
+}
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+}
+
+function ReviewAvatar({ review }: { review: GoogleReviewData }) {
+  const fallback = (
+    <span className="grid h-10 w-10 place-items-center rounded-full bg-navy text-xs font-extrabold text-white">
+      {getInitials(review.authorName) || "G"}
+    </span>
+  );
+
+  const avatar = review.authorPhotoUri ? (
+    <Image
+      src={review.authorPhotoUri}
+      alt={`${review.authorName} profile`}
+      width={40}
+      height={40}
+      className="h-10 w-10 rounded-full object-cover"
+      referrerPolicy="no-referrer"
+    />
+  ) : (
+    fallback
+  );
+
+  if (!review.authorUri) {
+    return avatar;
+  }
+
+  return (
+    <a
+      href={review.authorUri}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${review.authorName} on Google Maps`}
+    >
+      {avatar}
+    </a>
+  );
+}
+
+function GoogleReviewCard({ review }: { review: GoogleReviewData }) {
+  const sourceHref = review.googleMapsUri || review.authorUri;
+
+  return (
+    <article className="rounded-2xl border border-navy/8 bg-cream p-5">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <StarRating rating={review.rating} className="h-3.5 w-3.5" />
+        {review.relativePublishTimeDescription ? (
+          <span className="text-xs font-medium text-navy/45">
+            {review.relativePublishTimeDescription}
+          </span>
+        ) : null}
+      </div>
+      <p className="text-sm font-medium leading-relaxed text-navy">
+        &ldquo;{review.text}&rdquo;
+      </p>
+      <div className="mt-5 flex items-center gap-3">
+        <ReviewAvatar review={review} />
+        <div className="min-w-0">
+          {review.authorUri ? (
+            <a
+              href={review.authorUri}
+              target="_blank"
+              rel="noreferrer"
+              className="block truncate text-sm font-extrabold text-navy hover:text-gold"
+            >
+              {review.authorName}
+            </a>
+          ) : (
+            <div className="truncate text-sm font-extrabold text-navy">
+              {review.authorName}
+            </div>
+          )}
+          {sourceHref ? (
+            <a
+              href={sourceHref}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-navy/45 hover:text-gold"
+            >
+              View on Google Maps
+            </a>
+          ) : (
+            <GoogleMapsAttribution />
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function GoogleReviewsBlock({
+  summary,
+}: {
+  summary: GoogleReviewsSummary | null;
+}) {
+  return (
+    <div>
+      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-gold">
+            Parent Reviews
+          </p>
+          <h2 className="text-3xl font-bold text-navy lg:text-4xl">
+            Loved by LA Families
+          </h2>
+        </div>
+        <GoogleRatingBadge summary={summary} className="mb-0" />
+      </div>
+
+      {summary?.reviews.length ? (
+        <>
+          <div className="grid gap-4 md:grid-cols-3">
+            {summary.reviews.map((review) => (
+              <GoogleReviewCard key={review.id} review={review} />
+            ))}
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-navy/45">
+            Reviews are shown from Google Maps and ordered by Google&apos;s
+            default relevance.
+          </p>
+        </>
+      ) : (
+        <div className="rounded-2xl border border-navy/8 bg-cream p-6">
+          <StarRating rating={summary?.rating || 5} />
+          <p className="mt-3 text-sm font-medium leading-relaxed text-navy">
+            Families share their LA Sports World experiences on Google Maps.
+            Check back soon for the latest reviews.
+          </p>
+          <GoogleMapsAttribution className="mt-4 block" />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default async function HomePage() {
+  const googleReviews = await getGoogleReviews();
+
   return (
     <div className="bg-cream">
       {/* ══════════════════════════════════════
@@ -241,11 +483,9 @@ export default function HomePage() {
         </svg>
 
         {/* Text content */}
-        <div className="relative z-10 flex min-h-[600px] flex-col justify-center px-6 py-16 sm:px-10 lg:min-h-[700px] lg:px-16 xl:px-24">
-          <div className="max-w-[520px] lg:max-w-[40%]">
-            <span className="mb-5 inline-block rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
-              LA&apos;s Premier Youth Sports Company
-            </span>
+        <div className="relative z-10 mx-auto flex min-h-[600px] w-full max-w-7xl flex-col justify-center px-6 py-16 sm:px-10 lg:min-h-[700px] lg:px-10 xl:px-12">
+          <div className="max-w-[520px] lg:max-w-[42%] xl:ml-6 xl:max-w-[500px] 2xl:ml-12">
+            <GoogleRatingBadge summary={googleReviews} />
             <h1 className="font-condensed text-5xl font-extrabold uppercase leading-[0.92] text-navy sm:text-6xl lg:text-[5.5rem]">
               Where Kids
               <br />
@@ -439,35 +679,8 @@ export default function HomePage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-5 md:grid-cols-2">
-            {/* Testimonial */}
-            <div className="rounded-2xl border border-navy/8 bg-cream p-7">
-              <span className="font-condensed text-5xl leading-none text-gold">
-                &ldquo;
-              </span>
-              <p className="mt-1 text-base font-medium leading-relaxed text-navy">
-                LASW made our son&apos;s birthday party so easy and so much fun.
-                The coach was incredible with the kids, and they handled
-                everything!
-              </p>
-              <div className="mt-5 flex items-center gap-3">
-                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                  <Image
-                    src="/images/testimonial-2.png"
-                    alt="Jessica M."
-                    fill
-                    className="object-cover"
-                    sizes="40px"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-extrabold text-navy">
-                    — Jessica M.
-                  </div>
-                  <div className="text-xs text-navy/45">Mar Vista, CA</div>
-                </div>
-              </div>
-            </div>
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.55fr)]">
+            <GoogleReviewsBlock summary={googleReviews} />
 
             {/* Safety */}
             <div className="rounded-2xl border border-navy/8 bg-cream p-7">
