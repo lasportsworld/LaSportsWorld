@@ -272,38 +272,6 @@ function GoogleRatingBadge({
   );
 }
 
-function GoogleReviewSticker({
-  summary,
-  className = "",
-}: {
-  summary: GoogleReviewsSummary | null;
-  className?: string;
-}) {
-  if (!summary?.rating) {
-    return null;
-  }
-
-  return (
-    <a
-      href={summary.googleMapsUri || "#"}
-      target={summary.googleMapsUri ? "_blank" : undefined}
-      rel={summary.googleMapsUri ? "noreferrer" : undefined}
-      className={`inline-flex flex-col items-center justify-center rounded-[22px] border-4 border-white bg-white px-4 py-3 text-center shadow-xl shadow-navy/15 ring-2 ring-gold/80 ${className}`}
-      style={{
-        clipPath:
-          "polygon(0 0, 100% 0, 100% 82%, 58% 82%, 50% 100%, 42% 82%, 0 82%)",
-      }}
-      aria-label={`Google reviews rating ${summary.rating.toFixed(1)} out of 5`}
-    >
-      <span className="text-2xl font-extrabold leading-none text-navy">
-        {summary.rating.toFixed(1)}
-      </span>
-      <StarRating rating={summary.rating} className="h-3 w-3" />
-      <GoogleWord className="mt-1 text-xs" />
-    </a>
-  );
-}
-
 function getInitials(name: string) {
   return name
     .split(" ")
@@ -452,21 +420,6 @@ function SafetyReviewCard() {
   );
 }
 
-function ReviewStickerRow({
-  summary,
-}: {
-  summary: GoogleReviewsSummary | null;
-}) {
-  return (
-    <div className="pointer-events-none absolute -right-1 -top-20 hidden items-end gap-3 lg:flex">
-      <GoogleReviewSticker summary={summary} className="rotate-3 scale-75" />
-      <div className="-rotate-6 rounded-full border-2 border-white bg-gold px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-white shadow-lg shadow-navy/10">
-        Parent Approved
-      </div>
-    </div>
-  );
-}
-
 function GoogleReviewsBlock({
   summary,
 }: {
@@ -474,7 +427,6 @@ function GoogleReviewsBlock({
 }) {
   return (
     <div className="relative">
-      <ReviewStickerRow summary={summary} />
       <GoogleReviewsHeader summary={summary} />
 
       {summary?.reviews.length ? (
@@ -788,10 +740,6 @@ export default async function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <GoogleReviewSticker
-                summary={googleReviews}
-                className="absolute -left-5 -top-6 hidden rotate-[-7deg] scale-90 lg:inline-flex"
-              />
               <div className="absolute bottom-5 right-5 flex items-start gap-3 max-w-[190px] rounded-xl bg-white/90 px-4 py-3 shadow-lg backdrop-blur-sm">
                 <Shield className="h-5 w-5 shrink-0 text-navy mt-0.5" />
                 <p className="text-xs font-semibold leading-relaxed text-navy">
