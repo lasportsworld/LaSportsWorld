@@ -393,10 +393,10 @@ export default async function HomePage() {
             <clipPath id="hero-curve" clipPathUnits="objectBoundingBox">
               {/*
                 Hand-traced S-curve in objectBoundingBox units (0–1).
-                Top anchor ~36% across, bulges left near the top third,
-                tucks back right near the bottom, exits at ~48% across.
+                Top anchor ~54% across, preserving enough cream space for the
+                headline, then tucks back left through the middle of the hero.
               */}
-              <path d="M 0.36 0 C 0.30 0.22, 0.44 0.42, 0.36 0.60 C 0.30 0.78, 0.50 0.92, 0.48 1 L 1 1 L 1 0 Z" />
+              <path d="M 0.54 0 C 0.45 0.22, 0.56 0.42, 0.47 0.60 C 0.40 0.78, 0.57 0.92, 0.55 1 L 1 1 L 1 0 Z" />
             </clipPath>
           </defs>
         </svg>
@@ -484,7 +484,7 @@ export default async function HomePage() {
 
         {/* Text content */}
         <div className="relative z-10 mx-auto flex min-h-[600px] w-full max-w-7xl flex-col justify-center px-6 py-16 sm:px-10 lg:min-h-[700px] lg:px-10 xl:px-12">
-          <div className="max-w-[520px] lg:max-w-[42%] xl:ml-6 xl:max-w-[500px] 2xl:ml-12">
+          <div className="max-w-[520px] lg:max-w-[430px] xl:ml-6 2xl:ml-10">
             <GoogleRatingBadge summary={googleReviews} />
             <h1 className="font-condensed text-5xl font-extrabold uppercase leading-[0.92] text-navy sm:text-6xl lg:text-[5.5rem]">
               Where Kids
@@ -493,7 +493,7 @@ export default async function HomePage() {
               <br />
               &amp; Grow
             </h1>
-            <p className="mt-5 max-w-[340px] text-base leading-relaxed text-navy/60 sm:text-lg">
+            <p className="mt-5 max-w-[330px] text-base leading-relaxed text-navy/60 sm:text-lg">
               We bring customized sports and kids&apos; activities straight to
               your home, school, or community — full-service coaching and
               planning for ages 2–14, anywhere in Los Angeles.
