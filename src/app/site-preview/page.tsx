@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar, MapPin, Users, Shield, Star } from "lucide-react";
+import { ArrowRight, Shield, Star } from "lucide-react";
 import {
   getGoogleReviews,
   type GoogleReviewCard as GoogleReviewData,
   type GoogleReviewsSummary,
 } from "@/lib/google-reviews";
+import SawyerEmbed from "@/components/shared/SawyerEmbed";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -114,37 +115,6 @@ const whySteps = [
     n: "3",
     title: "You enjoy the experience",
     desc: "We run an incredible session and handle the breakdown.",
-  },
-];
-
-/* ─── Programs ─── */
-const currentPrograms = [
-  {
-    title: "Soccer Skills",
-    ages: "Ages 6–9",
-    starts: "STARTS JUN 3",
-    schedule: "Tuesdays, Jun 3 – Jul 22",
-    location: "Playa Vista",
-    image: "/images/kidsplayingsoccer.webp",
-    href: "/register",
-  },
-  {
-    title: "Basketball Fundamentals",
-    ages: "Ages 8–12",
-    starts: "STARTS JUN 5",
-    schedule: "Thursdays, Jun 5 – Jul 24",
-    location: "Culver City",
-    image: "/images/lasw_slideshow_005.jpg",
-    href: "/register",
-  },
-  {
-    title: "Multi-Sport Camp",
-    ages: "Ages 5–10",
-    starts: "STARTS JUN 9",
-    schedule: "Mon–Fri, Jun 9 – Jun 13",
-    location: "Brentwood",
-    image: "/images/lasw_slideshow_001.jpg",
-    href: "/register",
   },
 ];
 
@@ -458,6 +428,8 @@ function GoogleReviewsBlock({
 
 export default async function HomePage() {
   const googleReviews = await getGoogleReviews();
+  const sawyerHomePreviewUrl =
+    process.env.SAWYER_HOME_PREVIEW_EMBED_URL || process.env.SAWYER_REGISTER_EMBED_URL;
 
   return (
     <div className="bg-cream">
@@ -765,7 +737,7 @@ export default async function HomePage() {
           CURRENT PROGRAMS
       ══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-cream">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-bold text-navy lg:text-4xl">
               Current Programs
@@ -773,63 +745,23 @@ export default async function HomePage() {
             <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {currentPrograms.map((p) => (
-              <div
-                key={p.title}
-                className="overflow-hidden rounded-2xl border border-navy/8 bg-white shadow-sm"
+          <div className="relative overflow-hidden rounded-2xl">
+            <div className="pointer-events-none h-[420px] overflow-hidden">
+              <SawyerEmbed
+                src={sawyerHomePreviewUrl}
+                title="Current LA Sports World programs"
+                minHeight={420}
+                fallbackMessage="New sessions are added regularly. Browse everything currently open for registration."
+              />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 flex h-32 items-end justify-center bg-gradient-to-t from-cream via-cream/90 to-transparent pb-2">
+              <Link
+                href="/register"
+                className="pointer-events-auto inline-flex items-center gap-2 rounded-lg bg-navy px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-white shadow-lg transition hover:bg-navy-light"
               >
-                <div className="relative h-52 overflow-hidden">
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <span className="absolute left-3 top-3 rounded-md bg-navy px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                    {p.starts}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <div className="text-base font-extrabold text-navy">
-                    {p.title}{" "}
-                    <span className="font-semibold text-navy/50">
-                      ({p.ages})
-                    </span>
-                  </div>
-                  <div className="mt-3 space-y-1.5 text-xs text-navy/55">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-3.5 w-3.5 shrink-0" />
-                      {p.schedule}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-3.5 w-3.5 shrink-0" />
-                      {p.location}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Users className="h-3.5 w-3.5 shrink-0" />
-                      {p.ages}
-                    </div>
-                  </div>
-                  <Link
-                    href={p.href}
-                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:text-gold"
-                  >
-                    View Schedule <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              href="/register"
-              className="inline-block rounded-lg border-2 border-navy px-8 py-3 text-sm font-extrabold uppercase tracking-wide text-navy transition hover:bg-navy hover:text-white"
-            >
-              View Full Schedule
-            </Link>
+                View Full Schedule <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

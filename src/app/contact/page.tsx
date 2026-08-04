@@ -9,7 +9,18 @@ export const metadata: Metadata = {
   description: "Get in touch with LA Sports World about programs, camps, and private lessons.",
 };
 
-export default function ContactPage() {
+interface ContactPageProps {
+  searchParams: Promise<{
+    service?: string;
+    utm_source?: string;
+    utm_medium?: string;
+    utm_campaign?: string;
+  }>;
+}
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const params = await searchParams;
+
   return (
     <>
       <PageHero
@@ -82,7 +93,12 @@ export default function ContactPage() {
             </div>
 
             {/* Form */}
-            <ContactForm />
+            <ContactForm
+              initialService={params.service || ""}
+              utmSource={params.utm_source || ""}
+              utmMedium={params.utm_medium || ""}
+              utmCampaign={params.utm_campaign || ""}
+            />
           </div>
         </div>
       </section>

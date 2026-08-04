@@ -1,13 +1,76 @@
 "use client";
 
-import { useActionState } from "react";
-import { Send } from "lucide-react";
+import { useActionState, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { ArrowRight, Send } from "lucide-react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 
 const initialState: ContactFormState = { status: "idle" };
 
-export default function ContactForm() {
+const SERVICES = [
+  { value: "", label: "Select what you need..." },
+  { value: "private-coaching", label: "Private Coaching" },
+  { value: "group-coaching-pods", label: "Group Coaching & Pods" },
+  { value: "birthday-party", label: "Birthday Party" },
+  { value: "school-organization", label: "School / Organization" },
+  { value: "general", label: "General Question" },
+];
+
+const COACHING_SERVICES = new Set(["private-coaching", "group-coaching-pods"]);
+
+interface ContactFormProps {
+  initialService?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+}
+
+export default function ContactForm({
+  initialService = "",
+  utmSource = "",
+  utmMedium = "",
+  utmCampaign = "",
+}: ContactFormProps) {
+  const [service, setService] = useState(initialService);
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
+  const pathname = usePathname();
+
+  const inputClass =
+    "w-full bg-navy border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-gold/50 transition-colors text-sm";
+  const labelClass = "text-white/50 text-xs uppercase tracking-wide mb-1.5 block";
+
+  if (service === "school-organization") {
+    return (
+      <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
+        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">
+          Schools &amp; Organizations
+        </p>
+        <h3 className="font-condensed font-bold text-white text-2xl uppercase">
+          Use the Organization Form
+        </h3>
+        <p className="text-white/60 text-sm leading-relaxed">
+          School, camp, business, and organization inquiries go through a separate
+          form so we can route your request correctly.
+        </p>
+        <div className="flex flex-wrap gap-3 pt-2">
+          <Link
+            href="/schools-organizations"
+            className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light"
+          >
+            Go to Organization Form <ArrowRight className="h-4 w-4" />
+          </Link>
+          <button
+            type="button"
+            onClick={() => setService("")}
+            className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white"
+          >
+            Choose something else
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (state.status === "success") {
     return (
@@ -15,18 +78,29 @@ export default function ContactForm() {
         <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mb-4">
           <span className="text-gold text-3xl">✓</span>
         </div>
-        <h3 className="font-condensed font-bold text-white text-3xl uppercase mb-2">Message Sent!</h3>
-        <p className="text-white/60">We'll get back to you within 24 hours.</p>
+        <h3 className="font-condensed font-bold text-white text-3xl uppercase mb-2">
+          Got It!
+        </h3>
+        <p className="text-white/60 max-w-xs">
+          Thanks for reaching out — we&apos;ll be in touch soon. For anything urgent,
+          call us at{" "}
+          <a href="tel:3105550199" className="text-gold hover:underline">
+            (310) 555-0199
+          </a>
+          .
+        </p>
       </div>
     );
   }
 
-  const inputClass =
-    "w-full bg-navy border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-gold/50 transition-colors text-sm";
-
   return (
-    <form action={formAction} className="bg-navy-light border border-white/10 rounded-3xl p-8 space-y-5">
-      <h2 className="font-condensed font-bold text-white text-3xl uppercase mb-2">Send a Message</h2>
+    <form
+      action={formAction}
+      className="bg-navy-light border border-white/10 rounded-3xl p-8 space-y-5"
+    >
+      <h2 className="font-condensed font-bold text-white text-3xl uppercase mb-2">
+        Tell Us What You Need
+      </h2>
 
       {state.status === "error" && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm">
@@ -34,59 +108,148 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="text-white/50 text-xs uppercase tracking-wide mb-1.5 block">Name *</label>
-          <input
-            name="name"
-            required
-            placeholder="Your name"
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="text-white/50 text-xs uppercase tracking-wide mb-1.5 block">Email *</label>
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            className={inputClass}
-          />
-        </div>
-      </div>
+      <input type="hidden" name="sourcePage" value={pathname} />
+      <input
+        type="hidden"
+        name="landingPage"
+        value={typeof window !== "undefined" ? window.location.href : ""}
+      />
+      <input type="hidden" name="utm_source" value={utmSource} />
+      <input type="hidden" name="utm_medium" value={utmMedium} />
+      <input type="hidden" name="utm_campaign" value={utmCampaign} />
+      <input type="hidden" name="timestamp" value={new Date().toISOString()} />
 
       <div>
-        <label className="text-white/50 text-xs uppercase tracking-wide mb-1.5 block">Subject</label>
-        <select name="subject" className={inputClass}>
-          <option value="">Select a topic...</option>
-          <option value="private-lessons">Private Lessons</option>
-          <option value="clinics">Clinics</option>
-          <option value="parties">Parties &amp; Events</option>
-          <option value="summer-camp">Summer Camp</option>
-          <option value="winter-camp">Winter Camp</option>
-          <option value="other">Other</option>
+        <label className={labelClass}>What do you need? *</label>
+        <select
+          name="service"
+          required
+          value={service}
+          onChange={(e) => setService(e.target.value)}
+          className={inputClass}
+        >
+          {SERVICES.map((s) => (
+            <option key={s.value} value={s.value}>
+              {s.label}
+            </option>
+          ))}
         </select>
       </div>
 
-      <div>
-        <label className="text-white/50 text-xs uppercase tracking-wide mb-1.5 block">Message *</label>
-        <textarea
-          name="message"
-          required
-          rows={5}
-          placeholder="Tell us what you need..."
-          className={inputClass + " resize-none"}
-        />
-      </div>
+      {service && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className={labelClass}>First Name *</label>
+              <input name="firstName" required placeholder="Your first name" className={inputClass} />
+            </div>
+            <div>
+              <label className={labelClass}>Phone *</label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="(310) 555-0199"
+                className={inputClass}
+              />
+            </div>
+          </div>
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="w-full flex items-center justify-center gap-2 bg-gold text-navy font-bold uppercase tracking-wide px-6 py-4 rounded-full hover:bg-gold-light transition-colors disabled:opacity-70"
-      >
-        {isPending ? "Sending..." : <>Send Message <Send className="w-4 h-4" /></>}
-      </button>
+          <div>
+            <label className={labelClass}>Email (optional)</label>
+            <input type="email" name="email" placeholder="your@email.com" className={inputClass} />
+          </div>
+
+          {COACHING_SERVICES.has(service) && (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelClass}>Child Age(s)</label>
+                  <input name="field_child_ages" placeholder="e.g. 7 and 9" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Number of Children</label>
+                  <input name="field_number_of_children" className={inputClass} />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelClass}>Sport or Goal</label>
+                  <input name="field_sport_or_goal" placeholder="e.g. basketball, confidence" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Neighborhood</label>
+                  <input name="field_neighborhood" className={inputClass} />
+                </div>
+              </div>
+              <div>
+                <label className={labelClass}>Preferred Schedule</label>
+                <input name="field_preferred_schedule" placeholder="e.g. weekday afternoons" className={inputClass} />
+              </div>
+            </>
+          )}
+
+          {service === "birthday-party" && (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelClass}>Event Date</label>
+                  <input type="date" name="field_event_date" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Neighborhood</label>
+                  <input name="field_neighborhood" className={inputClass} />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelClass}>Child&apos;s Age</label>
+                  <input name="field_child_age" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Estimated Guest Count</label>
+                  <input type="number" name="field_guest_count" className={inputClass} />
+                </div>
+              </div>
+              <div>
+                <label className={labelClass}>Activity Interests</label>
+                <input
+                  name="field_activity_interests"
+                  placeholder="e.g. basketball, soft play"
+                  className={inputClass}
+                />
+              </div>
+            </>
+          )}
+
+          <div>
+            <label className={labelClass}>
+              {service === "general" ? "Message *" : "Anything else we should know?"}
+            </label>
+            <textarea
+              name="details"
+              required={service === "general"}
+              rows={4}
+              placeholder="Tell us what you need..."
+              className={inputClass + " resize-none"}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isPending}
+            className="w-full flex items-center justify-center gap-2 bg-gold text-navy font-bold uppercase tracking-wide px-6 py-4 rounded-full hover:bg-gold-light transition-colors disabled:opacity-70"
+          >
+            {isPending ? (
+              "Sending..."
+            ) : (
+              <>
+                Submit <Send className="w-4 h-4" />
+              </>
+            )}
+          </button>
+        </>
+      )}
     </form>
   );
 }
