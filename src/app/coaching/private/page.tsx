@@ -116,7 +116,7 @@ export default function PrivateCoachingPage() {
             we&apos;ll follow up with next steps.
           </p>
           <Link
-            href="/contact?service=private-coaching"
+            href="/coaching/request?format=private"
             className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
           >
             Request Private Coaching <ArrowRight className="h-4 w-4" />

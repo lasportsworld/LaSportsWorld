@@ -8,18 +8,11 @@ export type ContactFormState = {
 };
 
 const SERVICE_LABELS: Record<string, string> = {
-  "private-coaching": "Private Coaching",
-  "group-coaching-pods": "Group Coaching & Pods",
   "birthday-party": "Birthday Party",
   general: "General Question",
 };
 
-// No dedicated Pipedrive label exists yet for Group Coaching & Pods or General
-// Question, so they're mapped onto the closest existing label for now (Private
-// Coaching / LASW Program) rather than creating new ones.
 const SERVICE_DEAL_LABELS: Record<string, number> = {
-  "private-coaching": DEAL_LABEL_IDS.privateCoaching,
-  "group-coaching-pods": DEAL_LABEL_IDS.privateCoaching,
   "birthday-party": DEAL_LABEL_IDS.birthdayParty,
   general: DEAL_LABEL_IDS.general,
 };

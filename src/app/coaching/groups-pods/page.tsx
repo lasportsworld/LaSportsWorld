@@ -151,7 +151,7 @@ export default function GroupCoachingAndPodsPage() {
             we&apos;ll follow up with a plan.
           </p>
           <Link
-            href="/contact?service=group-coaching-pods"
+            href="/coaching/request?format=group"
             className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
           >
             Plan a Group <ArrowRight className="h-4 w-4" />

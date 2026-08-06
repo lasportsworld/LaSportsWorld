@@ -1,0 +1,94 @@
+import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
+
+const controlClass = "w-full rounded-xl border border-navy/15 bg-cream px-4 py-3.5 text-base text-navy outline-none transition placeholder:text-navy/30 hover:border-navy/30 focus:border-gold focus:ring-4 focus:ring-gold/10 disabled:cursor-not-allowed disabled:opacity-55";
+
+export function InquiryProgress({ steps, current }: { steps: string[]; current: number }) {
+  return (
+    <div aria-label={`Step ${current + 1} of ${steps.length}: ${steps[current]}`}>
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-[11px] font-extrabold uppercase tracking-[.18em] text-gold">Step {current + 1} of {steps.length}</p>
+        <p className="text-xs font-bold text-navy/50">{steps[current]}</p>
+      </div>
+      <div className="mt-3 grid gap-2" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+        {steps.map((step, index) => <span key={step} className={`h-1.5 rounded-full transition-colors ${index <= current ? "bg-gold" : "bg-navy/10"}`} />)}
+      </div>
+    </div>
+  );
+}
+
+export function Field({
+  label,
+  htmlFor,
+  helper,
+  error,
+  required,
+  children,
+}: {
+  label: string;
+  htmlFor: string;
+  helper?: string;
+  error?: string;
+  required?: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={htmlFor} className="mb-2 block text-sm font-extrabold text-navy">
+        {label} {required && <span className="text-gold" aria-hidden>*</span>}
+      </label>
+      {children}
+      {helper && !error && <p className="mt-1.5 text-xs leading-5 text-navy/45">{helper}</p>}
+      {error && <p id={`${htmlFor}-error`} className="mt-1.5 text-xs font-semibold text-red-700">{error}</p>}
+    </div>
+  );
+}
+
+export function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
+  const describedBy = props["aria-describedby"] ?? (props["aria-invalid"] && props.id ? `${props.id}-error` : undefined);
+  return <input {...props} aria-describedby={describedBy} className={`${controlClass} ${props.className ?? ""}`} />;
+}
+
+export function SelectInput(props: SelectHTMLAttributes<HTMLSelectElement>) {
+  const describedBy = props["aria-describedby"] ?? (props["aria-invalid"] && props.id ? `${props.id}-error` : undefined);
+  return <select {...props} aria-describedby={describedBy} className={`${controlClass} ${props.className ?? ""}`} />;
+}
+
+export function TextArea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
+  const describedBy = props["aria-describedby"] ?? (props["aria-invalid"] && props.id ? `${props.id}-error` : undefined);
+  return <textarea {...props} aria-describedby={describedBy} className={`${controlClass} resize-y ${props.className ?? ""}`} />;
+}
+
+export function ChoiceCard({
+  name,
+  value,
+  title,
+  description,
+  checked,
+  onChange,
+}: {
+  name: string;
+  value: string;
+  title: string;
+  description: string;
+  checked: boolean;
+  onChange: () => void;
+}) {
+  return (
+    <label className={`block cursor-pointer rounded-2xl border p-4 transition ${checked ? "border-gold bg-gold/8 ring-2 ring-gold/15" : "border-navy/10 bg-cream hover:border-navy/25"}`}>
+      <input type="radio" name={name} value={value} checked={checked} onChange={onChange} className="sr-only" />
+      <span className="flex items-start gap-3">
+        <span className={`mt-0.5 h-5 w-5 shrink-0 rounded-full border-2 p-1 ${checked ? "border-gold" : "border-navy/25"}`}><span className={`block h-full w-full rounded-full ${checked ? "bg-gold" : ""}`} /></span>
+        <span><span className="block text-sm font-extrabold text-navy">{title}</span><span className="mt-1 block text-xs leading-5 text-navy/50">{description}</span></span>
+      </span>
+    </label>
+  );
+}
+
+export function CheckboxChip({ name, value, checked, onChange }: { name: string; value: string; checked: boolean; onChange: () => void }) {
+  return (
+    <label className={`cursor-pointer rounded-full border px-4 py-2.5 text-sm font-bold transition ${checked ? "border-gold bg-gold text-navy" : "border-navy/12 bg-cream text-navy/65 hover:border-navy/30"}`}>
+      <input type="checkbox" name={name} value={value} checked={checked} onChange={onChange} className="sr-only" />
+      {value}
+    </label>
+  );
+}

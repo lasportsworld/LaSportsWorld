@@ -74,8 +74,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     <Clock className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white text-sm mb-1">Response Time</p>
-                    <p className="text-white/60 text-sm">We typically respond within 24 hours.</p>
+                    <p className="font-semibold text-white text-sm mb-1">What happens next</p>
+                    <p className="text-white/60 text-sm">We review your message and follow up with the right next step.</p>
                   </div>
                 </div>
               </div>

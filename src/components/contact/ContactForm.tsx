@@ -10,14 +10,13 @@ const initialState: ContactFormState = { status: "idle" };
 
 const SERVICES = [
   { value: "", label: "Select what you need..." },
-  { value: "private-coaching", label: "Private Coaching" },
-  { value: "group-coaching-pods", label: "Group Coaching & Pods" },
+  { value: "coaching", label: "Coaching" },
   { value: "birthday-party", label: "Birthday Party" },
   { value: "school-organization", label: "School / Organization" },
   { value: "general", label: "General Question" },
 ];
 
-const COACHING_SERVICES = new Set(["private-coaching", "group-coaching-pods"]);
+const LEGACY_COACHING_SERVICES = new Set(["private-coaching", "group-coaching-pods", "coaching"]);
 
 interface ContactFormProps {
   initialService?: string;
@@ -32,13 +31,29 @@ export default function ContactForm({
   utmMedium = "",
   utmCampaign = "",
 }: ContactFormProps) {
-  const [service, setService] = useState(initialService);
+  const [service, setService] = useState(LEGACY_COACHING_SERVICES.has(initialService) ? "coaching" : initialService);
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
   const pathname = usePathname();
 
   const inputClass =
     "w-full bg-navy border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-gold/50 transition-colors text-sm";
   const labelClass = "text-white/50 text-xs uppercase tracking-wide mb-1.5 block";
+
+  if (service === "coaching") {
+    return (
+      <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
+        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Coaching Inquiry</p>
+        <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Request Coaching form</h3>
+        <p className="text-white/60 text-sm leading-relaxed">Our coaching form asks the right questions about your child, goals, format, and schedule so we can recommend a useful next step.</p>
+        <div className="flex flex-wrap gap-3 pt-2">
+          <Link href="/coaching/request" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light">
+            Request Coaching <ArrowRight className="h-4 w-4" />
+          </Link>
+          <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white">Choose something else</button>
+        </div>
+      </div>
+    );
+  }
 
   if (service === "school-organization") {
     return (
@@ -159,35 +174,6 @@ export default function ContactForm({
             <label className={labelClass}>Email (optional)</label>
             <input type="email" name="email" placeholder="your@email.com" className={inputClass} />
           </div>
-
-          {COACHING_SERVICES.has(service) && (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className={labelClass}>Child Age(s)</label>
-                  <input name="field_child_ages" placeholder="e.g. 7 and 9" className={inputClass} />
-                </div>
-                <div>
-                  <label className={labelClass}>Number of Children</label>
-                  <input name="field_number_of_children" className={inputClass} />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className={labelClass}>Sport or Goal</label>
-                  <input name="field_sport_or_goal" placeholder="e.g. basketball, confidence" className={inputClass} />
-                </div>
-                <div>
-                  <label className={labelClass}>Neighborhood</label>
-                  <input name="field_neighborhood" className={inputClass} />
-                </div>
-              </div>
-              <div>
-                <label className={labelClass}>Preferred Schedule</label>
-                <input name="field_preferred_schedule" placeholder="e.g. weekday afternoons" className={inputClass} />
-              </div>
-            </>
-          )}
 
           {service === "birthday-party" && (
             <>
