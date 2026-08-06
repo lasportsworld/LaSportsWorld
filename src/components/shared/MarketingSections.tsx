@@ -1,10 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, ImageIcon } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
 type CtaLink = { label: string; href: string };
+
+export function PhotoPlaceholder({
+  className = "",
+  dark = false,
+}: {
+  className?: string;
+  dark?: boolean;
+}) {
+  return (
+    <div
+      className={`relative grid overflow-hidden border border-dashed ${dark ? "border-white/20 bg-navy-light text-white" : "border-navy/15 bg-cream-dark text-navy"} ${className}`}
+      role="img"
+      aria-label="Photo coming soon"
+    >
+      <div className="brand-grid absolute inset-0 opacity-[.16]" />
+      <div className="absolute -right-14 -top-14 h-44 w-44 rounded-full border border-gold/35" />
+      <div className={`absolute -bottom-20 -left-16 h-56 w-56 rounded-full border ${dark ? "border-white/10" : "border-navy/10"}`} />
+      <div className="relative m-auto flex flex-col items-center gap-3 px-5 text-center">
+        <span className={`grid h-12 w-12 place-items-center rounded-full ${dark ? "bg-white/8" : "bg-white/65"}`}>
+          <ImageIcon className="h-5 w-5 text-gold" strokeWidth={1.7} />
+        </span>
+        <span className="text-[11px] font-extrabold uppercase tracking-[.22em]">Photo Coming Soon</span>
+      </div>
+    </div>
+  );
+}
 
 export function ServiceHero({
   eyebrow,
@@ -20,7 +46,7 @@ export function ServiceHero({
   eyebrow: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   imageAlt: string;
   primaryCta?: CtaLink;
   secondaryCta?: CtaLink;
@@ -31,15 +57,19 @@ export function ServiceHero({
     <section className="relative isolate overflow-hidden bg-navy pt-24 text-white sm:pt-28 lg:min-h-[680px] lg:pt-0">
       <div className="absolute inset-0 -z-20 bg-navy" />
       <div className="absolute inset-y-0 right-0 -z-10 hidden w-[58%] lg:block">
-        <Image
-          src={image}
-          alt=""
-          fill
-          priority
-          className="object-cover"
-          style={{ objectPosition: imagePosition }}
-          sizes="58vw"
-        />
+        {image ? (
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            style={{ objectPosition: imagePosition }}
+            sizes="58vw"
+          />
+        ) : (
+          <PhotoPlaceholder dark className="absolute inset-8 rounded-[2rem]" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/35 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-navy/10" />
       </div>
@@ -75,7 +105,11 @@ export function ServiceHero({
       </div>
 
       <div className="relative h-72 overflow-hidden lg:hidden">
-        <Image src={image} alt={imageAlt} fill priority className="object-cover" style={{ objectPosition: imagePosition }} sizes="100vw" />
+        {image ? (
+          <Image src={image} alt={imageAlt} fill priority className="object-cover" style={{ objectPosition: imagePosition }} sizes="100vw" />
+        ) : (
+          <PhotoPlaceholder dark className="absolute inset-4 rounded-2xl" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-navy to-transparent" />
       </div>
     </section>
@@ -121,7 +155,7 @@ export function EditorialSplit({
   eyebrow?: string;
   title: string;
   children: ReactNode;
-  image: string;
+  image?: string;
   imageAlt: string;
   imagePosition?: string;
   reverse?: boolean;
@@ -133,7 +167,11 @@ export function EditorialSplit({
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <div className={`relative ${reverse ? "lg:order-2" : ""}`}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/15 sm:aspect-[5/4] lg:aspect-[4/5]">
-            <Image src={image} alt={imageAlt} fill className="object-cover transition duration-700 hover:scale-[1.025]" style={{ objectPosition: imagePosition }} sizes="(max-width: 1024px) 100vw, 50vw" />
+            {image ? (
+              <Image src={image} alt={imageAlt} fill className="object-cover transition duration-700 hover:scale-[1.025]" style={{ objectPosition: imagePosition }} sizes="(max-width: 1024px) 100vw, 50vw" />
+            ) : (
+              <PhotoPlaceholder dark={dark} className="absolute inset-0" />
+            )}
           </div>
           <div className="absolute -bottom-5 -right-2 h-28 w-28 rounded-full border-[18px] border-gold/80 sm:-right-6" aria-hidden />
           {accent && (
@@ -156,6 +194,7 @@ export type FeatureItem = {
   description: string;
   icon?: LucideIcon;
   image?: string;
+  showImagePlaceholder?: boolean;
   href?: string;
   label?: string;
 };
@@ -167,10 +206,14 @@ export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; d
         const Icon = item.icon;
         const content = (
           <>
-            {item.image && (
+            {(item.image || item.showImagePlaceholder) && (
               <div className="relative h-56 overflow-hidden">
-                <Image src={item.image} alt="" fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+                {item.image ? (
+                  <Image src={item.image} alt="" fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
+                ) : (
+                  <PhotoPlaceholder dark={dark} className="absolute inset-0" />
+                )}
+                {item.image && <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />}
                 <span className="absolute bottom-4 left-5 font-condensed text-6xl font-extrabold text-white/25">0{index + 1}</span>
               </div>
             )}
@@ -248,12 +291,16 @@ export function PageCTA({
   title: string;
   description: string;
   cta: CtaLink;
-  image: string;
+  image?: string;
   imageAlt: string;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy py-20 text-white lg:py-28">
-      <Image src={image} alt={imageAlt} fill className="-z-20 object-cover opacity-35" sizes="100vw" />
+      {image ? (
+        <Image src={image} alt={imageAlt} fill className="-z-20 object-cover opacity-35" sizes="100vw" />
+      ) : (
+        <PhotoPlaceholder dark className="absolute inset-y-8 right-6 -z-20 hidden w-[48%] rounded-[2rem] opacity-70 lg:grid" />
+      )}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/90 to-navy/35" />
       <div className="brand-grid absolute inset-0 -z-10 opacity-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
