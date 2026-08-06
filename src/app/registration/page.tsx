@@ -66,6 +66,7 @@ export default function RegistrationPage() {
         title="Registration"
         subtitle="Choose your program below and secure your spot. Spaces fill up fast!"
         tag="Sign Up"
+        image="/images/hero-sports-4.jpg"
       />
 
       <section className="py-20 bg-navy">
@@ -100,7 +101,7 @@ export default function RegistrationPage() {
               <Link href="/contact" className="text-gold hover:underline">
                 Contact us
               </Link>{" "}
-              and we'll help you choose.
+              and we&apos;ll help you choose.
             </p>
           </div>
         </div>

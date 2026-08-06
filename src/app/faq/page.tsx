@@ -131,6 +131,7 @@ export default function FAQPage() {
         title="FAQ"
         subtitle="Answers to common questions about ages, pricing, scheduling, and how it all works."
         tag="Help Center"
+        image="/images/kids-bg-1.jpg"
       />
 
       <section className="bg-white py-12">

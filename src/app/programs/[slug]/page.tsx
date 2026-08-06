@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/shared/PageHero";
@@ -55,7 +54,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Highlights */}
               <div className="bg-navy-light border border-white/10 rounded-3xl p-8">
                 <h2 className="font-condensed font-bold text-white text-3xl uppercase mb-6">
-                  What's Covered
+                  What&apos;s Covered
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {program.highlights.map((h) => (

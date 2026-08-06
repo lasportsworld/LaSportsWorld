@@ -27,6 +27,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         title="Contact Us"
         subtitle="Questions about a program or camp? We'd love to hear from you."
         tag="Get in Touch"
+        image="/images/lasw-photo-real-2.jpg"
       />
 
       <section className="py-20 bg-navy">
@@ -39,7 +40,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   Get in Touch
                 </h2>
                 <p className="text-white/60 leading-relaxed">
-                  Whether you have questions about registration, want to book a party, or just want to learn more — reach out and we'll get back to you quickly.
+                  Whether you have questions about registration, want to book a party, or just want to learn more — reach out and we&apos;ll get back to you quickly.
                 </p>
               </div>
 

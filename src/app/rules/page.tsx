@@ -15,6 +15,7 @@ export default function RulesPage() {
         title="Camp Rules"
         subtitle="To ensure a safe, fun, and productive experience for every camper."
         tag="Policies"
+        image="/images/hero-kids-camp.jpg"
       />
 
       <section className="py-20 bg-navy">

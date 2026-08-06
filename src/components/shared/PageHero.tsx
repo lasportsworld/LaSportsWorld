@@ -9,41 +9,30 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle, image, tag }: PageHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden bg-navy pb-16 pt-32 md:pb-24 md:pt-40">
-      {image ? (
-        <>
-          <Image src={image} alt={title} fill className="absolute inset-0 -z-20 object-cover opacity-35" priority />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(28,51,37,.96),rgba(28,51,37,.78),rgba(28,51,37,.48))]" />
-        </>
-      ) : (
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(135deg,#122019,#1c3325_55%,#274035)]" />
-      )}
-      <div
-        aria-hidden
-        className="absolute left-0 top-16 h-52 w-80 opacity-[.11]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 40c45-28 88-28 128 0s83 28 128 0M-20 82c45-28 88-28 128 0s83 28 128 0M-20 124c45-28 88-28 128 0s83 28 128 0' fill='none' stroke='%23faf8f2' stroke-width='1.4'/%3E%3C/svg%3E\")",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute right-0 bottom-8 h-40 w-48 opacity-[.14]"
-        style={{ backgroundImage: "radial-gradient(#c4852a 1.5px, transparent 1.5px)", backgroundSize: "16px 16px" }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {tag && <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.22em] text-gold">{tag}</p>}
-        <h1
-          className="font-condensed max-w-4xl font-extrabold uppercase leading-[.88] text-white"
-          style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
-        >
-          {title}
-        </h1>
-        {subtitle && <p className="mt-5 max-w-2xl text-lg leading-8 text-white/70 md:text-xl">{subtitle}</p>}
+    <section className="relative isolate overflow-hidden bg-navy pt-24 text-white sm:pt-28">
+      <div className="brand-grid absolute inset-0 -z-10 opacity-[.12]" />
+      <div className="mx-auto grid min-h-[460px] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8 lg:py-16">
+        <div className="relative z-10 max-w-2xl">
+          {tag && <p className="mb-4 flex items-center gap-3 text-xs font-extrabold uppercase tracking-[.22em] text-gold"><span className="h-px w-9 bg-gold" />{tag}</p>}
+          <h1 className="font-condensed text-5xl font-extrabold uppercase leading-[.88] sm:text-6xl lg:text-7xl">{title}</h1>
+          {subtitle && <p className="mt-6 max-w-xl text-base leading-7 text-white/68 sm:text-lg">{subtitle}</p>}
+        </div>
+        {image ? (
+          <div className="relative h-72 overflow-hidden rounded-tl-[5rem] rounded-br-[5rem] shadow-2xl sm:h-96 lg:h-[430px]">
+            <Image src={image} alt={title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+          </div>
+        ) : (
+          <div className="relative hidden h-[360px] lg:block" aria-hidden>
+            <div className="absolute inset-8 rounded-full border border-white/10" />
+            <div className="absolute inset-20 rounded-full border border-gold/35" />
+            <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/10" />
+            <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-white/10" />
+            <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold shadow-[0_0_80px_rgba(196,133,42,.4)]" />
+          </div>
+        )}
       </div>
-
-      <div className="absolute inset-x-0 bottom-[-1px] h-14 bg-cream [clip-path:polygon(0_48%,10%_58%,24%_45%,38%_59%,52%_46%,67%_60%,82%_45%,100%_58%,100%_100%,0_100%)]" />
+      <div className="h-8 bg-cream [clip-path:polygon(0_0,15%_50%,31%_12%,49%_62%,68%_18%,84%_55%,100%_8%,100%_100%,0_100%)]" />
     </section>
   );
 }

@@ -17,6 +17,7 @@ export default function ProgramsPage() {
         title="Our Programs"
         subtitle="Tailored coaching for every athlete — one-on-one, group clinics, and unforgettable parties."
         tag="Training"
+        image="/images/hero-sports-7.jpg"
       />
 
       <section className="py-20 bg-navy">

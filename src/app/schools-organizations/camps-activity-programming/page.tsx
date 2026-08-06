@@ -42,6 +42,7 @@ export default function OrgCampsPage() {
         title="Camps & Activity Programming"
         subtitle="Activity blocks, clinics, and programming that supplement your camp — we don't need to run the whole thing."
         tag="Schools & Organizations"
+        image="/images/Day-Camp-Header-Image.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

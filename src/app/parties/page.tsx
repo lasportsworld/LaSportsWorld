@@ -1,164 +1,119 @@
-import Link from "next/link";
-import { ArrowRight, Calendar, Layers, MapPin, Users } from "lucide-react";
-import PageHero from "@/components/shared/PageHero";
 import type { Metadata } from "next";
+import { Calendar, Layers, MapPin, PartyPopper, Users } from "lucide-react";
+import {
+  EditorialSplit,
+  FeaturePanels,
+  PageCTA,
+  PhotoMosaic,
+  ProcessTimeline,
+  SectionHeading,
+  ServiceHero,
+} from "@/components/shared/MarketingSections";
 
 export const metadata: Metadata = {
   title: "Birthday Parties | LA Sports World",
-  description:
-    "LA Sports World brings organized sports, games, and activities to your child's birthday party — at a park, home, backyard, or venue.",
+  description: "LA Sports World brings organized sports, games, and activities to your child's birthday party.",
 };
 
-const experienceCategories = [
-  {
-    title: "Sports & Games",
-    desc: "Any two sports or activities of your choice, run by a coach who knows how to keep a party moving.",
-  },
-  {
-    title: "Obstacle & Coordination",
-    desc: "Obstacle courses and coordination games that keep every age group engaged.",
-  },
-  {
-    title: "Soft Play",
-    desc: "Age-appropriate soft play setups for younger guests.",
-  },
-  {
-    title: "Equipment & Setup",
-    desc: "We bring and set up everything the activities need.",
-  },
+const experiences = [
+  { icon: PartyPopper, title: "Sports & games", description: "Choose two favorite sports or activities, led by a coach who knows how to keep a party moving." },
+  { icon: Layers, title: "Obstacle & coordination", description: "Fast-moving courses and games that give every child a way into the action." },
+  { icon: Users, title: "Soft play", description: "Age-appropriate setups that invite younger guests to explore, move, and play safely." },
+  { icon: MapPin, title: "Equipment & setup", description: "We bring the activity equipment, organize the space, and handle the breakdown." },
 ];
 
-const planFactors = [
-  { icon: Users, title: "Age & guest count", desc: "Shapes the activities and coach count." },
-  { icon: Calendar, title: "Duration", desc: "How long the party runs." },
-  { icon: MapPin, title: "Location & space", desc: "Park, home, backyard, or venue." },
-  { icon: Layers, title: "Requested setup", desc: "Any extras you'd like included." },
-];
-
-const howItWorks = [
-  { n: "1", title: "Inquiry", desc: "Tell us the date, age, and vibe you're going for." },
-  { n: "2", title: "Consultation", desc: "We talk through activities and logistics." },
-  { n: "3", title: "Recommended package", desc: "We put together a plan that fits." },
-  { n: "4", title: "Quote & confirmation", desc: "You get a clear quote and lock in the date." },
-  { n: "5", title: "Setup, delivery & breakdown", desc: "We handle the rest on the day." },
+const steps = [
+  { title: "Inquiry", description: "Share the date, age, group size, and party vision." },
+  { title: "Consultation", description: "We talk through activities, space, and logistics." },
+  { title: "Party plan", description: "You receive a recommended mix that fits." },
+  { title: "Confirmation", description: "Approve the clear quote and lock in the date." },
+  { title: "Party day", description: "We arrive, set up, lead the fun, and break down." },
 ];
 
 export default function BirthdayPartiesPage() {
   return (
     <>
-      <PageHero
-        title="Birthday Parties"
-        subtitle="Organized sports and activities that make the party — wherever you're hosting it."
-        tag="Parties & Events"
+      <ServiceHero
+        eyebrow="Parties & Events"
+        title="A party they’ll talk about all year"
+        description="Organized sports, games, and joyful chaos—expertly led at your park, home, backyard, or venue."
         image="/images/LASW_Parties_Header_Image.jpg"
+        imageAlt="Children enjoying an LA Sports World birthday party"
+        imagePosition="center 42%"
+        primaryCta={{ label: "Plan a Party", href: "/contact?service=birthday-party" }}
+        secondaryCta={{ label: "See the Experience", href: "#experience" }}
+        note="Custom activities · Equipment included · We come to you"
       />
 
-      <section className="bg-white py-16 lg:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-base leading-relaxed text-navy/65">
-            LA Sports World is the organized activity and entertainment partner for
-            your child&apos;s party — at a park, your home, a backyard, or another
-            venue. We mix and match sports, games, and setup to fit the group.
-          </p>
+      <EditorialSplit
+        eyebrow="Your party, in motion"
+        title="You bring the guests. We bring the energy."
+        image="/images/gallery-birthday.jpg"
+        imageAlt="Children playing together at a birthday party"
+        imagePosition="center"
+        accent="More playing. Less planning."
+      >
+        <p>LA Sports World is the organized activity partner for your child’s celebration. We create a flow that keeps kids included, engaged, and happily moving.</p>
+        <p>Every party is shaped around the age group, guest count, space, and personality of the celebration. It feels spontaneous to the kids because the planning is handled for you.</p>
+      </EditorialSplit>
+
+      <section id="experience" className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
+            <SectionHeading eyebrow="Build the experience" title="Pick the ingredients. We shape the flow." />
+            <p className="max-w-xl text-base leading-7 text-navy/60 lg:ml-auto">Mix sports, movement, and setup elements into one experience made for the children who will actually be there.</p>
+          </div>
+          <FeaturePanels items={experiences} />
         </div>
       </section>
 
-      <section className="bg-cream py-16 lg:py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy lg:text-4xl">
-              Build the experience
-            </h2>
-            <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
+      <section className="overflow-hidden bg-gold py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.75fr_1.25fr] lg:items-center lg:px-8">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[.22em] text-navy/60">Made to fit</p>
+            <h2 className="mt-3 font-condensed text-5xl font-extrabold uppercase leading-[.9] text-navy sm:text-6xl">No two parties need the same playbook</h2>
+            <div className="mt-8 space-y-5">
+              {[
+                { icon: Users, title: "Age & guest count", text: "Shapes activity choices and coach count." },
+                { icon: Calendar, title: "Duration", text: "Sets the pace and number of activity beats." },
+                { icon: MapPin, title: "Location & space", text: "Park, home, backyard, or another venue." },
+                { icon: Layers, title: "Requested setup", text: "Adds the extras that make it feel like your party." },
+              ].map(({ icon: Icon, title, text }) => (
+                <div key={title} className="flex gap-4 border-t border-navy/20 pt-4">
+                  <Icon className="h-6 w-6 shrink-0 text-navy" />
+                  <div><h3 className="font-bold text-navy">{title}</h3><p className="mt-1 text-sm text-navy/65">{text}</p></div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {experienceCategories.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-navy/8 bg-white p-6">
-                <div className="text-base font-extrabold text-navy">{c.title}</div>
-                <p className="mt-1.5 text-sm leading-relaxed text-navy/55">{c.desc}</p>
-              </div>
-            ))}
-          </div>
+          <PhotoMosaic images={[
+            { src: "/images/lasw-event-2.jpg", alt: "Children taking part in an LASW event" },
+            { src: "/images/lasw-event-5.jpg", alt: "LASW party activity" },
+            { src: "/images/lasw-photo-real-1.jpg", alt: "Children celebrating together" },
+          ]} />
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy lg:text-4xl">
-              What determines the plan
-            </h2>
-            <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
+      <section className="relative bg-navy py-20 text-white lg:py-28">
+        <div className="brand-grid absolute inset-0 opacity-10" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <SectionHeading eyebrow="From idea to party day" title="Planning made simple" description="A clear five-step process means you always know what is happening next." light />
+            <p className="max-w-md text-sm leading-6 text-white/50">Pricing depends on guest count, duration, activities, and location. You’ll receive a clear quote before confirming.</p>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {planFactors.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="rounded-2xl border border-navy/8 bg-cream p-6">
-                <Icon className="mb-3 h-7 w-7 text-gold" />
-                <div className="text-base font-extrabold text-navy">{title}</div>
-                <p className="mt-1.5 text-sm leading-relaxed text-navy/55">{desc}</p>
-              </div>
-            ))}
-          </div>
+          <ProcessTimeline steps={steps} light />
+          <p className="mt-10 max-w-3xl text-xs leading-5 text-white/40">Some park locations require a permit for group activities. We’ll clarify permit, food, decor, rental, and setup responsibilities during planning.</p>
         </div>
       </section>
 
-      <section className="bg-cream py-16 lg:py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy lg:text-4xl">
-              How planning works
-            </h2>
-            <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
-          </div>
-          <div className="grid gap-6 sm:grid-cols-5">
-            {howItWorks.map((step) => (
-              <div key={step.n} className="text-center">
-                <span className="mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sm font-extrabold text-white">
-                  {step.n}
-                </span>
-                <div className="text-sm font-extrabold text-navy">{step.title}</div>
-                <p className="mt-1 text-xs leading-relaxed text-navy/55">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-navy/45">
-            Some park locations require a permit for group activities. We&apos;ll
-            confirm who&apos;s responsible for that during planning — we don&apos;t
-            assume permits, food, decor, or rentals are included unless they&apos;re
-            in your quote.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-navy lg:text-4xl">Pricing</h2>
-          <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-navy/60">
-            Pricing depends on guest count, duration, activities, and location.
-            You&apos;ll get a clear quote after a quick conversation about what
-            you&apos;re planning.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-navy py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="font-condensed text-3xl font-extrabold uppercase text-white lg:text-4xl">
-            Let&apos;s plan the party
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/65">
-            Tell us the date, age, and what you have in mind — we&apos;ll take it
-            from there.
-          </p>
-          <Link
-            href="/contact?service=birthday-party"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
-          >
-            Plan a Party <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
+      <PageCTA
+        eyebrow="Let’s celebrate"
+        title="Give them the best kind of tired"
+        description="Tell us the date, age, and kind of energy you want. We’ll turn it into a party plan."
+        cta={{ label: "Plan a Party", href: "/contact?service=birthday-party" }}
+        image="/images/lasw-event-6.jpg"
+        imageAlt="Kids enjoying an active LA Sports World event"
+      />
     </>
   );
 }

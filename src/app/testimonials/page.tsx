@@ -16,6 +16,7 @@ export default function TestimonialsPage() {
         title="What Families Say"
         subtitle="Real parents. Real kids. Real results."
         tag="Testimonials"
+        image="/images/gallery-kids-4.jpg"
       />
 
       <section className="py-20 bg-navy">

@@ -35,6 +35,7 @@ export default function SummerCampPage() {
         title="Summer Camp"
         subtitle="Our summer programming is being developed — here's how to be first in line."
         tag="Coming for Summer"
+        image="/images/Summer-Camp-Header-Image.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

@@ -34,6 +34,7 @@ export default function PrivateCoachingPage() {
         title="Private Coaching"
         subtitle="One-on-one coaching, tailored to your child's experience, interests, and goals."
         tag="Coaching"
+        image="/images/LASW_Private_Lessons_Header_Image.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

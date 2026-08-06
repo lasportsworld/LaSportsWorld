@@ -40,6 +40,7 @@ export default function SchoolPEPage() {
         title="School PE Programs"
         subtitle="Structured, high-quality physical education programming, delivered directly at your school."
         tag="Schools & Organizations"
+        image="/images/kids-sports-3.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

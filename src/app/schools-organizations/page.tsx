@@ -1,118 +1,110 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+import { Building2, CalendarCheck, ClipboardList, ShieldCheck, Users } from "lucide-react";
 import PipedriveForm from "@/components/shared/PipedriveForm";
+import {
+  EditorialSplit,
+  FeaturePanels,
+  ProcessTimeline,
+  SectionHeading,
+  ServiceHero,
+} from "@/components/shared/MarketingSections";
 
-const organizationServices = [
-  "School programs",
-  "Camp activities",
-  "Sports clinics",
-  "Event activities",
-  "Soft play setups",
-  "Ongoing partnerships",
+export const metadata: Metadata = {
+  title: "Schools & Organizations | LA Sports World",
+  description: "Turnkey sports and activity programming for schools, camps, businesses, nonprofits, and community organizations.",
+};
+
+const services = [
+  { title: "School PE & enrichment", description: "Consistent, age-appropriate programming designed to fit your calendar, space, and student groups.", href: "/schools-organizations/school-pe", image: "/images/kids-sports-3.jpg", label: "Schools" },
+  { title: "Camp activity programming", description: "Coach-led sports blocks and specialty activities that add structure and variety to your camp day.", href: "/schools-organizations/camps-activity-programming", image: "/images/Day-Camp-Header-Image.jpg", label: "Camps" },
+  { title: "Community events", description: "Scalable activity zones, clinics, and soft-play experiences for organizations and neighborhood events.", href: "/schools-organizations/community-events", image: "/images/lasw-event-3.jpg", label: "Events" },
 ];
 
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
-      <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
-    </svg>
-  );
-}
+const capabilities = [
+  { icon: ClipboardList, title: "Program design", description: "We shape the curriculum, format, and session flow around your objectives." },
+  { icon: Users, title: "Coach staffing", description: "Trained coaches are assigned for the ages, group size, and activity mix." },
+  { icon: CalendarCheck, title: "Scheduling & logistics", description: "We coordinate timing, equipment, setup, and operational details." },
+  { icon: ShieldCheck, title: "Professional standards", description: "Live Scanned, background-checked coaches and clear communication throughout." },
+];
+
+const steps = [
+  { title: "Discovery", description: "Share your audience, goals, space, and calendar." },
+  { title: "Program design", description: "We recommend the right format and activity mix." },
+  { title: "Scope & quote", description: "You receive a clear plan with staffing and logistics." },
+  { title: "Launch", description: "We coordinate coaches, equipment, and the first session." },
+  { title: "Ongoing support", description: "We adapt and communicate as the program develops." },
+];
 
 export default function OrganizationsPage() {
   return (
-    <div className="min-h-screen bg-navy text-white lg:h-screen lg:overflow-hidden">
-      <section className="relative isolate flex min-h-screen flex-col lg:h-full lg:overflow-hidden">
-        <Image
-          src="/images/hero-kids-group.jpg"
-          alt="Group sports activities with LA Sports World"
-          fill
-          priority
-          className="object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/90 to-navy" />
+    <>
+      <ServiceHero
+        eyebrow="Schools & Organizations"
+        title="A complete activity program, brought to you"
+        description="Flexible sports, enrichment, and event programming for schools, camps, nonprofits, businesses, and community organizations across Los Angeles."
+        image="/images/hero-kids-group.jpg"
+        imageAlt="Children participating in an organized LA Sports World group activity"
+        imagePosition="center 38%"
+        primaryCta={{ label: "Talk About Your Program", href: "#organization-inquiry" }}
+        secondaryCta={{ label: "Explore Services", href: "#organization-services" }}
+        note="Program design · Coaches · Equipment · On-site delivery"
+      />
 
-        <main className="relative mx-auto grid w-full max-w-7xl gap-5 px-4 py-6 sm:px-6 lg:flex-1 lg:grid-cols-[0.78fr_1.22fr] lg:overflow-hidden lg:px-8 lg:py-6">
-          <div className="flex flex-col justify-center lg:min-h-0">
-            <p className="mb-3 inline-flex w-fit rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
-              Website under development
-            </p>
-            <h1 className="font-condensed text-3xl font-extrabold uppercase leading-[0.95] text-white sm:text-4xl lg:text-5xl">
-              Organization programs while our full site is being built
-            </h1>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-white/80 sm:text-base">
-              Tell us about your school, camp, business, nonprofit, community event, or organization
-              program. We will follow up with the right options.
-            </p>
+      <EditorialSplit
+        eyebrow="A true operating partner"
+        title="More than an instructor at the door"
+        image="/images/lasw-event-1.jpg"
+        imageAlt="LA Sports World coaches leading a large group activity"
+        imagePosition="center"
+        accent="Built to work in the real world"
+      >
+        <p>Strong programming takes more than a list of games. It takes planning, staffing, equipment, communication, and a team that understands how to work within your environment.</p>
+        <p>We build around your audience and objectives, then bring the people and tools to make the experience run smoothly.</p>
+      </EditorialSplit>
 
-            <div className="mt-4 rounded-xl border-2 border-gold/70 bg-white/10 p-4 shadow-xl shadow-black/20">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
-                Parents and families
-              </p>
-              <h2 className="mt-1 font-condensed text-2xl font-extrabold uppercase leading-none text-white sm:text-3xl">
-                Looking for a party, coaching, or small group?
-              </h2>
-              <p className="mt-2 text-sm font-semibold leading-5 text-white/75">
-                Use the parent / individual inquiry page instead so we route you correctly.
-              </p>
-              <Link
-                href="/"
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light sm:w-auto"
-              >
-                Go to Parent Form <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {organizationServices.map((service) => (
-                <div key={service} className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-white/85 sm:text-sm">
-                  {service}
-                </div>
-              ))}
-            </div>
+      <section id="organization-services" className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
+            <SectionHeading eyebrow="Ways we partner" title="Programming that fits your setting" />
+            <p className="max-w-xl text-base leading-7 text-navy/60 lg:ml-auto">From one-day community events to recurring school programs, the service model scales without losing the human touch.</p>
           </div>
-
-          <div id="organization-form" className="flex items-start pt-4 lg:min-h-0 lg:items-center lg:pt-0">
-            <div className="w-full rounded-2xl border border-white/15 bg-white p-4 text-navy shadow-2xl sm:p-5 lg:max-h-full lg:overflow-auto lg:p-6">
-              <div className="mb-4">
-                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">
-                  Organization / Business Inquiry
-                </p>
-                <h2 className="mt-1 font-condensed text-3xl font-extrabold uppercase sm:text-4xl">
-                  Start Here
-                </h2>
-                <p className="mt-1 text-sm leading-5 text-navy/70">
-                  For schools, camps, businesses, nonprofits, community events, and organization programs, fill out this form.
-                </p>
-              </div>
-              <PipedriveForm url="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn" />
-            </div>
-          </div>
-        </main>
-
-        <footer className="relative shrink-0 border-t border-white/10 px-4 py-3 sm:px-6 lg:px-8">
-          <div className="mx-auto flex max-w-7xl items-center justify-center">
-            <a
-              href="https://www.instagram.com/lasportsworld/"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-bold text-white/65 transition hover:text-gold"
-            >
-              <InstagramIcon className="h-5 w-5" />
-              @lasportsworld
-            </a>
-          </div>
-        </footer>
+          <FeaturePanels items={services} />
+        </div>
       </section>
-    </div>
+
+      <section className="relative overflow-hidden bg-navy py-20 text-white lg:py-28">
+        <div className="brand-grid absolute inset-0 opacity-10" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
+            <SectionHeading eyebrow="What we handle" title="The details that make programs dependable" light />
+            <p className="max-w-lg text-base leading-7 text-white/60 lg:ml-auto">A single partner for the visible experience and the operational work behind it.</p>
+          </div>
+          <FeaturePanels items={capabilities} dark />
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <SectionHeading eyebrow="From brief to launch" title="A process built for clarity" description="You know what is included, who is responsible, and what comes next." />
+            <Building2 className="h-20 w-20 text-gold/30" strokeWidth={1} />
+          </div>
+          <ProcessTimeline steps={steps} />
+        </div>
+      </section>
+
+      <section id="organization-inquiry" className="bg-gold py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.75fr_1.25fr] lg:items-start lg:px-8">
+          <div className="lg:sticky lg:top-28">
+            <p className="text-xs font-extrabold uppercase tracking-[.22em] text-navy/60">Start a conversation</p>
+            <h2 className="mt-4 font-condensed text-5xl font-extrabold uppercase leading-[.9] text-navy sm:text-6xl">Tell us what your organization needs</h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-navy/70">Share the setting, audience, timing, and idea—even if the details are still taking shape. We’ll follow up with the right questions.</p>
+          </div>
+          <div className="rounded-[2rem] bg-white p-5 text-navy shadow-2xl sm:p-8">
+            <PipedriveForm url="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn" />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

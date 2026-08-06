@@ -51,6 +51,7 @@ export default function OurApproachPage() {
         title="Our Approach"
         subtitle="We meet every child and group where they are, keep them engaged, and adapt the experience to fit."
         tag="About LASW"
+        image="/images/lasw_slideshow_003.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

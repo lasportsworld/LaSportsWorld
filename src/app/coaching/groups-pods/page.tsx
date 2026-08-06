@@ -53,6 +53,7 @@ export default function GroupCoachingAndPodsPage() {
         title="Group Coaching & Pods"
         subtitle="Bring an existing group, or let us help you form one — recurring coaching for kids who train better together."
         tag="Coaching"
+        image="/images/hero-kids-group.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

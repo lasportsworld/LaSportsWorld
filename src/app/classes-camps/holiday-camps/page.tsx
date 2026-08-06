@@ -40,6 +40,7 @@ export default function HolidayCampsPage() {
         title="Holiday Camps"
         subtitle="Active, structured day camps around school breaks and holidays."
         tag="Classes & Camps"
+        image="/images/Winter-Camp-Header-Image.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">

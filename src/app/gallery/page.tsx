@@ -14,6 +14,7 @@ export default function GalleryPage() {
         title="Gallery"
         subtitle="Action shots, camp memories, and proud moments from our community."
         tag="Photos"
+        image="/images/gallery-kids-1.jpg"
       />
       <GalleryGrid />
     </>

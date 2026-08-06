@@ -39,6 +39,7 @@ export default function CommunityEventsPage() {
         title="Community & Organization Events"
         subtitle="A children's activity area or active program, built into your larger event."
         tag="Schools & Organizations"
+        image="/images/lasw-event-3.jpg"
       />
 
       <section className="bg-white py-16 lg:py-20">
