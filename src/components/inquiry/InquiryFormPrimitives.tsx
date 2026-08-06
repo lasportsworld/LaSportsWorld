@@ -4,15 +4,23 @@ const controlClass = "w-full rounded-xl border border-navy/15 bg-cream px-4 py-3
 
 export function InquiryProgress({ steps, current }: { steps: string[]; current: number }) {
   return (
-    <div aria-label={`Step ${current + 1} of ${steps.length}: ${steps[current]}`}>
-      <div className="flex items-center justify-between gap-3">
+    <nav aria-label={`Form progress: step ${current + 1} of ${steps.length}, ${steps[current]}`}>
+      <div className="flex items-center justify-between gap-3 sm:hidden">
         <p className="text-[11px] font-extrabold uppercase tracking-[.18em] text-gold">Step {current + 1} of {steps.length}</p>
-        <p className="text-xs font-bold text-navy/50">{steps[current]}</p>
+        <p className="text-xs font-extrabold text-navy">{steps[current]}</p>
       </div>
-      <div className="mt-3 grid gap-2" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
-        {steps.map((step, index) => <span key={step} className={`h-1.5 rounded-full transition-colors ${index <= current ? "bg-gold" : "bg-navy/10"}`} />)}
-      </div>
-    </div>
+      <ol className="mt-3 grid grid-cols-4 gap-2 sm:mt-0 sm:gap-3">
+        {steps.map((step, index) => (
+          <li key={step} aria-current={index === current ? "step" : undefined}>
+            <div className={`h-2 rounded-full transition-all ${index < current ? "bg-navy" : index === current ? "bg-gold shadow-[0_0_0_3px_rgba(196,133,42,.14)]" : "bg-navy/18"}`} />
+            <div className="mt-2 hidden items-center gap-2 sm:flex">
+              <span className={`grid h-5 w-5 shrink-0 place-items-center rounded-full text-[10px] font-extrabold ${index < current ? "bg-navy text-white" : index === current ? "bg-gold text-navy" : "bg-navy/10 text-navy/45"}`}>{index + 1}</span>
+              <span className={`text-[10px] font-extrabold uppercase tracking-[.08em] ${index === current ? "text-navy" : "text-navy/42"}`}>{step}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </nav>
   );
 }
 

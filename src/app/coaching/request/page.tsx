@@ -11,21 +11,22 @@ export const metadata: Metadata = {
 export default async function RequestCoachingPage({
   searchParams,
 }: {
-  searchParams: Promise<{ format?: string }>;
+  searchParams: Promise<{ format?: string; source?: string }>;
 }) {
-  const requestedFormat = (await searchParams).format;
+  const params = await searchParams;
+  const requestedFormat = params.format;
   const initialFormat: CoachingFormat | "" = requestedFormat === "private" || requestedFormat === "group" || requestedFormat === "unsure" ? requestedFormat : "";
 
   return (
     <InquiryShell
       eyebrow="Request Coaching"
       title="Let’s find the right coaching fit"
-      description="Tell us a little about your child or group. We’ll use the details to recommend the coaching format and setup that makes the most sense."
+      description="Tell us what your child or group needs, and we’ll help figure out the format, coach, and setup that make the most sense."
       backHref="/coaching"
       backLabel="Back to Coaching"
-      highlights={["Takes just a few minutes", "Private or group options", "Built around your goals", "Clear next-step recommendation"]}
+      highlights={["Takes about 2–3 minutes", "We’ll help you choose the format", "Built around your goals"]}
     >
-      <CoachingInquiryForm initialFormat={initialFormat} />
+      <CoachingInquiryForm initialFormat={initialFormat} entryContext={params.source || "coaching-overview"} />
     </InquiryShell>
   );
 }

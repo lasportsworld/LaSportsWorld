@@ -15,7 +15,7 @@ import {
   TextInput,
 } from "./InquiryFormPrimitives";
 
-const steps = ["Your family", "Coaching needs", "Schedule & location", "Review"];
+const steps = ["Your Family", "Coaching Needs", "Schedule & Location", "Review"];
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const times = ["Morning", "Midday", "After school", "Evening"];
 const initialState: CoachingInquiryState = { status: "idle" };
@@ -51,7 +51,13 @@ function formatLabel(format: Values["coachingFormat"]) {
   return "Not selected";
 }
 
-export default function CoachingInquiryForm({ initialFormat = "" }: { initialFormat?: Values["coachingFormat"] }) {
+export default function CoachingInquiryForm({
+  initialFormat = "",
+  entryContext = "coaching-overview",
+}: {
+  initialFormat?: Values["coachingFormat"];
+  entryContext?: string;
+}) {
   const [step, setStep] = useState(0);
   const [values, setValues] = useState<Values>({
     parentGuardianName: "",
@@ -163,19 +169,22 @@ export default function CoachingInquiryForm({ initialFormat = "" }: { initialFor
     <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
       <InquiryProgress steps={steps} current={step} />
 
-      <div aria-live="polite" className="mt-5 min-h-5">
-        {state.status === "error" && state.message && <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">{state.message}</p>}
-      </div>
+      {state.status === "error" && state.message && (
+        <div aria-live="polite" className="mt-4">
+          <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">{state.message}</p>
+        </div>
+      )}
 
       <input type="hidden" name="sourcePage" value="/coaching/request" />
+      <input type="hidden" name="entryContext" value={entryContext} />
       <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden>
         <label htmlFor="website">Website</label><input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <fieldset hidden={step !== 0} className="mt-7 space-y-5">
+      <fieldset hidden={step !== 0} className="mt-6 space-y-4">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">First, tell us about your family</legend>
-        <p className="text-sm leading-6 text-navy/50">We’ll use this information to follow up about the right coaching setup.</p>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <p className="text-sm leading-6 text-navy/55">We’ll use this information to recommend the right coaching setup.</p>
+        <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Parent / guardian name" htmlFor="parentGuardianName" error={errorFor("parentGuardianName")} required>
             <TextInput id="parentGuardianName" name="parentGuardianName" autoComplete="name" value={values.parentGuardianName} onChange={(e) => setValue("parentGuardianName", e.target.value)} aria-invalid={Boolean(errorFor("parentGuardianName"))} />
           </Field>
@@ -185,17 +194,19 @@ export default function CoachingInquiryForm({ initialFormat = "" }: { initialFor
           <Field label="Phone" htmlFor="phone" error={errorFor("phone")} helper="A mobile number is best." required>
             <TextInput id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(310) 555-0123" value={values.phone} onChange={(e) => setValue("phone", e.target.value)} aria-invalid={Boolean(errorFor("phone"))} />
           </Field>
-          <div className="hidden sm:block" />
           <Field label="Child’s name" htmlFor="childName" error={errorFor("childName")} required>
             <TextInput id="childName" name="childName" autoComplete="off" value={values.childName} onChange={(e) => setValue("childName", e.target.value)} aria-invalid={Boolean(errorFor("childName"))} />
           </Field>
           <Field label="Child’s age" htmlFor="childAge" error={errorFor("childAge")} required>
-            <TextInput id="childAge" name="childAge" type="number" inputMode="numeric" min={2} max={18} value={values.childAge} onChange={(e) => setValue("childAge", e.target.value)} aria-invalid={Boolean(errorFor("childAge"))} />
+            <SelectInput id="childAge" name="childAge" value={values.childAge} onChange={(e) => setValue("childAge", e.target.value)} aria-invalid={Boolean(errorFor("childAge"))}>
+              <option value="">Choose age...</option>
+              {Array.from({ length: 17 }, (_, index) => index + 2).map((age) => <option key={age} value={age}>{age}</option>)}
+            </SelectInput>
           </Field>
         </div>
       </fieldset>
 
-      <fieldset hidden={step !== 1} className="mt-7 space-y-6">
+      <fieldset hidden={step !== 1} className="mt-6 space-y-5">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">What kind of coaching would help?</legend>
         <p className="text-sm leading-6 text-navy/50">It’s okay if you are still deciding. Give us enough context to make a useful recommendation.</p>
         <Field label="Sport or activity" htmlFor="sportActivity" error={errorFor("sportActivity")} helper="For example: basketball, soccer, general movement, or confidence through sports." required>
@@ -220,7 +231,7 @@ export default function CoachingInquiryForm({ initialFormat = "" }: { initialFor
         </Field>
       </fieldset>
 
-      <fieldset hidden={step !== 2} className="mt-7 space-y-7">
+      <fieldset hidden={step !== 2} className="mt-6 space-y-6">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">What could work for your schedule?</legend>
         <p className="text-sm leading-6 text-navy/50">Preferences are helpful, not a final booking. Choose everything that could reasonably work.</p>
         <fieldset aria-describedby={errorFor("preferredDays") ? "preferredDays-error" : undefined}>
@@ -245,7 +256,7 @@ export default function CoachingInquiryForm({ initialFormat = "" }: { initialFor
         </div>
       </fieldset>
 
-      <fieldset hidden={step !== 3} className="mt-7 space-y-6">
+      <fieldset hidden={step !== 3} className="mt-6 space-y-5">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">Review your coaching request</legend>
         <p className="text-sm leading-6 text-navy/50">Make sure the essentials look right. You can go back to adjust anything before sending.</p>
         <div className="grid gap-3 rounded-2xl bg-cream p-5 sm:grid-cols-2 sm:p-6">
@@ -265,12 +276,12 @@ export default function CoachingInquiryForm({ initialFormat = "" }: { initialFor
         </Field>
       </fieldset>
 
-      <div className="mt-8 flex items-center justify-between gap-3 border-t border-navy/10 pt-6">
-        {step > 0 ? <button type="button" onClick={() => setStep((current) => current - 1)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-3 text-xs font-extrabold uppercase tracking-[.13em] text-navy/55 transition hover:text-navy"><ArrowLeft className="h-4 w-4" /> Back</button> : <span />}
+      <div className="mt-7 flex flex-col-reverse gap-3 border-t border-navy/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        {step > 0 ? <button type="button" onClick={() => setStep((current) => current - 1)} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-navy/12 px-4 text-xs font-extrabold uppercase tracking-[.13em] text-navy/60 transition hover:border-navy/30 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:w-auto"><ArrowLeft className="h-4 w-4" /> Back</button> : <span className="hidden sm:block" />}
         {step < steps.length - 1 ? (
-          <button type="button" onClick={goNext} className="button-gold">Continue <ArrowRight className="h-4 w-4" /></button>
+          <button type="button" onClick={goNext} className="button-gold w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:w-auto sm:min-w-48">Continue <ArrowRight className="h-4 w-4" /></button>
         ) : (
-          <button type="submit" disabled={isPending} className="button-gold disabled:cursor-not-allowed disabled:opacity-60">{isPending ? "Sending…" : <>Send Request <Send className="h-4 w-4" /></>}</button>
+          <button type="submit" disabled={isPending} className="button-gold w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:min-w-48">{isPending ? "Sending…" : <>Send Request <Send className="h-4 w-4" /></>}</button>
         )}
       </div>
     </form>

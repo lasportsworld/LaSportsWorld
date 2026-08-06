@@ -19,6 +19,7 @@ export type CoachingInquiry = {
   additionalNotes?: string;
   source: {
     page: string;
+    entryContext?: string;
     landingPage?: string;
     submittedAt: string;
   };
@@ -116,6 +117,7 @@ export function validateCoachingInquiry(formData: FormData): ValidationResult {
       ...(additionalNotes ? { additionalNotes } : {}),
       source: {
         page: text(formData, "sourcePage") || "/coaching/request",
+        ...(text(formData, "entryContext") ? { entryContext: text(formData, "entryContext") } : {}),
         ...(text(formData, "landingPage") ? { landingPage: text(formData, "landingPage") } : {}),
         submittedAt: new Date().toISOString(),
       },

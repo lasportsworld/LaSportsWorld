@@ -39,6 +39,7 @@ export function prepareCoachingInquiryForPipedrive(inquiry: CoachingInquiry): Pr
     neighborhoodLocation: inquiry.neighborhoodLocation,
     desiredStartTiming: inquiry.desiredStartTiming,
     additionalNotes: inquiry.additionalNotes,
+    entryContext: inquiry.source.entryContext,
   };
 
   const noteRows = [
@@ -57,6 +58,7 @@ export function prepareCoachingInquiryForPipedrive(inquiry: CoachingInquiry): Pr
     ["Desired start", inquiry.desiredStartTiming],
     ...(inquiry.additionalNotes ? [["Additional notes", inquiry.additionalNotes]] : []),
     ["Source page", inquiry.source.page],
+    ...(inquiry.source.entryContext ? [["Entry context", inquiry.source.entryContext]] : []),
     ...(inquiry.source.landingPage ? [["Landing page", inquiry.source.landingPage]] : []),
     ["Submitted", inquiry.source.submittedAt],
     ["Form version", "coaching-inquiry-v1"],

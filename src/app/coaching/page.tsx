@@ -75,7 +75,7 @@ export default function CoachingPage() {
         title="Coaching that meets kids where they are"
         description="LA Sports World offers two flexible ways to coach: individualized Private Coaching and social Group Coaching & Pods. Explore both and choose the format that fits."
         imageAlt="Future LA Sports World coaching overview photo"
-        primaryCta={{ label: "Request Coaching", href: "/coaching/request" }}
+        primaryCta={{ label: "Request Coaching", href: "/coaching/request?source=coaching-overview" }}
         secondaryCta={{ label: "Explore Formats", href: "#formats" }}
         note="Two formats · One thoughtful, flexible approach"
       />
@@ -155,7 +155,7 @@ export default function CoachingPage() {
         <p>We look for coaches who can connect with kids, communicate clearly, and create the conditions for confident progress—not simply demonstrate a sport.</p>
         <Checklist light items={["Live Scanned & background checked", "Thoughtful coach matching", "Confidence-building approach", "Quality equipment & preparation"]} />
         <p className="border-l-2 border-gold pl-5 font-condensed text-2xl font-bold uppercase leading-tight text-white">Safe, professional, prepared—and fully present with the child or group.</p>
-        <Link href="/coaching/request" className="button-gold">Request Coaching <ArrowRight className="h-4 w-4" /></Link>
+        <Link href="/coaching/request?source=coaching-overview" className="button-gold">Request Coaching <ArrowRight className="h-4 w-4" /></Link>
         <Link href="#formats" className="ml-1 inline-flex items-center text-xs font-extrabold uppercase tracking-[.14em] text-white/60 transition hover:text-gold">Review the two formats</Link>
       </EditorialSplit>
 
@@ -163,7 +163,7 @@ export default function CoachingPage() {
         eyebrow="Ready when you are"
         title="Let’s find the coaching format that fits"
         description="Tell us about your child or group. We’ll help you choose the format, schedule, and coaching setup that makes sense."
-        cta={{ label: "Request Coaching", href: "/coaching/request" }}
+        cta={{ label: "Request Coaching", href: "/coaching/request?source=coaching-overview" }}
         imageAlt="Future LA Sports World coaching inquiry photo"
       />
     </>

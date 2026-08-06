@@ -46,7 +46,7 @@ export default function ContactForm({
         <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Request Coaching form</h3>
         <p className="text-white/60 text-sm leading-relaxed">Our coaching form asks the right questions about your child, goals, format, and schedule so we can recommend a useful next step.</p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <Link href="/coaching/request" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light">
+          <Link href="/coaching/request?source=contact" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light">
             Request Coaching <ArrowRight className="h-4 w-4" />
           </Link>
           <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white">Choose something else</button>
