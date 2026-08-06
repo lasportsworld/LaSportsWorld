@@ -6,7 +6,6 @@ import {
   type GoogleReviewCard as GoogleReviewData,
   type GoogleReviewsSummary,
 } from "@/lib/google-reviews";
-import SawyerEmbed from "@/components/shared/SawyerEmbed";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -428,8 +427,6 @@ function GoogleReviewsBlock({
 
 export default async function HomePage() {
   const googleReviews = await getGoogleReviews();
-  const sawyerHomePreviewUrl =
-    process.env.SAWYER_HOME_PREVIEW_EMBED_URL || process.env.SAWYER_REGISTER_EMBED_URL;
 
   return (
     <div className="bg-cream">
@@ -738,30 +735,21 @@ export default async function HomePage() {
       ══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
+          <div className="rounded-3xl border border-navy/8 bg-white px-6 py-14 text-center shadow-sm sm:px-12">
             <h2 className="text-3xl font-bold text-navy lg:text-4xl">
               Current Programs
             </h2>
             <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
-          </div>
-
-          <div className="relative overflow-hidden rounded-2xl">
-            <div className="pointer-events-none h-[420px] overflow-hidden">
-              <SawyerEmbed
-                src={sawyerHomePreviewUrl}
-                title="Current LA Sports World programs"
-                minHeight={420}
-                fallbackMessage="New sessions are added regularly. Browse everything currently open for registration."
-              />
-            </div>
-            <div className="absolute inset-x-0 bottom-0 flex h-32 items-end justify-center bg-gradient-to-t from-cream via-cream/90 to-transparent pb-2">
-              <Link
-                href="/register"
-                className="pointer-events-auto inline-flex items-center gap-2 rounded-lg bg-navy px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-white shadow-lg transition hover:bg-navy-light"
-              >
-                View Full Schedule <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-navy/60">
+              New classes, camps, and sessions are added regularly. Browse everything
+              currently open and grab your spot before it fills up.
+            </p>
+            <Link
+              href="/register"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-navy px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-white shadow-lg transition hover:bg-navy-light"
+            >
+              View Full Schedule <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

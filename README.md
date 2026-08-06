@@ -32,18 +32,19 @@ GOOGLE_REVIEWS_REFRESH_SECONDS="21600"
 
 ## Sawyer Registration
 
-Program registration is embedded via Sawyer using plain iframe URLs (Live View or a direct customer link — not a marketplace URL). Set whichever of these are relevant; any left unset show a graceful "contact us" fallback instead of breaking:
+Program registration is embedded via Sawyer's JS widget script (the snippet from Sawyer's "Embed" page — a `<script src="https://www.hisawyer.com/embed/....js">` tag, not an iframe or a marketplace URL). Set whichever of these are relevant; any left unset show a graceful "contact us" fallback instead of breaking:
 
 ```bash
-SAWYER_REGISTER_EMBED_URL="https://app.sawyer.com/..."       # full widget on /register. Everything below falls back to this one URL if unset, except Summer Camp
-SAWYER_HOME_PREVIEW_EMBED_URL="https://app.sawyer.com/..."   # optional; compact preview on the homepage
-SAWYER_CLASSES_CAMPS_EMBED_URL="https://app.sawyer.com/..."  # /classes-camps overview
-SAWYER_CLASSES_EMBED_URL="https://app.sawyer.com/..."        # filtered to Classes, on /classes-camps/classes
-SAWYER_HOLIDAY_EMBED_URL="https://app.sawyer.com/..."        # filtered to Holiday Camps, on /classes-camps/holiday-camps
-SAWYER_SUMMER_EMBED_URL="https://app.sawyer.com/..."         # interest-list view, on /classes-camps/summer-camp — deliberately does NOT fall back to the register URL, since showing the full live schedule under "join the interest list" framing for a program that doesn't exist yet would be misleading
+SAWYER_REGISTER_EMBED_URL="https://www.hisawyer.com/embed/....js"  # full widget on /register. Everything below falls back to this one URL if unset, except Summer Camp
+SAWYER_CLASSES_CAMPS_EMBED_URL="https://www.hisawyer.com/embed/....js"  # /classes-camps overview
+SAWYER_CLASSES_EMBED_URL="https://www.hisawyer.com/embed/....js"        # filtered to Classes, on /classes-camps/classes
+SAWYER_HOLIDAY_EMBED_URL="https://www.hisawyer.com/embed/....js"        # filtered to Holiday Camps, on /classes-camps/holiday-camps
+SAWYER_SUMMER_EMBED_URL="https://www.hisawyer.com/embed/....js"         # interest-list view, on /classes-camps/summer-camp — deliberately does NOT fall back to the register URL, since showing the full live schedule under "join the interest list" framing for a program that doesn't exist yet would be misleading
 ```
 
-These are server-only (no `NEXT_PUBLIC_` prefix needed) — each page reads the relevant var and passes it down to the `SawyerEmbed` component as a prop. Set just `SAWYER_REGISTER_EMBED_URL` to get every page except Summer Camp working immediately; add the filtered ones later as they become available in Sawyer.
+These are server-only (no `NEXT_PUBLIC_` prefix needed) — each page reads the relevant var and passes it down to the `SawyerEmbed` component, which injects the script tag client-side (matching the `id`/`data-sawyertools` attributes Sawyer's snippet expects). Set just `SAWYER_REGISTER_EMBED_URL` to get every page except Summer Camp working immediately; add the filtered ones later as they become available in Sawyer.
+
+The homepage intentionally does **not** embed the widget at all — Sawyer's calendar view is too tall to crop into a "preview" without it looking cut off, so it's just a card linking to `/register` instead.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

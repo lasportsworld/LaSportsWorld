@@ -23,26 +23,34 @@ export default function SawyerEmbed({
   fallbackMessage = "Online registration for this program is being connected. Reach out and we'll get you signed up directly.",
 }: SawyerEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const injectedSrcRef = useRef<string | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!src || !container) return;
 
-    container.innerHTML = "";
+    // Guards against injecting the widget twice for the same src — React's
+    // dev-mode Strict Mode runs this effect (mount -> cleanup -> mount) once
+    // as a diagnostic, and since Sawyer's script is async, an early cleanup
+    // doesn't reliably cancel it, causing the widget to render twice.
+    if (injectedSrcRef.current === src) return;
+
+    const widgetId = widgetIdFromSrc(src);
+    if (widgetId && document.getElementById(widgetId)) {
+      injectedSrcRef.current = src;
+      return;
+    }
+
+    injectedSrcRef.current = src;
 
     const script = document.createElement("script");
     script.type = "application/javascript";
     script.setAttribute("data-sawyertools", "sawyertools");
     script.async = true;
-    const widgetId = widgetIdFromSrc(src);
     if (widgetId) script.id = widgetId;
     script.src = src;
 
     container.appendChild(script);
-
-    return () => {
-      container.innerHTML = "";
-    };
   }, [src]);
 
   if (!src) {
