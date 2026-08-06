@@ -30,7 +30,7 @@ const formats = [
     number: "01",
     title: "Private Coaching",
     description: "One-on-one coaching with individualized attention, pacing, and feedback.",
-    href: "/coaching/private",
+    href: "/coaching/private-coaching",
     details: [
       ["Best for", "Focused skill-building, confidence, and individual progress"],
       ["Format", "One athlete with one coach"],

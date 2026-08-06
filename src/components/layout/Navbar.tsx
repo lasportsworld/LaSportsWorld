@@ -12,7 +12,7 @@ const navLinks = [
     href: "/coaching",
     children: [
       { label: "Coaching Overview", href: "/coaching" },
-      { label: "Private Coaching", href: "/coaching/private" },
+      { label: "Private Coaching", href: "/coaching/private-coaching" },
       { label: "Group Coaching & Pods", href: "/coaching/groups-pods" },
     ],
   },
