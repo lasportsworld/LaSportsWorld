@@ -16,11 +16,11 @@ const categories = [
     questions: [
       {
         q: "What ages do you work with?",
-        a: "We coach a broad range of ages — the exact fit depends on the sport and program. Let us know your child's age when you reach out and we'll confirm.",
+        a: "LA Sports World serves children from 6 months through 17 years old. The right program depends on age, interests, and the kind of support you need.",
       },
       {
         q: "What areas do you serve?",
-        a: "We're based on LA's Westside and serve neighborhoods including Beverly Hills, Beverlywood, Culver City, Westwood, La Cienega, La Brea, Brentwood, and Bel Air. Broader LA service may be available depending on the program — see our Service Area page.",
+        a: "We're based on LA's Westside and serve neighborhoods including Beverly Hills, Beverlywood, Culver City, Westwood, La Cienega, La Brea, Brentwood, and Bel Air. Broader LA service may be available depending on the program. See our Service Area page.",
       },
       {
         q: "How much does it cost?",
@@ -28,21 +28,21 @@ const categories = [
       },
       {
         q: "How does customization work?",
-        a: "Every plan is built around the child, group, or event in front of us — sport, schedule, location, and goals are all flexible rather than fixed packages.",
+        a: "Every plan is built around the child, group, or event in front of us. Sport, schedule, location, and goals can all shape the setup.",
       },
     ],
   },
   {
     id: "coaching",
-    title: "Coaching & Groups",
+    title: "Coaching",
     questions: [
       {
         q: "What's the difference between Private Coaching and Group Coaching & Pods?",
-        a: "Private Coaching is one-on-one, focused on a single athlete's goals. Group Coaching & Pods is for an existing group of friends or teammates — or one we help you form.",
+        a: "Private Coaching is one-on-one and focused on a single athlete's goals. Group Coaching & Pods is for an existing group of friends or teammates, or one we help you form.",
       },
       {
         q: "What sports do you coach?",
-        a: "Basketball, flag football, soccer, baseball, volleyball, surfing, street hockey, and personal fitness, among others. Ask us about anything not listed — we'll confirm feasibility.",
+        a: "Basketball, flag football, soccer, baseball, volleyball, surfing, street hockey, and personal fitness, among others. Ask us about anything not listed and we'll confirm what is possible.",
       },
       {
         q: "How do I get started?",
@@ -56,11 +56,11 @@ const categories = [
     questions: [
       {
         q: "What's included in a party?",
-        a: "Organized sports, games, and activities — the exact mix is chosen together during planning based on age, guest count, and what you're going for.",
+        a: "Organized sports, games, and activities. We choose the mix together based on age, guest count, and the kind of celebration you want.",
       },
       {
         q: "Do you handle permits?",
-        a: "Some park locations require a permit for group activities. We'll confirm who's responsible for that during planning — we don't assume permits, food, decor, or rentals are included unless they're in your quote.",
+        a: "Some park locations require a permit for group activities. We'll confirm responsibility during planning. Permits, food, decor, and rentals are included only when listed in your quote.",
       },
       {
         q: "How far in advance should I book?",
@@ -82,7 +82,7 @@ const categories = [
       },
       {
         q: "Are classes pop-up or recurring?",
-        a: "Both — some classes start as limited-run pop-ups and become regular offerings if they go well.",
+        a: "Both. Some classes start as limited-run pop-ups and become regular offerings when there is continued interest.",
       },
     ],
   },
@@ -92,11 +92,11 @@ const categories = [
     questions: [
       {
         q: "Do you work with schools?",
-        a: "Yes — PE programs, enrichment and after-school activities, camp support, and community events. See our Schools & Organizations page for details.",
+        a: "Yes. We offer PE programs, enrichment and after-school activities, camp support, and community events. See our Schools & Organizations page for details.",
       },
       {
         q: "Can you supplement an existing camp instead of running the whole thing?",
-        a: "Yes — we're happy to just cover the sports and activity portion of a camp or program you're already running.",
+        a: "Yes. We can cover the sports and activity portion of a camp or program you are already running.",
       },
       {
         q: "How do we start a conversation?",
@@ -110,7 +110,7 @@ const categories = [
     questions: [
       {
         q: "Are coaches background checked?",
-        a: "Yes — every LA Sports World coach is Live Scanned and background checked.",
+        a: "Yes. Every LA Sports World coach is Live Scanned and background checked.",
       },
       {
         q: "What happens if weather affects an outdoor session?",
@@ -118,7 +118,7 @@ const categories = [
       },
       {
         q: "Who do I contact with an urgent question?",
-        a: "Call us directly — see our Contact page for the number.",
+        a: "Call us at (213) 301-6226 or use the form on our Contact page.",
       },
     ],
   },
@@ -188,7 +188,7 @@ export default function FAQPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            className="button-gold mt-7"
           >
             Contact Us <ArrowRight className="h-4 w-4" />
           </Link>

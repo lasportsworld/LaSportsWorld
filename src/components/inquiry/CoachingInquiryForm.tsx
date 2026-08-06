@@ -5,6 +5,7 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Send } from "lucide-react";
 import { submitCoachingInquiry, type CoachingInquiryState } from "@/app/actions/coaching-inquiry";
 import type { CoachingFormat, CoachingInquiryErrors, CoachingInquiryField } from "@/lib/inquiries/coaching";
+import { formatParticipantAge, isSupportedParticipantAge, participantAgeOptions } from "@/lib/participant-age";
 import {
   CheckboxChip,
   ChoiceCard,
@@ -101,7 +102,7 @@ export default function CoachingInquiryForm({
       if (values.phone.replace(/\D/g, "").length < 10) nextErrors.phone = "Enter a valid phone number.";
       if (values.childName.trim().length < 2) nextErrors.childName = "Enter the child’s name.";
       const age = Number(values.childAge);
-      if (!Number.isInteger(age) || age < 2 || age > 18) nextErrors.childAge = "Enter an age from 2 to 18.";
+      if (!isSupportedParticipantAge(age)) nextErrors.childAge = "Choose an age from 6 months to 17 years.";
     }
     if (targetStep === 1) {
       if (!values.sportActivity.trim()) nextErrors.sportActivity = "Tell us the sport or activity of interest.";
@@ -192,7 +193,7 @@ export default function CoachingInquiryForm({
             <TextInput id="email" name="email" type="email" inputMode="email" autoComplete="email" value={values.email} onChange={(e) => setValue("email", e.target.value)} aria-invalid={Boolean(errorFor("email"))} />
           </Field>
           <Field label="Phone" htmlFor="phone" error={errorFor("phone")} helper="A mobile number is best." required>
-            <TextInput id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(310) 555-0123" value={values.phone} onChange={(e) => setValue("phone", e.target.value)} aria-invalid={Boolean(errorFor("phone"))} />
+            <TextInput id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(213) 301-6226" value={values.phone} onChange={(e) => setValue("phone", e.target.value)} aria-invalid={Boolean(errorFor("phone"))} />
           </Field>
           <Field label="Child’s name" htmlFor="childName" error={errorFor("childName")} required>
             <TextInput id="childName" name="childName" autoComplete="off" value={values.childName} onChange={(e) => setValue("childName", e.target.value)} aria-invalid={Boolean(errorFor("childName"))} />
@@ -200,7 +201,7 @@ export default function CoachingInquiryForm({
           <Field label="Child’s age" htmlFor="childAge" error={errorFor("childAge")} required>
             <SelectInput id="childAge" name="childAge" value={values.childAge} onChange={(e) => setValue("childAge", e.target.value)} aria-invalid={Boolean(errorFor("childAge"))}>
               <option value="">Choose age...</option>
-              {Array.from({ length: 17 }, (_, index) => index + 2).map((age) => <option key={age} value={age}>{age}</option>)}
+              {participantAgeOptions.map((age) => <option key={age.value} value={age.value}>{age.label}</option>)}
             </SelectInput>
           </Field>
         </div>
@@ -261,7 +262,7 @@ export default function CoachingInquiryForm({
         <p className="text-sm leading-6 text-navy/50">Make sure the essentials look right. You can go back to adjust anything before sending.</p>
         <div className="grid gap-3 rounded-2xl bg-cream p-5 sm:grid-cols-2 sm:p-6">
           {[
-            ["Family", `${values.parentGuardianName} · ${values.childName}, age ${values.childAge}`],
+            ["Family", `${values.parentGuardianName} · ${values.childName}, ${values.childAge ? formatParticipantAge(Number(values.childAge)) : "age not selected"}`],
             ["Contact", `${values.email} · ${values.phone}`],
             ["Interest", values.sportActivity],
             ["Format", formatLabel(values.coachingFormat)],
@@ -271,7 +272,7 @@ export default function CoachingInquiryForm({
             ["Location & timing", `${values.neighborhoodLocation} · ${values.desiredStartTiming}`],
           ].map(([label, value]) => <div key={label} className="border-b border-navy/8 pb-3"><p className="text-[10px] font-extrabold uppercase tracking-[.16em] text-gold">{label}</p><p className="mt-1 text-sm leading-6 text-navy/70">{value}</p></div>)}
         </div>
-        <Field label="Additional notes" htmlFor="additionalNotes" helper="Optional—share anything else that would help us understand the request.">
+        <Field label="Additional notes" htmlFor="additionalNotes" helper="Optional. Share anything else that would help us understand the request.">
           <TextArea id="additionalNotes" name="additionalNotes" rows={4} value={values.additionalNotes} onChange={(e) => setValue("additionalNotes", e.target.value)} />
         </Field>
       </fieldset>

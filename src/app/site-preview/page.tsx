@@ -76,7 +76,7 @@ const miniFeatures = [
 /* ─── Photo service cards ─── */
 const serviceCards = [
   {
-    title: "Coaching & Groups",
+    title: "Coaching",
     description:
       "Ongoing coaching and small group sessions tailored to your goals.",
     image: "/images/lasw_slideshow_003.jpg",
@@ -85,7 +85,7 @@ const serviceCards = [
   {
     title: "Parties & Events",
     description:
-      "Unforgettable birthday parties and special events—zero stress.",
+      "Unforgettable birthday parties and special events. Zero stress.",
     image: "/images/lasw-photo-real-1.jpg",
     href: "/parties",
   },
@@ -431,10 +431,10 @@ export default async function HomePage() {
   return (
     <div className="bg-cream">
       {/* ══════════════════════════════════════
-          HERO — oval image on right, cream bg
+          HERO: oval image on right, cream background
       ══════════════════════════════════════ */}
       <section className="relative min-h-[640px] overflow-hidden bg-cream pt-20 lg:min-h-[740px]">
-        {/* SVG clipPath def — curved left edge for the hero photo (matches traced mockup line) */}
+        {/* SVG clipPath definition for the hero photo's curved left edge */}
         <svg aria-hidden="true" width="0" height="0" className="absolute">
           <defs>
             <clipPath id="hero-curve" clipPathUnits="objectBoundingBox">
@@ -448,7 +448,7 @@ export default async function HomePage() {
           </defs>
         </svg>
 
-        {/* Photo — desktop only, bleeds to top/right/bottom edges, curved left edge */}
+        {/* Desktop photo that bleeds to the top, right, and bottom edges */}
         <div
           aria-hidden="true"
           className="absolute inset-0 hidden lg:block"
@@ -542,19 +542,19 @@ export default async function HomePage() {
             </h1>
             <p className="mt-5 max-w-[330px] text-base leading-relaxed text-navy/60 sm:text-lg">
               We bring customized sports and kids&apos; activities straight to
-              your home, school, or community — full-service coaching and
-              planning for ages 2–14, anywhere in Los Angeles.
+              your home, school, or community. Full-service coaching and
+              planning for ages 6 months to 17 years, anywhere in Los Angeles.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/parties"
-                className="inline-flex items-center gap-2 rounded-lg bg-navy px-7 py-3.5 text-sm font-extrabold uppercase tracking-wide text-white transition hover:bg-navy-light"
+                className="button-gold"
               >
                 Book a Party <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/register"
-                className="inline-flex items-center gap-2 rounded-lg border-2 border-navy px-7 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy transition hover:bg-navy/5"
+                className="button-outline"
               >
                 View Schedule
               </Link>
@@ -678,7 +678,7 @@ export default async function HomePage() {
               </h2>
               <p className="mt-3 max-w-md text-base leading-relaxed text-navy/60">
                 We make it easy. Our turnkey mobile model brings everything to
-                you—coaches, equipment, and a whole lot of energy.
+                you: coaches, equipment, and a whole lot of energy.
               </p>
               <div className="mt-5 mb-8 h-0.5 w-12 rounded-full bg-gold" />
               <div className="space-y-6">
@@ -722,7 +722,7 @@ export default async function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
-          SOCIAL PROOF — 3 boxes
+          SOCIAL PROOF: 3 boxes
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -805,10 +805,10 @@ export default async function HomePage() {
               <p className="text-sm text-white/55">
                 or call{" "}
                 <Link
-                  href="tel:3105550199"
+                  href="tel:2133016226"
                   className="font-bold text-gold hover:underline"
                 >
-                  (310) 555-0199
+                  (213) 301-6226
                 </Link>
               </p>
             </div>

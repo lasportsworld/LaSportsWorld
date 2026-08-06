@@ -32,17 +32,17 @@ export default function InquiryShell({
         <div className="mt-7 grid gap-8 lg:grid-cols-[.78fr_1.22fr] lg:items-start lg:gap-12 xl:gap-16">
           <aside className="text-white lg:sticky lg:top-28 lg:pt-4">
             <p className="text-xs font-extrabold uppercase tracking-[.23em] text-gold">{eyebrow}</p>
-            <h1 className="mt-4 max-w-md font-condensed text-5xl font-extrabold uppercase leading-[.9] sm:text-6xl lg:text-[4.4rem] xl:text-7xl">{title}</h1>
+            <h1 className="mt-4 max-w-md font-condensed text-4xl font-extrabold uppercase leading-[.9] sm:text-6xl lg:text-[4.4rem] xl:text-7xl">{title}</h1>
             <p className="mt-5 max-w-md text-base leading-7 text-white/75">{description}</p>
-            <ul className="mt-7 grid gap-2.5 sm:grid-cols-2 lg:max-w-md lg:grid-cols-1">
+            <ul className="mt-7 hidden gap-2.5 sm:grid sm:grid-cols-2 lg:max-w-md lg:grid-cols-1">
               {highlights.map((item) => (
-                <li key={item} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.055] px-3.5 py-3 text-sm font-semibold text-white/85">
+                <li key={item} className="flex items-center gap-3 border-t border-white/12 py-3 text-sm font-semibold text-white/85">
                   <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-navy"><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 max-w-md border-l-2 border-gold pl-4 text-xs font-semibold leading-5 text-white/58">No commitment. Just enough context for a thoughtful recommendation.</p>
+            <p className="mt-6 hidden max-w-md border-l-2 border-gold pl-4 text-xs font-semibold leading-5 text-white/58 sm:block">No commitment. Just enough context for a thoughtful recommendation.</p>
           </aside>
 
           <div className="rounded-[2rem] border border-white/15 bg-white p-4 shadow-2xl shadow-black/25 sm:p-7 lg:p-8">

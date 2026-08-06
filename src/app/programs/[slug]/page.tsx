@@ -71,7 +71,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 <div className="bg-gold/10 border border-gold/20 rounded-3xl p-6">
                   <p className="text-white/80 text-sm leading-relaxed">
                     <span className="text-gold font-bold">Unique Partnership:</span> Our affiliate{" "}
-                    <strong>Basement Fitness</strong> gym gives us access to a full weight training and boxing facility — giving your youth athlete the complete training experience.
+                    <strong>Basement Fitness</strong> gym gives us access to a full weight training and boxing facility, supporting a more complete training experience.
                   </p>
                 </div>
               )}
@@ -88,7 +88,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 </p>
                 <Link
                   href="/registration"
-                  className="block text-center bg-gold text-navy font-bold uppercase tracking-wide px-6 py-4 rounded-full hover:bg-gold-light transition-colors mb-3"
+                  className="button-gold mb-3 w-full"
                 >
                   {program.cta}
                 </Link>

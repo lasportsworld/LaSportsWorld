@@ -1,4 +1,5 @@
 import { coachingFormatLabels, type CoachingInquiry } from "./coaching";
+import { formatParticipantAge } from "@/lib/participant-age";
 
 export type PreparedPipedriveInquiry = {
   person: {
@@ -29,7 +30,7 @@ export function prepareCoachingInquiryForPipedrive(inquiry: CoachingInquiry): Pr
   const customFields = {
     inquiryType: inquiry.inquiryType,
     childName: inquiry.childName,
-    childAge: inquiry.childAge,
+    childAge: formatParticipantAge(inquiry.childAge),
     sportActivity: inquiry.sportActivity,
     coachingFormat: formatLabel,
     approximateGroupSize: inquiry.approximateGroupSize,
@@ -47,7 +48,7 @@ export function prepareCoachingInquiryForPipedrive(inquiry: CoachingInquiry): Pr
     ["Parent / guardian", inquiry.parentGuardianName],
     ["Email", inquiry.email],
     ["Phone", inquiry.phone],
-    ["Child", `${inquiry.childName}, age ${inquiry.childAge}`],
+    ["Child", `${inquiry.childName}, ${formatParticipantAge(inquiry.childAge)}`],
     ["Sport / activity", inquiry.sportActivity],
     ["Coaching format", formatLabel],
     ...(inquiry.approximateGroupSize ? [["Approximate group size", inquiry.approximateGroupSize]] : []),
@@ -71,7 +72,7 @@ export function prepareCoachingInquiryForPipedrive(inquiry: CoachingInquiry): Pr
       phone: inquiry.phone,
     },
     deal: {
-      title: `Coaching Inquiry — ${inquiry.childName} — ${formatLabel}`,
+      title: `Coaching Inquiry: ${inquiry.childName} (${formatLabel})`,
       service: "Coaching",
       location: inquiry.neighborhoodLocation,
       customFields,

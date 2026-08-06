@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Camps | LA Sports World",
-  description: "Summer, Winter, Day, and Passover sports camps for youth ages 4–18 in Los Angeles.",
+  description: "Summer, winter, day, and Passover sports camps for young people in Los Angeles.",
 };
 
 export default function CampsPage() {
@@ -15,7 +15,7 @@ export default function CampsPage() {
     <>
       <PageHero
         title="Our Camps"
-        subtitle="Skill-building, fun, and memories that last a lifetime — across every season."
+        subtitle="Skill-building, fun, and lasting memories across every season."
         tag="Seasonal Programs"
         image="/images/Summer-Camp-Header-Image.jpg"
       />
@@ -52,12 +52,12 @@ export default function CampsPage() {
 
                   <div className="flex flex-wrap gap-2 mb-5">
                     {camp.sports.slice(0, 4).map((s) => (
-                      <span key={s} className="text-xs font-semibold text-white/50 border border-white/10 rounded-full px-3 py-1">
+                      <span key={s} className="text-xs font-semibold text-white/55">
                         {s}
                       </span>
                     ))}
                     {camp.sports.length > 4 && (
-                      <span className="text-xs font-semibold text-gold/70 border border-gold/20 rounded-full px-3 py-1">
+                      <span className="text-xs font-semibold text-gold/75">
                         +{camp.sports.length - 4} more
                       </span>
                     )}
@@ -74,7 +74,7 @@ export default function CampsPage() {
           <div className="text-center mt-14">
             <Link
               href="/registration"
-              className="inline-block bg-gold text-navy font-bold uppercase tracking-wide px-10 py-4 rounded-full hover:bg-gold-light transition-colors text-base"
+              className="button-gold"
             >
               Register for Camp
             </Link>

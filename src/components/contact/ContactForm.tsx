@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Send } from "lucide-react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
+import { participantAgeOptions } from "@/lib/participant-age";
 
 const initialState: ContactFormState = { status: "idle" };
 
@@ -44,12 +45,12 @@ export default function ContactForm({
       <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
         <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Coaching Inquiry</p>
         <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Request Coaching form</h3>
-        <p className="text-white/60 text-sm leading-relaxed">Our coaching form asks the right questions about your child, goals, format, and schedule so we can recommend a useful next step.</p>
+        <p className="text-white/60 text-sm leading-relaxed">Share your child’s goals, preferred format, and schedule so we can recommend the right setup.</p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <Link href="/coaching/request?source=contact" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light">
+          <Link href="/coaching/request?source=contact" className="button-gold">
             Request Coaching <ArrowRight className="h-4 w-4" />
           </Link>
-          <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white">Choose something else</button>
+          <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Choose something else</button>
         </div>
       </div>
     );
@@ -71,14 +72,14 @@ export default function ContactForm({
         <div className="flex flex-wrap gap-3 pt-2">
           <Link
             href="/schools-organizations"
-            className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light"
+            className="button-gold"
           >
             Go to Organization Form <ArrowRight className="h-4 w-4" />
           </Link>
           <button
             type="button"
             onClick={() => setService("")}
-            className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white"
+            className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
           >
             Choose something else
           </button>
@@ -97,10 +98,10 @@ export default function ContactForm({
           Got It!
         </h3>
         <p className="text-white/60 max-w-xs">
-          Thanks for reaching out — we&apos;ll be in touch soon. For anything urgent,
+          Thanks for reaching out. We&apos;ll be in touch soon. For anything urgent,
           call us at{" "}
-          <a href="tel:3105550199" className="text-gold hover:underline">
-            (310) 555-0199
+          <a href="tel:2133016226" className="text-gold hover:underline">
+            (213) 301-6226
           </a>
           .
         </p>
@@ -135,8 +136,9 @@ export default function ContactForm({
       <input type="hidden" name="timestamp" value={new Date().toISOString()} />
 
       <div>
-        <label className={labelClass}>What do you need? *</label>
+        <label htmlFor="service" className={labelClass}>What do you need? *</label>
         <select
+          id="service"
           name="service"
           required
           value={service}
@@ -155,51 +157,57 @@ export default function ContactForm({
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>First Name *</label>
-              <input name="firstName" required placeholder="Your first name" className={inputClass} />
+              <label htmlFor="firstName" className={labelClass}>First Name *</label>
+              <input id="firstName" name="firstName" required autoComplete="given-name" placeholder="Your first name" className={inputClass} />
             </div>
             <div>
-              <label className={labelClass}>Phone *</label>
+              <label htmlFor="contactPhone" className={labelClass}>Phone *</label>
               <input
+                id="contactPhone"
                 type="tel"
                 name="phone"
                 required
-                placeholder="(310) 555-0199"
+                autoComplete="tel"
+                placeholder="(213) 301-6226"
                 className={inputClass}
               />
             </div>
           </div>
 
           <div>
-            <label className={labelClass}>Email (optional)</label>
-            <input type="email" name="email" placeholder="your@email.com" className={inputClass} />
+            <label htmlFor="contactEmail" className={labelClass}>Email (optional)</label>
+            <input id="contactEmail" type="email" name="email" autoComplete="email" placeholder="your@email.com" className={inputClass} />
           </div>
 
           {service === "birthday-party" && (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className={labelClass}>Event Date</label>
-                  <input type="date" name="field_event_date" className={inputClass} />
+                  <label htmlFor="eventDate" className={labelClass}>Event Date</label>
+                  <input id="eventDate" type="date" name="field_event_date" className={inputClass} />
                 </div>
                 <div>
-                  <label className={labelClass}>Neighborhood</label>
-                  <input name="field_neighborhood" className={inputClass} />
+                  <label htmlFor="neighborhood" className={labelClass}>Neighborhood</label>
+                  <input id="neighborhood" name="field_neighborhood" className={inputClass} />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className={labelClass}>Child&apos;s Age</label>
-                  <input name="field_child_age" className={inputClass} />
+                  <label htmlFor="partyChildAge" className={labelClass}>Child&apos;s Age</label>
+                  <select id="partyChildAge" name="field_child_age" className={inputClass} defaultValue="">
+                    <option value="">Choose age...</option>
+                    {participantAgeOptions.map((age) => <option key={age.value} value={age.label}>{age.label}</option>)}
+                  </select>
                 </div>
                 <div>
-                  <label className={labelClass}>Estimated Guest Count</label>
-                  <input type="number" name="field_guest_count" className={inputClass} />
+                  <label htmlFor="guestCount" className={labelClass}>Estimated Guest Count</label>
+                  <input id="guestCount" type="number" min="1" name="field_guest_count" className={inputClass} />
                 </div>
               </div>
               <div>
-                <label className={labelClass}>Activity Interests</label>
+                <label htmlFor="activityInterests" className={labelClass}>Activity Interests</label>
                 <input
+                  id="activityInterests"
                   name="field_activity_interests"
                   placeholder="e.g. basketball, soft play"
                   className={inputClass}
@@ -209,10 +217,11 @@ export default function ContactForm({
           )}
 
           <div>
-            <label className={labelClass}>
+            <label htmlFor="details" className={labelClass}>
               {service === "general" ? "Message *" : "Anything else we should know?"}
             </label>
             <textarea
+              id="details"
               name="details"
               required={service === "general"}
               rows={4}
@@ -224,13 +233,13 @@ export default function ContactForm({
           <button
             type="submit"
             disabled={isPending}
-            className="w-full flex items-center justify-center gap-2 bg-gold text-navy font-bold uppercase tracking-wide px-6 py-4 rounded-full hover:bg-gold-light transition-colors disabled:opacity-70"
+            className="button-gold w-full disabled:opacity-70"
           >
             {isPending ? (
               "Sending..."
             ) : (
               <>
-                Submit <Send className="w-4 h-4" />
+                Send Inquiry <Send className="w-4 h-4" />
               </>
             )}
           </button>

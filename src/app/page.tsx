@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import PipedriveForm from "@/components/shared/PipedriveForm";
 
 const parentServices = [
   "Birthday parties",
   "Private coaching",
-  "Small groups & pods",
+  "Group Coaching & Pods",
   "Classes & camps",
   "Event activities",
   "Soft play setups",
@@ -50,9 +50,8 @@ export default function HomePage() {
               Parties, coaching & programs while our full site is being built
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-6 text-white/80 sm:text-base">
-              Tell us about your child, group, or upcoming event — birthday parties, private
-              coaching, small groups, or general questions. We will follow up with the right
-              options.
+              Tell us about your child, group, or upcoming event. We will follow up with the
+              right options.
             </p>
 
             <div className="mt-4 rounded-xl border-2 border-gold/70 bg-white/10 p-4 shadow-xl shadow-black/20">
@@ -67,7 +66,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/schools-organizations"
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3 text-xs font-extrabold uppercase tracking-wide text-navy transition hover:bg-gold-light sm:w-auto"
+                className="button-gold mt-3 w-full sm:w-auto"
               >
                 Go to Organization Form <ArrowRight className="h-4 w-4" />
               </Link>
@@ -75,8 +74,8 @@ export default function HomePage() {
 
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
               {parentServices.map((service) => (
-                <div key={service} className="rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-white/85 sm:text-sm">
-                  {service}
+                <div key={service} className="flex items-center gap-2 border-t border-white/15 py-2 text-xs font-bold text-white/85 sm:text-sm">
+                  <Check className="h-4 w-4 shrink-0 text-gold" /> {service}
                 </div>
               ))}
             </div>

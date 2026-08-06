@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "School PE Programs | LA Sports World",
   description:
-    "Structured, high-quality physical education programming delivered directly at your school — recurring, supplemental, or temporary coverage.",
+    "Structured physical education programming delivered directly at your school. Choose recurring, supplemental, or temporary coverage.",
 };
 
 const situations = [
@@ -76,7 +76,7 @@ export default function SchoolPEPage() {
             {programDesign.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-navy/10 bg-white px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-cream-dark px-4 py-2 text-sm font-semibold text-navy/75"
               >
                 {item}
               </span>
@@ -116,8 +116,8 @@ export default function SchoolPEPage() {
             stepping in front of your students.
           </p>
           <Link
-            href="/schools-organizations#organization-form"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            href="/schools-organizations#organization-inquiry"
+            className="button-gold mt-7"
           >
             Discuss a PE Program <ArrowRight className="h-4 w-4" />
           </Link>

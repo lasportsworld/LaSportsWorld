@@ -21,7 +21,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
       <div className="mt-10 flex flex-wrap justify-center gap-4">
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-gold-dark"
+          className="button-gold"
         >
           Get in Touch <ArrowRight className="h-4 w-4" />
         </Link>

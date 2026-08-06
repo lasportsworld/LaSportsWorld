@@ -52,7 +52,7 @@ export default function EnrichmentPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-navy/65">
             LA Sports World runs after-school and enrichment programming that keeps
-            kids active, engaged, and having fun — built around your school or
+            kids active, engaged, and having fun. Each program is built around your school or
             organization&apos;s schedule and space.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function EnrichmentPage() {
             {formats.map((f) => (
               <span
                 key={f}
-                className="rounded-full border border-navy/10 bg-white px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-cream-dark px-4 py-2 text-sm font-semibold text-navy/75"
               >
                 {f}
               </span>
@@ -91,7 +91,7 @@ export default function EnrichmentPage() {
             {customization.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-navy/10 bg-cream px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-navy/[.055] px-4 py-2.5 text-sm font-semibold text-navy/72"
               >
                 {item}
               </span>
@@ -137,8 +137,8 @@ export default function EnrichmentPage() {
             options.
           </p>
           <Link
-            href="/schools-organizations#organization-form"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            href="/schools-organizations#organization-inquiry"
+            className="button-gold mt-7"
           >
             Discuss an Enrichment Program <ArrowRight className="h-4 w-4" />
           </Link>

@@ -98,7 +98,7 @@ export default function OrganizationsPage() {
           <div className="lg:sticky lg:top-28">
             <p className="text-xs font-extrabold uppercase tracking-[.22em] text-navy/60">Start a conversation</p>
             <h2 className="mt-4 font-condensed text-5xl font-extrabold uppercase leading-[.9] text-navy sm:text-6xl">Tell us what your organization needs</h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-navy/70">Share the setting, audience, timing, and idea—even if the details are still taking shape. We’ll follow up with the right questions.</p>
+            <p className="mt-5 max-w-md text-base leading-7 text-navy/70">Share the setting, audience, timing, and idea, even if the details are still taking shape. We’ll follow up with the right questions.</p>
           </div>
           <div className="rounded-[2rem] bg-white p-5 text-navy shadow-2xl sm:p-8">
             <PipedriveForm url="https://webforms.pipedrive.com/f/ctvPPCETdHiUDx8lpCntp6bkeHLKe8VLkJ6L1brOmpFBrRfjz3OvC08Ow4DEQXSHEn" />

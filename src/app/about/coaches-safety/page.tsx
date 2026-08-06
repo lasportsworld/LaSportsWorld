@@ -36,7 +36,7 @@ export default function CoachStandardsPage() {
 
       <EditorialSplit
         eyebrow="The standard"
-        title="A coach kids want to learn from—and adults can rely on"
+        title="A coach kids want to learn from and adults can rely on"
         image="/images/lasw_slideshow_004.jpg"
         imageAlt="Coach guiding a young athlete"
         imagePosition="center 30%"

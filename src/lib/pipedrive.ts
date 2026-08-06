@@ -1,6 +1,6 @@
 const PIPEDRIVE_BASE = "https://api.pipedrive.com/v1";
 
-// Existing Pipedrive account structure (LA Sports World) — confirmed via read-only
+// Existing Pipedrive account structure (LA Sports World), confirmed via read-only
 // API calls before building this integration, so we reuse what's already there
 // instead of creating duplicate fields/labels.
 export const PRIVATE_EVENTS_PIPELINE_ID = 3;
@@ -9,7 +9,7 @@ export const PRIVATE_EVENTS_LEAD_STAGE_ID = 14;
 export const DEAL_LABEL_IDS = {
   privateCoaching: 43,
   birthdayParty: 44,
-  general: 46, // "LASW Program" — reused as the generic/general-question label
+  general: 46, // "LASW Program" reused as the generic/general-question label
 } as const;
 
 function apiToken() {

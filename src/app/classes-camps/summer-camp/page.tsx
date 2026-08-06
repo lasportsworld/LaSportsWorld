@@ -33,7 +33,7 @@ export default function SummerCampPage() {
     <>
       <PageHero
         title="Summer Camp"
-        subtitle="Our summer programming is being developed — here's how to be first in line."
+        subtitle="Our summer programming is being developed. Here is how to be first in line."
         tag="Coming for Summer"
         image="/images/Summer-Camp-Header-Image.jpg"
       />
@@ -44,7 +44,7 @@ export default function SummerCampPage() {
             We&apos;re building out a summer camp program with active, multi-sport
             programming designed to build skills and confidence over the break.
             Dates, location, and pricing aren&apos;t finalized yet, so we&apos;re not
-            publishing details until they&apos;re confirmed — but you can join the
+            publishing details until they&apos;re confirmed. You can join the
             interest list below and we&apos;ll reach out as soon as things are locked
             in.
           </p>
@@ -93,7 +93,7 @@ export default function SummerCampPage() {
                   {opt.desc}
                 </p>
                 <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-navy transition group-hover:text-gold">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
+                  Join the Interest List <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </Link>
             ))}

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/data/content";
 
 const services = [
-  { label: "Coaching & Groups", href: "/coaching" },
+  { label: "Coaching", href: "/coaching" },
   { label: "Parties & Events", href: "/parties" },
   { label: "Classes & Camps", href: "/classes-camps" },
   { label: "Schools & Organizations", href: "/schools-organizations" },
@@ -12,7 +13,7 @@ const services = [
 
 const aboutLinks = [
   { label: "Our Story", href: "/about" },
-  { label: "Our Coaches", href: "/about/coaches-safety" },
+  { label: "Our Team", href: "/about#coaches" },
   { label: "Service Area", href: "/about/service-area" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
@@ -24,26 +25,6 @@ function InstagramIcon() {
       <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
       <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" />
-    </svg>
-  );
-}
-
-function FacebookIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function YouTubeIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
-      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
-        stroke="currentColor" strokeWidth="2" />
-      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
-        stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -81,9 +62,7 @@ export default function Footer() {
             <div className="mt-6 flex gap-3">
               {[
                 { href: "https://www.instagram.com/lasportsworld/", label: "Instagram", icon: <InstagramIcon /> },
-                { href: "#", label: "Facebook", icon: <FacebookIcon /> },
-                { href: "#", label: "YouTube", icon: <YouTubeIcon /> },
-                { href: "mailto:hello@lasportsworld.com", label: "Email", icon: <MailIcon /> },
+                { href: `mailto:${siteConfig.email}`, label: "Email", icon: <MailIcon /> },
               ].map(({ href, label, icon }) => (
                 <a
                   key={label}
@@ -138,15 +117,15 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5 text-sm text-white/60">
               <li>
-                <Link href="tel:3105550199" className="flex items-center gap-3 transition hover:text-white">
+                <Link href="tel:2133016226" className="flex items-center gap-3 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
                   <Phone className="h-4 w-4 shrink-0 text-gold" />
-                  (310) 555-0199
+                  (213) 301-6226
                 </Link>
               </li>
               <li>
-                <Link href="mailto:hello@lasportsworld.com" className="flex items-center gap-3 transition hover:text-white">
+                <Link href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 transition hover:text-white">
                   <Mail className="h-4 w-4 shrink-0 text-gold" />
-                  hello@lasportsworld.com
+                  {siteConfig.email}
                 </Link>
               </li>
               <li className="flex items-start gap-3">

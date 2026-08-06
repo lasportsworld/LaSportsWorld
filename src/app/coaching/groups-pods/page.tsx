@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Group Coaching & Pods | LA Sports World",
   description:
-    "Bring an existing group or let us help form one — flexible, recurring group coaching delivered wherever you are.",
+    "Bring an existing group or let us help form one. Flexible, recurring group coaching delivered wherever you are.",
 };
 
 const groupNeeds = [
@@ -51,7 +51,7 @@ export default function GroupCoachingAndPodsPage() {
     <>
       <PageHero
         title="Group Coaching & Pods"
-        subtitle="Bring an existing group, or let us help you form one — recurring coaching for kids who train better together."
+        subtitle="Bring an existing group, or let us help you form one. Recurring coaching for kids who train better together."
         tag="Coaching"
         image="/images/hero-kids-group.jpg"
       />
@@ -59,9 +59,9 @@ export default function GroupCoachingAndPodsPage() {
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-navy/65">
-            You can bring an existing group of friends, teammates, or classmates —
+            You can bring an existing group of friends, teammates, or classmates.
             or ask us to help form one. You may know this kind of recurring group
-            programming as a &ldquo;pod&rdquo; — it&apos;s the same thing, just a
+            programming as a &ldquo;pod.&rdquo; It&apos;s the same thing, just a
             familiar name for parents who&apos;ve organized one before.
           </p>
         </div>
@@ -99,7 +99,7 @@ export default function GroupCoachingAndPodsPage() {
             {design.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-navy/10 bg-cream px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-navy/[.055] px-4 py-2.5 text-sm font-semibold text-navy/72"
               >
                 {item}
               </span>
@@ -147,12 +147,12 @@ export default function GroupCoachingAndPodsPage() {
             Have a group in mind?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/65">
-            Tell us about your group — existing or one we can help you form — and
+            Tell us about your group, whether it already exists or is one we can help you form, and
             we&apos;ll follow up with a plan.
           </p>
           <Link
             href="/coaching/request?format=group&source=group-coaching-pods"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            className="button-gold mt-7"
           >
             Plan a Group <ArrowRight className="h-4 w-4" />
           </Link>

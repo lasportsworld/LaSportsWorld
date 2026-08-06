@@ -18,7 +18,7 @@ const programs: Record<string, { title: string; description: string; image?: str
   },
   "day-camp": {
     title: "Day Camp",
-    description: "Flexible sessions for school-off days — one day or a full week.",
+    description: "Flexible sessions for school-off days, from one day to a full week.",
     image: "/images/Day-Camp-Header-Image.jpg",
   },
   "passover-camp": {
@@ -27,13 +27,13 @@ const programs: Record<string, { title: string; description: string; image?: str
     image: "/images/Passover-Camp-Header-Image-3.jpg",
   },
   "private-lessons": {
-    title: "Private Lessons",
-    description: "1-on-1 coaching for any sport, any age.",
+    title: "Private Coaching",
+    description: "One-on-one coaching for children ages 6 months to 17 years.",
     image: "/images/LASW_Private_Lessons_Header_Image.jpg",
   },
   "clinics": {
-    title: "Clinics",
-    description: "8–10 week group training programs for 6+ athletes.",
+    title: "Group Coaching & Pods",
+    description: "Recurring small-group coaching for six or more athletes.",
     image: "/images/LASW_Clinics_Header_Image.jpg",
   },
   "parties": {

@@ -94,7 +94,7 @@ export default async function CampDetailPage({ params }: { params: Promise<{ slu
                 </p>
                 <Link
                   href="/registration"
-                  className="block text-center bg-gold text-navy font-bold uppercase tracking-wide px-6 py-4 rounded-full hover:bg-gold-light transition-colors"
+                  className="button-gold w-full"
                 >
                   Register Now
                 </Link>

@@ -29,7 +29,7 @@ export default function SawyerEmbed({
     const container = containerRef.current;
     if (!src || !container) return;
 
-    // Guards against injecting the widget twice for the same src — React's
+    // Guards against injecting the widget twice for the same src. React's
     // dev-mode Strict Mode runs this effect (mount -> cleanup -> mount) once
     // as a diagnostic, and since Sawyer's script is async, an early cleanup
     // doesn't reliably cancel it, causing the widget to render twice.
@@ -61,9 +61,9 @@ export default function SawyerEmbed({
         </p>
         <Link
           href="/contact"
-          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-navy-light"
+          className="button-gold mt-5"
         >
-          Contact Us <ArrowRight className="h-4 w-4" />
+          Ask About This Program <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     );

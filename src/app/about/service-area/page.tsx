@@ -49,7 +49,7 @@ export default function ServiceAreaPage() {
             {coreNeighborhoods.map((n) => (
               <span
                 key={n}
-                className="rounded-full border border-navy/10 bg-cream px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-navy/[.055] px-4 py-2.5 text-sm font-semibold text-navy/72"
               >
                 {n}
               </span>
@@ -57,7 +57,7 @@ export default function ServiceAreaPage() {
           </div>
           <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-navy/55">
             Don&apos;t see your neighborhood? Broader Los Angeles service may still
-            be available depending on the program, schedule, travel, and cost —
+            be available depending on the program, schedule, travel, and cost.
             just ask.
           </p>
         </div>
@@ -88,12 +88,12 @@ export default function ServiceAreaPage() {
             Check your location
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/65">
-            Tell us your city or ZIP code and what you&apos;re looking for — we&apos;ll
+            Tell us your city or ZIP code and what you&apos;re looking for. We&apos;ll
             let you know what&apos;s possible.
           </p>
           <Link
             href="/contact?service=general"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            className="button-gold mt-7"
           >
             Check Your Location <ArrowRight className="h-4 w-4" />
           </Link>

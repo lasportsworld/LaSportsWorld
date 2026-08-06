@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Camps & Activity Programming | LA Sports World",
   description:
-    "Activity blocks, clinics, and programming that supplement an existing camp or organization — not a full camp takeover.",
+    "Activity blocks, clinics, and programming that supplement an existing camp or organization without requiring a full camp takeover.",
 };
 
 const programOptions = [
@@ -40,7 +40,7 @@ export default function OrgCampsPage() {
     <>
       <PageHero
         title="Camps & Activity Programming"
-        subtitle="Activity blocks, clinics, and programming that supplement your camp — we don't need to run the whole thing."
+        subtitle="Activity blocks, clinics, and programming that supplement your camp. We do not need to run the whole thing."
         tag="Schools & Organizations"
         image="/images/Day-Camp-Header-Image.jpg"
       />
@@ -50,7 +50,7 @@ export default function OrgCampsPage() {
           <p className="text-base leading-relaxed text-navy/65">
             Running a camp or program already and just need help with the sports
             and activity side? LA Sports World can supplement what you&apos;re
-            already running — bringing coaches, equipment, and structure for the
+            already running. We bring coaches, equipment, and structure for the
             parts you want covered.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function OrgCampsPage() {
             {customization.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-navy/10 bg-cream px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-navy/[.055] px-4 py-2.5 text-sm font-semibold text-navy/72"
               >
                 {item}
               </span>
@@ -128,8 +128,8 @@ export default function OrgCampsPage() {
             Tell us what you&apos;re already running and where you need support.
           </p>
           <Link
-            href="/schools-organizations#organization-form"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            href="/schools-organizations#organization-inquiry"
+            className="button-gold mt-7"
           >
             Discuss Camp Programming <ArrowRight className="h-4 w-4" />
           </Link>

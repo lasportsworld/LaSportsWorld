@@ -168,7 +168,7 @@ export function EditorialSplit({
         <div className={`relative ${reverse ? "lg:order-2" : ""}`}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/15 sm:aspect-[5/4] lg:aspect-[4/5]">
             {image ? (
-              <Image src={image} alt={imageAlt} fill className="object-cover transition duration-700 hover:scale-[1.025]" style={{ objectPosition: imagePosition }} sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src={image} alt={imageAlt} fill className="object-cover" style={{ objectPosition: imagePosition }} sizes="(max-width: 1024px) 100vw, 50vw" />
             ) : (
               <PhotoPlaceholder dark={dark} className="absolute inset-0" />
             )}
@@ -209,7 +209,7 @@ export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; d
             {(item.image || item.showImagePlaceholder) && (
               <div className="relative h-56 overflow-hidden">
                 {item.image ? (
-                  <Image src={item.image} alt="" fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <Image src={item.image} alt="" fill className={`object-cover ${item.href ? "transition duration-500 group-hover:scale-[1.025]" : ""}`} sizes="(max-width: 768px) 100vw, 50vw" />
                 ) : (
                   <PhotoPlaceholder dark={dark} className="absolute inset-0" />
                 )}
@@ -226,7 +226,7 @@ export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; d
             </div>
           </>
         );
-        const className = `group overflow-hidden rounded-[1.5rem] border transition duration-300 hover:-translate-y-1 hover:shadow-xl ${dark ? "border-white/10 bg-white/[.055]" : "border-navy/8 bg-white"}`;
+        const className = `group overflow-hidden rounded-[1.5rem] border ${item.href ? "transition duration-200 hover:border-gold/45 hover:shadow-lg focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-gold" : ""} ${dark ? "border-white/10 bg-white/[.055]" : "border-navy/8 bg-white"}`;
         return item.href ? <Link key={item.title} href={item.href} className={className}>{content}</Link> : <article key={item.title} className={className}>{content}</article>;
       })}
     </div>

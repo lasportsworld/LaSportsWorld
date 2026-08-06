@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Gallery | LA Sports World",
-  description: "Photos from LA Sports World camps, clinics, and training sessions.",
+  description: "Photos from LA Sports World camps, coaching, and activity programs.",
 };
 
 export default function GalleryPage() {

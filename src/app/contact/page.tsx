@@ -1,4 +1,4 @@
-import { MapPin, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
 import ContactForm from "@/components/contact/ContactForm";
 import { siteConfig } from "@/lib/data/content";
@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us | LA Sports World",
-  description: "Get in touch with LA Sports World about programs, camps, and private lessons.",
+  description: "Get in touch with LA Sports World about coaching, parties, classes, camps, and organization programs.",
 };
 
 interface ContactPageProps {
@@ -37,15 +37,15 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <div className="space-y-8">
               <div>
                 <h2 className="font-condensed font-bold text-white text-4xl uppercase mb-6">
-                  Get in Touch
+                  Contact LA Sports World
                 </h2>
                 <p className="text-white/60 leading-relaxed">
-                  Whether you have questions about registration, want to book a party, or just want to learn more — reach out and we&apos;ll get back to you quickly.
+                  Ask about registration, plan a party, or tell us what kind of program you need. We&apos;ll route your message to the right next step.
                 </p>
               </div>
 
               <div className="space-y-5">
-                <div className="flex items-start gap-4 p-5 bg-navy-light border border-white/10 rounded-2xl">
+                <div className="flex items-start gap-4 border-t border-white/15 py-5">
                   <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-gold" />
                   </div>
@@ -59,23 +59,23 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-5 bg-navy-light border border-white/10 rounded-2xl">
+                <div className="flex items-start gap-4 border-t border-white/15 py-5">
                   <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5 text-gold" />
                   </div>
                   <div>
                     <p className="font-semibold text-white text-sm mb-1">Email</p>
-                    <p className="text-white/60 text-sm">{siteConfig.email}</p>
+                    <a className="text-sm text-white/60 transition hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-5 bg-navy-light border border-white/10 rounded-2xl">
+                <div className="flex items-start gap-4 border-y border-white/15 py-5">
                   <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-gold" />
+                    <Phone className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white text-sm mb-1">What happens next</p>
-                    <p className="text-white/60 text-sm">We review your message and follow up with the right next step.</p>
+                    <p className="font-semibold text-white text-sm mb-1">Phone</p>
+                    <a className="text-sm text-white/60 transition hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href="tel:2133016226">(213) 301-6226</a>
                   </div>
                 </div>
               </div>

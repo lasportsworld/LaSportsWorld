@@ -36,7 +36,7 @@ export default function BirthdayPartiesPage() {
       <ServiceHero
         eyebrow="Parties & Events"
         title="A party they’ll talk about all year"
-        description="Organized sports, games, and joyful chaos—expertly led at your park, home, backyard, or venue."
+        description="Organized sports and games, expertly led at your park, home, backyard, or venue."
         image="/images/LASW_Parties_Header_Image.jpg"
         imageAlt="Children enjoying an LA Sports World birthday party"
         imagePosition="center 42%"

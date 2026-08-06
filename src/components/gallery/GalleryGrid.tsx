@@ -52,20 +52,17 @@ export default function GalleryGrid() {
             {filtered.map((img, i) => (
               <div
                 key={img.src}
-                className="break-inside-avoid rounded-2xl overflow-hidden border border-white/10 hover:border-gold/40 transition-all group relative"
+                className="relative break-inside-avoid overflow-hidden rounded-2xl border border-white/10"
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
                   width={600}
                   height={i % 3 === 0 ? 500 : 380}
-                  className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span className="text-white text-sm font-semibold">{img.alt}</span>
-                </div>
                 <div className="absolute top-3 right-3">
-                  <span className="bg-gold/90 text-navy text-xs font-bold uppercase px-2.5 py-1 rounded-full">
+                  <span className="rounded-md bg-navy/70 px-2.5 py-1 text-xs font-bold uppercase text-white/80 backdrop-blur-sm">
                     {img.category}
                   </span>
                 </div>

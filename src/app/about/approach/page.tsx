@@ -59,7 +59,7 @@ export default function OurApproachPage() {
           <p className="text-base leading-relaxed text-navy/65">
             Our core philosophy is simple: meet kids and groups where they are, keep
             them engaged, and adapt the experience as we go. That means the plan
-            changes based on the athlete in front of us — not the other way around.
+            changes based on the athlete in front of us, not the other way around.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function OurApproachPage() {
             {planning.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-navy/10 bg-cream px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-navy/[.055] px-4 py-2.5 text-sm font-semibold text-navy/72"
               >
                 {item}
               </span>

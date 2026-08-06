@@ -51,7 +51,7 @@ const formats = [
 ];
 
 const customizable = [
-  { icon: Sliders, title: "Sport & experience", description: "Choose the sport and start at the right level—from first exposure to focused refinement." },
+  { icon: Sliders, title: "Sport & experience", description: "Choose the sport and start at the right level, from first exposure to focused refinement." },
   { icon: Target, title: "Confidence & goals", description: "Shape sessions around engagement, specific skills, and the progress that matters most." },
   { icon: Users, title: "Group size", description: "Keep the attention one-on-one or build the right small-group dynamic." },
   { icon: MapPin, title: "Location", description: "Meet at your home, a local park, or another agreed setting that supports the session." },
@@ -82,7 +82,7 @@ export default function CoachingPage() {
 
       <EditorialSplit
         eyebrow="What LASW coaching means"
-        title="Built around the child—or the group—in front of us"
+        title="Built around the child or group in front of us"
         imageAlt="Future photo showing LA Sports World coaching"
         accent="Flexible by design"
       >
@@ -100,7 +100,7 @@ export default function CoachingPage() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             {formats.map((format) => (
-              <article key={format.title} className="group overflow-hidden rounded-[1.75rem] border border-navy/10 bg-cream shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <article key={format.title} className="overflow-hidden rounded-[1.75rem] border border-navy/10 bg-cream shadow-sm">
                 <PhotoPlaceholder className="h-64 border-0 border-b border-navy/10 sm:h-72" />
                 <div className="p-6 sm:p-8">
                   <p className="font-condensed text-6xl font-extrabold leading-none text-gold/25">{format.number}</p>
@@ -115,7 +115,7 @@ export default function CoachingPage() {
                     ))}
                   </dl>
                   <Link href={format.href} className="mt-7 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.14em] text-navy transition hover:text-gold">
-                    Explore {format.title} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    Explore {format.title} <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </article>
@@ -139,7 +139,7 @@ export default function CoachingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <SectionHeading eyebrow="What happens after you reach out" title="A simple path to the right setup" description="You do not need to know the perfect format before contacting us. We use a clear five-step process to make the recommendation together." />
-            <p className="font-condensed text-7xl font-extrabold leading-none text-gold/20 sm:text-8xl">01—05</p>
+            <p className="font-condensed text-7xl font-extrabold leading-none text-gold/20 sm:text-8xl">01–05</p>
           </div>
           <ProcessTimeline steps={steps} />
         </div>
@@ -152,10 +152,9 @@ export default function CoachingPage() {
         reverse
         dark
       >
-        <p>We look for coaches who can connect with kids, communicate clearly, and create the conditions for confident progress—not simply demonstrate a sport.</p>
+        <p>We look for coaches who connect with kids, communicate clearly, and create the conditions for confident progress, not simply demonstrate a sport.</p>
         <Checklist light items={["Live Scanned & background checked", "Thoughtful coach matching", "Confidence-building approach", "Quality equipment & preparation"]} />
-        <p className="border-l-2 border-gold pl-5 font-condensed text-2xl font-bold uppercase leading-tight text-white">Safe, professional, prepared—and fully present with the child or group.</p>
-        <Link href="/coaching/request?source=coaching-overview" className="button-gold">Request Coaching <ArrowRight className="h-4 w-4" /></Link>
+        <p className="border-l-2 border-gold pl-5 font-condensed text-2xl font-bold uppercase leading-tight text-white">Safe, professional, prepared, and fully present with the child or group.</p>
         <Link href="#formats" className="ml-1 inline-flex items-center text-xs font-extrabold uppercase tracking-[.14em] text-white/60 transition hover:text-gold">Review the two formats</Link>
       </EditorialSplit>
 

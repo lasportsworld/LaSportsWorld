@@ -67,7 +67,7 @@ export async function submitContactForm(
     const personId = await findOrCreatePerson({ name: firstName, email, phone });
 
     const dealId = await createDeal({
-      title: `${serviceLabel} — ${firstName}`,
+      title: `${serviceLabel}: ${firstName}`,
       personId,
       labelId,
       eventDate: rawFields.field_event_date,

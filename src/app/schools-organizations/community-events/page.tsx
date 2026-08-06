@@ -47,7 +47,7 @@ export default function CommunityEventsPage() {
           <p className="text-base leading-relaxed text-navy/65">
             Planning a fundraiser, community gathering, or organizational event?
             LA Sports World can create and run a dedicated children&apos;s activity
-            area — so kids stay engaged while the rest of your event runs smoothly.
+            area, so kids stay engaged while the rest of your event runs smoothly.
           </p>
         </div>
       </section>
@@ -64,7 +64,7 @@ export default function CommunityEventsPage() {
             {components.map((c) => (
               <span
                 key={c}
-                className="rounded-full border border-navy/10 bg-white px-5 py-2.5 text-sm font-bold text-navy"
+                className="rounded-md bg-cream-dark px-4 py-2 text-sm font-semibold text-navy/75"
               >
                 {c}
               </span>
@@ -124,8 +124,8 @@ export default function CommunityEventsPage() {
             Tell us about your event and what you have in mind.
           </p>
           <Link
-            href="/schools-organizations#organization-form"
-            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
+            href="/schools-organizations#organization-inquiry"
+            className="button-gold mt-7"
           >
             Discuss an Event <ArrowRight className="h-4 w-4" />
           </Link>

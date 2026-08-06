@@ -80,7 +80,7 @@ export function validateCoachingInquiry(formData: FormData): ValidationResult {
   if (!/^\S+@\S+\.\S+$/.test(email)) errors.email = "Enter a valid email address.";
   if (phone.replace(/\D/g, "").length < 10) errors.phone = "Enter a valid phone number.";
   if (childName.length < 2) errors.childName = "Enter the child’s name.";
-  if (!Number.isInteger(childAge) || childAge < 2 || childAge > 18) errors.childAge = "Enter an age from 2 to 18.";
+  if (!isSupportedParticipantAge(childAge)) errors.childAge = "Choose an age from 6 months to 17 years.";
   if (!sportActivity) errors.sportActivity = "Tell us the sport or activity of interest.";
   if (!formatSet.has(coachingFormatValue)) errors.coachingFormat = "Choose a coaching format.";
   if (coachingFormatValue === "group") {
@@ -130,3 +130,4 @@ export const coachingFormatLabels: Record<CoachingFormat, string> = {
   group: "Group Coaching & Pods",
   unsure: "Not sure / help me choose",
 };
+import { isSupportedParticipantAge } from "@/lib/participant-age";

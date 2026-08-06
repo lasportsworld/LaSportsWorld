@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Holiday Camps | LA Sports World",
   description:
-    "Limited-time day camps around school breaks and holidays — active, structured coverage when school is out.",
+    "Limited-time day camps around school breaks and holidays. Active, structured coverage when school is out.",
 };
 
 const expectations = [
@@ -24,7 +24,7 @@ const expectations = [
   {
     icon: Backpack,
     title: "Equipment provided",
-    desc: "We bring everything needed — just send your camper ready to move.",
+    desc: "We bring the equipment. Send your camper ready to move.",
   },
   {
     icon: ShieldCheck,
@@ -48,7 +48,7 @@ export default function HolidayCampsPage() {
           <p className="text-base leading-relaxed text-navy/65">
             When school is closed for a holiday or break, LA Sports World keeps kids
             active with full days of sports, games, and structured fun. Camps run for
-            limited windows around specific dates — browse what&apos;s currently
+            limited windows around specific dates. Browse what&apos;s currently
             scheduled below.
           </p>
         </div>

@@ -130,7 +130,7 @@ export default function Navbar() {
 
         <Link
           href="/contact"
-          className="hidden items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-navy-light lg:inline-flex"
+          className="button-gold hidden min-h-11 px-5 py-2.5 lg:inline-flex"
         >
           Plan an Activity
         </Link>
@@ -182,7 +182,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className="mt-4 flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white"
+            className="button-gold mt-4 flex w-full"
             onClick={() => setMobileOpen(false)}
           >
             Plan an Activity

@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Programs | LA Sports World",
-  description: "Private lessons, clinics, and sports parties for youth athletes ages 4–18 in Los Angeles.",
+  description: "Private Coaching, Group Coaching & Pods, and Parties & Events for families in Los Angeles.",
 };
 
 export default function ProgramsPage() {
@@ -15,7 +15,7 @@ export default function ProgramsPage() {
     <>
       <PageHero
         title="Our Programs"
-        subtitle="Tailored coaching for every athlete — one-on-one, group clinics, and unforgettable parties."
+        subtitle="Private coaching, group coaching and pods, and active party experiences for children across Los Angeles."
         tag="Training"
         image="/images/hero-sports-7.jpg"
       />
@@ -59,7 +59,7 @@ export default function ProgramsPage() {
 
                 <Link
                   href={`/programs/${program.slug}`}
-                  className="inline-flex items-center gap-2 bg-gold text-navy font-bold uppercase tracking-wide px-7 py-3.5 rounded-full hover:bg-gold-light transition-colors text-sm"
+                  className="button-gold"
                 >
                   {program.cta} <ArrowRight className="w-4 h-4" />
                 </Link>

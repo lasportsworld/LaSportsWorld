@@ -1,13 +1,13 @@
 export const siteConfig = {
   name: "LA Sports World",
   tagline: "Youth",
-  description: "Elite youth sports coaching in Los Angeles. Private lessons, camps, clinics, and parties for ages 4–18.",
-  phone: "(310) 555-0100",
+  description: "Youth sports coaching, classes, camps, and parties in Los Angeles for ages 6 months to 17 years.",
+  phone: "(213) 301-6226",
   email: "info@lasportsworld.com",
   address: {
     name: "Mogen David",
     street: "9717 Pico Blvd",
-    city: "Los Angeles, CA 90019",
+    city: "Los Angeles, CA 90035",
     note: "On Daniels Dr",
   },
 };
@@ -26,11 +26,11 @@ export const sports = [
 export const programs = [
   {
     slug: "private-lessons",
-    title: "Private Lessons",
+    title: "Private Coaching",
     subtitle: "1-on-1 Coaching",
     image: "/images/LASW_Private_Lessons_Header_Image.jpg",
     description:
-      "One-on-one coaching tailored to your child's specific needs. We address poor habits, advanced techniques, and skills across all ages and sports — including prep for high school competition.",
+      "One-on-one coaching tailored to your child's needs, experience, and goals, from first exposure through focused development.",
     sports: ["Basketball", "Soccer", "Football", "Baseball", "Volleyball", "Surfing"],
     highlights: [
       "Ball Handling & Shot Technique",
@@ -39,15 +39,15 @@ export const programs = [
       "Advanced Techniques",
       "High School Prep",
     ],
-    cta: "Book a Lesson",
+    cta: "Request Coaching",
   },
   {
     slug: "clinics",
-    title: "Clinics",
-    subtitle: "Group Training",
+    title: "Group Coaching & Pods",
+    subtitle: "Small-Group Coaching",
     image: "/images/LASW_Clinics_Header_Image.jpg",
     description:
-      "8 or 10 week programs for groups of 6 or more athletes. We cover sport fundamentals, teamwork, and proper technique — from first-timers to advanced players. Includes access to Basement Fitness gym.",
+      "Eight- or ten-week programs for groups of six or more athletes. We cover sport fundamentals, teamwork, and proper technique for first-timers through advanced players.",
     sports: ["Basketball", "Soccer", "Football", "Baseball", "Volleyball"],
     highlights: [
       "Ball Handling & Shooting",
@@ -56,7 +56,7 @@ export const programs = [
       "Weight Training Access",
       "8–10 Week Program",
     ],
-    cta: "Join a Clinic",
+    cta: "Explore Group Coaching",
   },
   {
     slug: "parties",
@@ -87,7 +87,7 @@ export const camps = [
       "Our flagship multi-week summer camp blends elite sports training with unforgettable activities. Campers are grouped by grade into divisions and enjoy everything from beach days to amusement parks.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Surfing", "Volleyball", "Color War", "Capture the Flag"],
     activities: ["Amusement Parks", "Beach Day", "Movie Night", "Mud Run", "Water Parks", "Bowling", "Party Bus"],
-    note: "Royal Camp exclusive offering available — small groups of up to 13 campers with 1–2 dedicated coaches.",
+    note: "Royal Camp exclusive offering for small groups of up to 13 campers with one or two dedicated coaches.",
   },
   {
     slug: "winter",
@@ -105,7 +105,7 @@ export const camps = [
     subtitle: "School's Out? We're On!",
     image: "/images/Day-Camp-Header-Image.jpg",
     description:
-      "Flexible camp sessions for school-off days — whether it's one day or a full week. LA Sports World keeps kids active, skilled, and having a blast whenever school is out.",
+      "Flexible camp sessions for school-off days, from one day to a full week. LA Sports World keeps kids active and engaged whenever school is out.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Surfing", "Volleyball", "Ultimate Frisbee"],
     activities: ["Beach Day", "Movie Night", "Mud Run", "Water Parks", "Bowling", "Daily Raffle"],
   },
@@ -115,37 +115,9 @@ export const camps = [
     subtitle: "Matza Ballers",
     image: "/images/Passover-Camp-Header-Image-3.jpg",
     description:
-      "Our beloved Passover camp — \"Matza Ballers\" — runs during the Passover holiday for grades Pre-1 through 6th. Skill development, fun, and Mensch values all in one unforgettable week.",
+      "Our Passover camp, \"Matza Ballers,\" runs during the holiday for grades Pre-1 through 6th. It combines skill development, movement, and Mensch values.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Surfing", "Volleyball", "Color War"],
     activities: ["Shacharit / Learn", "Beach Day", "Water Parks", "Daily Raffle", "Movie Night"],
-  },
-];
-
-export const testimonials = [
-  {
-    id: 1,
-    author: "Yael M.",
-    text: "Coach David at LA Sports World is simply the best of the best. My son instantly bonded with David. David has enabled him to try sports and physical challenges he would never have considered before, and has helped my son overcome some of his fears involving sports. David exudes patience and calm, while pushing my son to be the best he can be. For kids who want to build confidence in physical activities or learn to excel at a certain sport, it doesn't get better than LA Sports World.",
-  },
-  {
-    id: 2,
-    author: "Aaron R.",
-    text: "LA Sports World offers top notch coaching for our kids. The coaching staff are knowledgeable, patient, caring & achieve great outcomes. I'm also involved in LA Sports World flag football program & love it!! It's an organized program that attracts a great group of competitive weekend warriors. Thanks to David & Co for always bringing their A Game!!",
-  },
-  {
-    id: 3,
-    author: "Gabriel O.",
-    text: "LA Sports World is a first class company that delivers and exceeds on all of its promises. David tends to all queries and is a pleasure to deal with. Have been playing in their flag football leagues for a couple of years now and love it. The competition is great and the people that continue to join have been a pleasure. I highly recommend LA Sports World, and cannot wait for the upcoming football season.",
-  },
-  {
-    id: 4,
-    author: "Lisa K.",
-    text: "My 6 year old son absolutely loves Coach David. He's great with the kids. Not only do they learn skills, but they have a great time and feel good about themselves and their progress. We just signed up with another \"season\" of soccer with him. Would not hesitate to give my highest recommendation.",
-  },
-  {
-    id: 5,
-    author: "Rachel S.",
-    text: "We are big fans! After trying two other coaches for our son we are so happy we found David. He has been coaching our son (age 7) for over a year. He is fun, reliable, professional, and has achieved great results! My son loves the time he spends with David and looks forward to it every week! He is a great coach and a real mensch!",
   },
 ];
 
@@ -170,8 +142,8 @@ export const teamMembers: TeamMember[] = [
 export const campRules = [
   "All campers must respect their coaches and follow directions each day.",
   "No products containing nuts (peanuts, almonds, cashews, etc.) at camp.",
-  "Appropriate language at all times — no swearing.",
-  "Treat all campers with respect and kindness — no name-calling or teasing.",
+  "Use appropriate language at all times. No swearing.",
+  "Treat all campers with respect and kindness. No name-calling or teasing.",
   "No cell phones, iPads, video game consoles, or toys.",
   "Be ready to practice sportsmanship, teamwork, leadership, and athleticism.",
   "Leave gum at home (choking hazard and ruins equipment).",

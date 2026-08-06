@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const programs = [
   { title: "Classes", description: "Ongoing and pop-up programs that turn weekly movement into steady confidence and new skills.", href: "/classes-camps/classes", image: "/images/LASW_Clinics_Header_Image.jpg", label: "Weekly & pop-up" },
-  { title: "Holiday Camps", description: "Full, active days built around school breaks—with variety, structure, and plenty of movement.", href: "/classes-camps/holiday-camps", image: "/images/Winter-Camp-Header-Image.jpg", label: "School-break energy" },
+  { title: "Holiday Camps", description: "Full, active days built around school breaks with variety, structure, and plenty of movement.", href: "/classes-camps/holiday-camps", image: "/images/Winter-Camp-Header-Image.jpg", label: "School-break energy" },
   { title: "Summer Camp", description: "A community-focused summer program in development. Join the interest list to hear first.", href: "/classes-camps/summer-camp", image: "/images/Summer-Camp-Header-Image.jpg", label: "Coming soon" },
 ];
 

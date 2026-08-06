@@ -40,7 +40,7 @@ export default function AboutPage() {
         accent="Individual attention. Group energy."
       >
         <p>LA Sports World began with a simple belief: great youth coaching should be personal, encouraging, and easier for families and organizations to access.</p>
-        <p>We bring private lessons, group programs, parties, camps, and community activities directly to the people we serve. Every experience is shaped around the age, ability, personality, and goals of the children in front of us.</p>
+        <p>We bring private coaching, group programs, parties, camps, and community activities directly to the people we serve. Each experience reflects the age, ability, personality, and goals of the children taking part.</p>
         <Link href="/about/approach" className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.16em] text-gold">Read about our approach <ArrowRight className="h-4 w-4" /></Link>
       </EditorialSplit>
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
           <div>
             <SectionHeading eyebrow="What we teach" title="A world of ways to move" description="Different sports create different entry points. The coaching principle stays the same: meet kids where they are, then help them take the next step." light />
             <div className="mt-8 flex flex-wrap gap-2.5">
-              {sports.map((sport) => <span key={sport.name} className="rounded-full border border-white/15 bg-white/[.06] px-4 py-2 text-xs font-bold uppercase tracking-wide text-white/75">{sport.name}</span>)}
+              {sports.map((sport) => <span key={sport.name} className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-white/72"><span className="h-1.5 w-1.5 rounded-full bg-gold" />{sport.name}</span>)}
             </div>
           </div>
           <PhotoMosaic images={[
@@ -64,7 +64,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
             { value: "8+", label: "Sports offered" },
-            { value: "4–18", label: "Core age range" },
+            { value: "6 mo–17", label: "Age range" },
             { value: "15+", label: "Years experience" },
             { value: "LA", label: "Across the city" },
           ].map((item) => <div key={item.label} className="border-l border-navy/20 pl-5"><p className="font-condensed text-5xl font-extrabold leading-none sm:text-6xl">{item.value}</p><p className="mt-2 text-xs font-extrabold uppercase tracking-[.15em] text-navy/60">{item.label}</p></div>)}
@@ -79,10 +79,10 @@ export default function AboutPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {teamMembers.map((member) => (
-              <article key={member.name} className="group overflow-hidden rounded-[1.75rem] bg-navy text-white">
+              <article key={member.name} className="overflow-hidden rounded-[1.75rem] bg-navy text-white">
                 {member.image ? (
                   <div className="relative h-80 overflow-hidden sm:h-96">
-                    <Image src={member.image} alt={member.name} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
+                    <Image src={member.image} alt={member.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 50vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
                   </div>
                 ) : (
@@ -110,8 +110,8 @@ export default function AboutPage() {
 
       <PageCTA
         eyebrow="Find your way in"
-        title="Come see what the right coach can unlock"
-        description="Explore coaching, classes, camps, parties, and organization programs built around real kids and real connection."
+        title="Find the right LA Sports World program"
+        description="Explore coaching, classes, camps, parties, and organization programs for your family or community."
         cta={{ label: "Plan an Activity", href: "/contact" }}
         image="/images/about-us.jpg"
         imageAlt="LA Sports World coaches with a group of children"

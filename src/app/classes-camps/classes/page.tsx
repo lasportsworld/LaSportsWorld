@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Classes | LA Sports World",
   description:
-    "Ongoing and pop-up classes that build skills, movement, and confidence week over week — browse current sessions and register.",
+    "Ongoing and pop-up classes that build skills, movement, and confidence. Browse current sessions and register.",
 };
 
 const expectations = [
@@ -24,7 +24,7 @@ const expectations = [
   {
     icon: Backpack,
     title: "Everything provided",
-    desc: "Equipment is handled — just show up ready to move.",
+    desc: "Equipment is handled. Just show up ready to move.",
   },
   {
     icon: MapPin,
@@ -47,7 +47,7 @@ export default function ClassesPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-navy/65">
             LA Sports World runs both pop-up classes and recurring sessions. Some of what
-            you see below may be a limited-run series — if it goes well, we bring it back
+            you see below may be a limited-run series. When there is continued interest, we bring it back
             as a regular offering. Either way, every class is coached with the same
             attention and structure as our private and group programs.
           </p>

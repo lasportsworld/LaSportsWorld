@@ -18,7 +18,7 @@ export async function createClient() {
               cookieStore.set(name, value, options)
             );
           } catch {
-            // Server component — cookie setting not critical
+            // Cookie setting is not critical in this server component.
           }
         },
       },

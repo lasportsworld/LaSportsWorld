@@ -27,6 +27,13 @@ body {
   font-family: var(--font-sans), Arial, sans-serif;
 }
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -59,7 +66,8 @@ html {
 }
 
 .button-gold,
-.button-ghost {
+.button-ghost,
+.button-outline {
   display: inline-flex;
   min-height: 3.25rem;
   align-items: center;
@@ -72,6 +80,13 @@ html {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.button-gold:focus-visible,
+.button-ghost:focus-visible,
+.button-outline:focus-visible {
+  outline: 3px solid #d49c3f;
+  outline-offset: 3px;
 }
 
 .button-gold {
@@ -93,6 +108,17 @@ html {
   border-color: white;
   background: white;
   color: #1c3325;
+}
+
+.button-outline {
+  border: 1px solid rgba(28, 51, 37, 0.24);
+  color: #1c3325;
+}
+
+.button-outline:hover {
+  border-color: #1c3325;
+  background: #1c3325;
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {

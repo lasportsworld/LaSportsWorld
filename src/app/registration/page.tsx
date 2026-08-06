@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Registration | LA Sports World",
-  description: "Register for LA Sports World camps, clinics, private lessons, and parties.",
+  description: "Register for LA Sports World camps, group programs, private coaching, and parties.",
 };
 
 const registrationOptions = [
@@ -34,14 +34,14 @@ const registrationOptions = [
     badge: null,
   },
   {
-    title: "Private Lessons",
-    description: "1-on-1 coaching for any sport, any age.",
+    title: "Private Coaching",
+    description: "One-on-one coaching for children ages 6 months to 17 years.",
     href: "/registration/private-lessons",
     badge: null,
   },
   {
-    title: "Clinics",
-    description: "8–10 week group training programs.",
+    title: "Group Coaching & Pods",
+    description: "Recurring small-group coaching for children who train better together.",
     href: "/registration/clinics",
     badge: null,
   },
@@ -64,7 +64,7 @@ export default function RegistrationPage() {
     <>
       <PageHero
         title="Registration"
-        subtitle="Choose your program below and secure your spot. Spaces fill up fast!"
+        subtitle="Choose a program to view details and register."
         tag="Sign Up"
         image="/images/hero-sports-4.jpg"
       />

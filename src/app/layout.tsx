@@ -19,7 +19,7 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "LA Sports World | Youth Sports Coaching Los Angeles",
   description:
-    "Elite youth sports coaching in Los Angeles. Private lessons, camps, clinics & parties for ages 4–18. Basketball, soccer, football and more.",
+    "Youth sports coaching, classes, camps, and parties in Los Angeles for ages 6 months to 17 years.",
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${barlow.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
-        {/* GTM noscript — immediately after body open */}
+        {/* GTM noscript: immediately after body open */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PHL4RSTG"
