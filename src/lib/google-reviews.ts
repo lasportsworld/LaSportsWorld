@@ -3,6 +3,9 @@ import { connection } from "next/server";
 const GOOGLE_PLACE_DETAILS_URL = "https://places.googleapis.com/v1/places";
 const DEFAULT_REVALIDATE_SECONDS = 60 * 60 * 6;
 
+export const GOOGLE_REVIEW_WRITE_URL =
+  "https://search.google.com/local/writereview?placeid=ChIJVZHKR3a7woARj_q4EjM_VY0";
+
 type GoogleLocalizedText = {
   text?: string;
   languageCode?: string;

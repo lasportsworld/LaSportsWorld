@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Shield, Star } from "lucide-react";
 import {
+  GOOGLE_REVIEW_WRITE_URL,
   getGoogleReviews,
   type GoogleReviewCard as GoogleReviewData,
   type GoogleReviewsSummary,
@@ -355,16 +356,14 @@ function GoogleReviewsHeader({
             </span>
           </div>
         </div>
-        {summary?.googleMapsUri ? (
-          <a
-            href={summary.googleMapsUri}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[#1A73E8] px-6 py-3 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#1558B0]"
-          >
-            Review us on Google
-          </a>
-        ) : null}
+        <a
+          href={GOOGLE_REVIEW_WRITE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center justify-center rounded-full bg-[#1A73E8] px-6 py-3 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#1558B0]"
+        >
+          Review us on Google
+        </a>
       </div>
     </div>
   );
