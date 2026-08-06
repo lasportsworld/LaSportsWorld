@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, ImageIcon } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -15,18 +15,16 @@ export function PhotoPlaceholder({
 }) {
   return (
     <div
-      className={`relative grid overflow-hidden border border-dashed ${dark ? "border-white/20 bg-navy-light text-white" : "border-navy/15 bg-cream-dark text-navy"} ${className}`}
-      role="img"
-      aria-label="Photo coming soon"
+      className={`relative grid overflow-hidden border ${dark ? "border-white/12 bg-navy-light text-white" : "border-navy/10 bg-cream-dark text-navy"} ${className}`}
+      aria-hidden="true"
     >
       <div className="brand-grid absolute inset-0 opacity-[.16]" />
       <div className="absolute -right-14 -top-14 h-44 w-44 rounded-full border border-gold/35" />
       <div className={`absolute -bottom-20 -left-16 h-56 w-56 rounded-full border ${dark ? "border-white/10" : "border-navy/10"}`} />
-      <div className="relative m-auto flex flex-col items-center gap-3 px-5 text-center">
-        <span className={`grid h-12 w-12 place-items-center rounded-full ${dark ? "bg-white/8" : "bg-white/65"}`}>
-          <ImageIcon className="h-5 w-5 text-gold" strokeWidth={1.7} />
-        </span>
-        <span className="text-[11px] font-extrabold uppercase tracking-[.22em]">Photo Coming Soon</span>
+      <div className={`relative m-auto flex items-center gap-3 ${dark ? "text-white/55" : "text-navy/45"}`}>
+        <span className="h-px w-10 bg-gold/70" />
+        <span className="font-condensed text-3xl font-extrabold uppercase tracking-[.18em]">LASW</span>
+        <span className="h-px w-10 bg-gold/70" />
       </div>
     </div>
   );

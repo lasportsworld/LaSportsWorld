@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Building2, CalendarCheck, ClipboardList, ShieldCheck, Users } from "lucide-react";
 import PipedriveForm from "@/components/shared/PipedriveForm";
 import {
@@ -8,11 +7,13 @@ import {
   SectionHeading,
   ServiceHero,
 } from "@/components/shared/MarketingSections";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Schools & Organizations | LA Sports World",
   description: "Turnkey sports and activity programming for schools, camps, businesses, nonprofits, and community organizations.",
-};
+  path: "/schools-organizations",
+});
 
 const services = [
   { title: "School PE & enrichment", description: "Consistent, age-appropriate programming designed to fit your calendar, space, and student groups.", href: "/schools-organizations/school-pe", image: "/images/kids-sports-3.jpg", label: "Schools" },

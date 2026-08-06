@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -19,11 +18,13 @@ import {
   SectionHeading,
   ServiceHero,
 } from "@/components/shared/MarketingSections";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Coaching | LA Sports World",
   description: "Compare private and group coaching options built around your child, group, goals, location, and schedule.",
-};
+  path: "/coaching",
+});
 
 const formats = [
   {

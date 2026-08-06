@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Activity,
   CalendarDays,
@@ -21,11 +20,13 @@ import {
   SectionHeading,
   ServiceHero,
 } from "@/components/shared/MarketingSections";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Private Coaching | LA Sports World",
   description: "Personalized one-on-one coaching shaped around your child’s goals, experience, pace, location, and schedule.",
-};
+  path: "/coaching/private-coaching",
+});
 
 const inquiryHref = "/coaching/request?format=private&source=private-coaching";
 

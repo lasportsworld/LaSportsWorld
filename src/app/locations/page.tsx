@@ -34,7 +34,7 @@ export default function LocationsPage() {
                     Mogen David
                   </h2>
                   <p className="text-white/60">
-                    9717 Pico Blvd, Los Angeles, CA 90019<br />
+                    9717 Pico Blvd, Los Angeles, CA 90035<br />
                     <span className="text-white/40 text-sm">On Daniels Dr</span>
                   </p>
                 </div>

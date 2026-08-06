@@ -88,7 +88,7 @@ export default function ClassesPage() {
           <SawyerEmbed
             src={process.env.SAWYER_CLASSES_EMBED_URL || process.env.SAWYER_REGISTER_EMBED_URL}
             title="LA Sports World classes registration"
-            fallbackMessage="Class registration is being connected here. Contact us and we'll help you find a session that fits."
+            fallbackMessage="Class registration is unavailable right now. Contact us and we'll help you find a session that fits."
           />
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import { ClipboardList } from "lucide-react";
 import { submitRegistration, type RegistrationState } from "@/app/actions/registration";
 import { participantAgeOptions } from "@/lib/participant-age";
@@ -62,6 +63,10 @@ export default function RegistrationForm({ slug }: Props) {
 
       {/* Hidden program type */}
       <input type="hidden" name="program_type" value={slug} />
+      <div className="sr-only" aria-hidden="true">
+        <label htmlFor="registrationWebsite">Website</label>
+        <input id="registrationWebsite" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
 
       {state.status === "error" && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm">
@@ -150,6 +155,9 @@ export default function RegistrationForm({ slug }: Props) {
 
       <p className="text-white/30 text-xs text-center">
         We&rsquo;ll review your registration and follow up by email.
+      </p>
+      <p className="text-center text-xs text-white/35">
+        <Link href="/privacy" className="underline decoration-white/20 underline-offset-4 hover:text-white">Privacy Policy</Link>
       </p>
     </form>
   );

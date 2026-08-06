@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "FAQ | LA Sports World",
   description:
     "Answers to common questions about ages, service area, scheduling, pricing, safety, and how customization works at LA Sports World.",
-};
+  path: "/faq",
+});
 
 const categories = [
   {

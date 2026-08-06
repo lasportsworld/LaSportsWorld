@@ -134,6 +134,10 @@ export default function ContactForm({
       <input type="hidden" name="utm_medium" value={utmMedium} />
       <input type="hidden" name="utm_campaign" value={utmCampaign} />
       <input type="hidden" name="timestamp" value={new Date().toISOString()} />
+      <div className="sr-only" aria-hidden="true">
+        <label htmlFor="contactWebsite">Website</label>
+        <input id="contactWebsite" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
 
       <div>
         <label htmlFor="service" className={labelClass}>What do you need? *</label>
@@ -243,6 +247,9 @@ export default function ContactForm({
               </>
             )}
           </button>
+          <p className="text-center text-xs leading-5 text-white/40">
+            <Link href="/privacy" className="underline decoration-white/25 underline-offset-4 hover:text-white">Privacy Policy</Link>
+          </p>
         </>
       )}
     </form>

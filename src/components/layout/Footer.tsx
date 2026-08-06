@@ -143,7 +143,6 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} LA Sports World. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="transition hover:text-white/60">Privacy Policy</Link>
-            <Link href="/terms" className="transition hover:text-white/60">Terms of Service</Link>
           </div>
         </div>
       </div>

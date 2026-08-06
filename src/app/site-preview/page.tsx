@@ -338,7 +338,7 @@ function GoogleReviewCard({ review }: { review: GoogleReviewData }) {
 function GoogleReviewsHeader({
   summary,
 }: {
-  summary: GoogleReviewsSummary | null;
+  summary: GoogleReviewsSummary;
 }) {
   return (
     <div className="mb-6 rounded-xl bg-[#F4F4F6] px-6 py-5 shadow-sm ring-1 ring-navy/5 sm:px-7">
@@ -347,15 +347,11 @@ function GoogleReviewsHeader({
           <GoogleReviewsBrand />
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <span className="text-2xl font-extrabold text-navy">
-              {summary?.rating ? summary.rating.toFixed(1) : "5.0"}
+              {summary.rating.toFixed(1)}
             </span>
-            <StarRating rating={summary?.rating || 5} className="h-5 w-5" />
+            <StarRating rating={summary.rating} className="h-5 w-5" />
             <span className="text-sm text-navy/45">
-              (
-              {summary?.userRatingCount
-                ? formatReviewCount(summary.userRatingCount)
-                : "0"}
-              )
+              ({formatReviewCount(summary.userRatingCount)})
             </span>
           </div>
         </div>
@@ -392,13 +388,13 @@ function SafetyReviewCard() {
 function GoogleReviewsBlock({
   summary,
 }: {
-  summary: GoogleReviewsSummary | null;
+  summary: GoogleReviewsSummary;
 }) {
   return (
     <div className="relative">
       <GoogleReviewsHeader summary={summary} />
 
-      {summary?.reviews.length ? (
+      {summary.reviews.length ? (
         <>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-[repeat(2,minmax(0,1fr))_minmax(260px,0.85fr)]">
             {summary.reviews.slice(0, 2).map((review) => (
@@ -411,16 +407,7 @@ function GoogleReviewsBlock({
             Google&apos;s default relevance.
           </p>
         </>
-      ) : (
-        <div className="rounded-xl bg-[#F4F4F6] p-6 shadow-sm ring-1 ring-navy/5">
-          <StarRating rating={summary?.rating || 5} />
-          <p className="mt-3 text-sm font-medium leading-relaxed text-navy">
-            Families share their LA Sports World experiences on Google Maps.
-            Check back soon for the latest reviews.
-          </p>
-          <GoogleMapsAttribution className="mt-4 block" />
-        </div>
-      )}
+      ) : <SafetyReviewCard />}
     </div>
   );
 }
@@ -724,11 +711,13 @@ export default async function HomePage() {
       {/* ══════════════════════════════════════
           SOCIAL PROOF: 3 boxes
       ══════════════════════════════════════ */}
-      <section className="bg-white py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <GoogleReviewsBlock summary={googleReviews} />
-        </div>
-      </section>
+      {googleReviews ? (
+        <section id="reviews" className="scroll-mt-24 bg-white py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <GoogleReviewsBlock summary={googleReviews} />
+          </div>
+        </section>
+      ) : null}
 
       {/* ══════════════════════════════════════
           CURRENT PROGRAMS

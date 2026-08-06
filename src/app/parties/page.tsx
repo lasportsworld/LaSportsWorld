@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Calendar, Layers, MapPin, PartyPopper, Users } from "lucide-react";
 import {
   EditorialSplit,
@@ -9,11 +8,13 @@ import {
   SectionHeading,
   ServiceHero,
 } from "@/components/shared/MarketingSections";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Birthday Parties | LA Sports World",
   description: "LA Sports World brings organized sports, games, and activities to your child's birthday party.",
-};
+  path: "/parties",
+});
 
 const experiences = [
   { icon: PartyPopper, title: "Sports & games", description: "Choose two favorite sports or activities, led by a coach who knows how to keep a party moving." },

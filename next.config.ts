@@ -8,10 +8,6 @@ const nextConfig: NextConfig = {
         hostname: "lasportsworld.com",
       },
       {
-        protocol: "http",
-        hostname: "staging.lasportsworld.com",
-      },
-      {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
       },

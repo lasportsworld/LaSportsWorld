@@ -2,12 +2,13 @@ import { MapPin, Mail, Phone } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
 import ContactForm from "@/components/contact/ContactForm";
 import { siteConfig } from "@/lib/data/content";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Contact Us | LA Sports World",
   description: "Get in touch with LA Sports World about coaching, parties, classes, camps, and organization programs.",
-};
+  path: "/contact",
+});
 
 interface ContactPageProps {
   searchParams: Promise<{

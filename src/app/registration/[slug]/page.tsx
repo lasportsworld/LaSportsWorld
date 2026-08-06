@@ -38,7 +38,7 @@ const programs: Record<string, { title: string; description: string; image?: str
   },
   "parties": {
     title: "Parties & Events",
-    description: "$495 for 2 hours, up to 30 guests, choose any 2 sports.",
+    description: "Custom sports and activity parties planned around your group, location, and goals.",
     image: "/images/LASW_Parties_Header_Image.jpg",
   },
   "work-with-us": {

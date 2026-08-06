@@ -28,6 +28,8 @@ export async function submitContactForm(
   _prev: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  if (((formData.get("website") as string) || "").trim()) return { status: "success" };
+
   const firstName = ((formData.get("firstName") as string) || "").trim();
   const phone = ((formData.get("phone") as string) || "").trim();
   const email = ((formData.get("email") as string) || "").trim().toLowerCase();
@@ -39,6 +41,12 @@ export async function submitContactForm(
       status: "error",
       message: "Please fill in your name, phone number, and what you need.",
     };
+  }
+  if (phone.replace(/\D/g, "").length < 10) {
+    return { status: "error", message: "Please enter a valid phone number." };
+  }
+  if (email && !/^\S+@\S+\.\S+$/.test(email)) {
+    return { status: "error", message: "Please enter a valid email address." };
   }
 
   const labelId = SERVICE_DEAL_LABELS[service];
@@ -94,6 +102,9 @@ export async function submitContactForm(
     return { status: "success" };
   } catch (error) {
     console.error("Pipedrive contact submission failed:", error);
-    return { status: "error", message: "Something went wrong. Please try again." };
+    return {
+      status: "error",
+      message: "We couldn’t send your inquiry. Please try again or call (213) 301-6226.",
+    };
   }
 }

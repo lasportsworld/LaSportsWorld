@@ -42,7 +42,7 @@ export async function submitCoachingInquiry(
     console.error("Coaching inquiry submission failed:", error);
     return {
       status: "error",
-      message: "We couldn’t send your request. Please try again.",
+      message: "We couldn’t send your request. Please try again or call (213) 301-6226.",
     };
   }
 }

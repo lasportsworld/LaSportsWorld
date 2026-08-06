@@ -138,14 +138,19 @@ export default function Navbar() {
         <button
           className="grid h-10 w-10 place-items-center rounded-lg border border-gray-200 text-navy lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-gray-100 bg-white px-4 py-5 shadow-xl lg:hidden">
+        <div
+          id="mobile-navigation"
+          className="border-t border-gray-100 bg-white px-4 py-5 shadow-xl lg:hidden"
+        >
           {navLinks.map((link) => (
             <div key={link.label}>
               <Link

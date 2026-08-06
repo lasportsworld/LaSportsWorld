@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Shield, Sparkles, Users } from "lucide-react";
 import SawyerEmbed from "@/components/shared/SawyerEmbed";
@@ -9,11 +8,13 @@ import {
   SectionHeading,
   ServiceHero,
 } from "@/components/shared/MarketingSections";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Classes & Camps | LA Sports World",
   description: "Browse LA Sports World's ongoing classes, holiday camps, and upcoming summer camp.",
-};
+  path: "/classes-camps",
+});
 
 const programs = [
   { title: "Classes", description: "Ongoing and pop-up programs that turn weekly movement into steady confidence and new skills.", href: "/classes-camps/classes", image: "/images/LASW_Clinics_Header_Image.jpg", label: "Weekly & pop-up" },
@@ -77,7 +78,7 @@ export default function ClassesCampsPage() {
               src={process.env.SAWYER_CLASSES_CAMPS_EMBED_URL || process.env.SAWYER_REGISTER_EMBED_URL}
               title="LA Sports World classes and camps registration"
               minHeight={700}
-              fallbackMessage="Live registration is being connected here. In the meantime, pick a program type above or contact us directly."
+              fallbackMessage="The live schedule is unavailable right now. Choose a program above or contact us for help."
             />
           </div>
         </div>

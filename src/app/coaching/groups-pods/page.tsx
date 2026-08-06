@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles, Target, UsersRound } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Group Coaching & Pods | LA Sports World",
   description:
     "Bring an existing group or let us help form one. Flexible, recurring group coaching delivered wherever you are.",
-};
+  path: "/coaching/groups-pods",
+});
 
 const groupNeeds = [
   {

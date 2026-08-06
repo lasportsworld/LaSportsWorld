@@ -285,6 +285,9 @@ export default function CoachingInquiryForm({
           <button type="submit" disabled={isPending} className="button-gold w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:min-w-48">{isPending ? "Sending…" : <>Send Request <Send className="h-4 w-4" /></>}</button>
         )}
       </div>
+      <p className="mt-4 text-center text-xs text-navy/45">
+        <Link href="/privacy" className="underline decoration-navy/20 underline-offset-4 hover:text-navy">Privacy Policy</Link>
+      </p>
     </form>
   );
 }

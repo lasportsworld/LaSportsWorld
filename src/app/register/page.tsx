@@ -1,12 +1,13 @@
 import PageHero from "@/components/shared/PageHero";
 import SawyerEmbed from "@/components/shared/SawyerEmbed";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Register | LA Sports World",
   description:
     "Browse and register for all current LA Sports World classes, camps, and scheduled programs.",
-};
+  path: "/register",
+});
 
 export default function RegisterPage() {
   return (
@@ -23,7 +24,7 @@ export default function RegisterPage() {
           <SawyerEmbed
             src={process.env.SAWYER_REGISTER_EMBED_URL}
             title="LA Sports World program registration"
-            fallbackMessage="Online registration is being connected here. Contact us and we'll get you signed up directly for a class, camp, or program."
+            fallbackMessage="Online registration is unavailable right now. Contact us and we'll help you register for a class, camp, or program."
           />
 
           <div className="mt-10 text-center">

@@ -1,3 +1,5 @@
+import { isSupportedParticipantAge } from "@/lib/participant-age";
+
 export const coachingFormats = ["private", "group", "unsure"] as const;
 export type CoachingFormat = (typeof coachingFormats)[number];
 
@@ -130,4 +132,3 @@ export const coachingFormatLabels: Record<CoachingFormat, string> = {
   group: "Group Coaching & Pods",
   unsure: "Not sure / help me choose",
 };
-import { isSupportedParticipantAge } from "@/lib/participant-age";

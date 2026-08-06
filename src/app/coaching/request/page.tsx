@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import CoachingInquiryForm from "@/components/inquiry/CoachingInquiryForm";
 import InquiryShell from "@/components/inquiry/InquiryShell";
 import type { CoachingFormat } from "@/lib/inquiries/coaching";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Request Coaching | LA Sports World",
   description: "Tell LA Sports World what your child or group needs and request a tailored coaching recommendation.",
-};
+  path: "/coaching/request",
+});
 
 export default async function RequestCoachingPage({
   searchParams,

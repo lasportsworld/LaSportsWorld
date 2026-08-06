@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -10,11 +9,13 @@ import {
   SectionHeading,
   ServiceHero,
 } from "@/components/shared/MarketingSections";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About Us | LA Sports World",
   description: "Learn about LA Sports World, our coaches, and our mission to develop youth athletes in Los Angeles.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -28,7 +29,7 @@ export default function AboutPage() {
         imagePosition="center 35%"
         primaryCta={{ label: "Meet Our Coaches", href: "#coaches" }}
         secondaryCta={{ label: "Our Approach", href: "/about/approach" }}
-        note="Los Angeles · Since 2012 · Built around kids"
+        note="Los Angeles · Mobile programming · Built around kids"
       />
 
       <EditorialSplit
@@ -65,8 +66,8 @@ export default function AboutPage() {
           {[
             { value: "8+", label: "Sports offered" },
             { value: "6 mo–17", label: "Age range" },
-            { value: "15+", label: "Years experience" },
-            { value: "LA", label: "Across the city" },
+            { value: "LA", label: "Service area" },
+            { value: "Mobile", label: "Delivery model" },
           ].map((item) => <div key={item.label} className="border-l border-navy/20 pl-5"><p className="font-condensed text-5xl font-extrabold leading-none sm:text-6xl">{item.value}</p><p className="mt-2 text-xs font-extrabold uppercase tracking-[.15em] text-navy/60">{item.label}</p></div>)}
         </div>
       </section>
@@ -86,14 +87,13 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
                   </div>
                 ) : (
-                  <div className="relative grid h-80 place-items-center overflow-hidden bg-[linear-gradient(135deg,#274035,#1c3325_55%,#122019)] sm:h-96" role="img" aria-label={`Photo of ${member.name} coming soon`}>
+                  <div className="relative grid h-80 place-items-center overflow-hidden bg-[linear-gradient(135deg,#274035,#1c3325_55%,#122019)] sm:h-96" aria-hidden="true">
                     <div className="brand-grid absolute inset-0 opacity-25" />
                     <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-gold/30" />
                     <div className="absolute -bottom-20 -left-12 h-64 w-64 rounded-full border border-white/10" />
                     <div className="relative grid h-32 w-32 place-items-center rounded-full border border-gold/40 bg-gold/10 font-condensed text-6xl font-extrabold text-gold shadow-2xl shadow-black/20">
                       {member.name.split(" ").map((part) => part[0]).join("")}
                     </div>
-                    <p className="absolute bottom-6 text-[10px] font-extrabold uppercase tracking-[.24em] text-white/35">Photo coming soon</p>
                   </div>
                 )}
                 <div className="p-6">

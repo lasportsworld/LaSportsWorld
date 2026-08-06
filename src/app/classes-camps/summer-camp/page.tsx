@@ -66,7 +66,7 @@ export default function SummerCampPage() {
           <SawyerEmbed
             src={process.env.SAWYER_SUMMER_EMBED_URL}
             title="LA Sports World summer camp interest list"
-            fallbackMessage="Interest list signup is being connected here. Contact us and we'll make sure you're the first to know."
+            fallbackMessage="Online interest-list signup is unavailable right now. Contact us and we'll add your family manually."
           />
         </div>
       </section>

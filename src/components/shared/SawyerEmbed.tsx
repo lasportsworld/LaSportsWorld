@@ -20,7 +20,7 @@ export default function SawyerEmbed({
   src,
   title,
   minHeight = 900,
-  fallbackMessage = "Online registration for this program is being connected. Reach out and we'll get you signed up directly.",
+  fallbackMessage = "Online registration is unavailable right now. Contact us and we'll help you with the next step.",
 }: SawyerEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const injectedSrcRef = useRef<string | null>(null);
