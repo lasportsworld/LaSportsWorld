@@ -149,36 +149,21 @@ export const testimonials = [
   },
 ];
 
-export const staff = [
+export type TeamMember = {
+  name: string;
+  role: string;
+  image?: string;
+  bio?: string;
+};
+
+export const teamMembers: TeamMember[] = [
   {
-    name: "David Ouaknine",
-    role: "Founder & Head Coach",
-    image: "/images/coach_david2.jpg",
-    bio: "David is the founder and head coach of LA Sports World. With over 15 years coaching youth ages 5–18, he specializes in basketball, football, soccer, baseball, volleyball, and surfing. He attended Yeshiva University of Los Angeles and went on to coach championship-winning high school soccer teams. He also runs Basement Fitness gym in the Pico-Robertson neighborhood.",
+    name: "Eitan Jalali",
+    role: "Co-Owner",
   },
   {
-    name: "Coach Ben",
-    role: "Assistant Coach",
-    image: "/images/coach_ben1.jpg",
-    bio: "A skilled and energetic coach with extensive experience working with youth athletes across multiple sports.",
-  },
-  {
-    name: "Coach Faraz",
-    role: "Assistant Coach",
-    image: "/images/coach_faraz1.jpg",
-    bio: "Dedicated to developing young athletes with a focus on fundamentals and building confidence through sport.",
-  },
-  {
-    name: "Coach Gal",
-    role: "Assistant Coach",
-    image: "/images/coach_gal1.jpg",
-    bio: "Brings passion and expertise to every session, helping campers reach their full athletic potential.",
-  },
-  {
-    name: "Coach Tommy",
-    role: "Assistant Coach",
-    image: "/images/coach_tommy1.jpg",
-    bio: "An enthusiastic coach who creates a fun, safe environment where athletes can thrive and grow.",
+    name: "Adina Mashiach",
+    role: "Co-Owner",
   },
 ];
 

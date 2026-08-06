@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { staff, sports } from "@/lib/data/content";
+import { teamMembers, sports } from "@/lib/data/content";
 import {
   EditorialSplit,
   PageCTA,
@@ -74,20 +74,32 @@ export default function AboutPage() {
       <section id="coaches" className="bg-cream py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
-            <SectionHeading eyebrow="The people behind the play" title="Coaches kids can connect with" />
-            <p className="max-w-xl text-base leading-7 text-navy/60 lg:ml-auto">Experienced in sport and in teaching youth, our coaches bring skill, patience, personality, and plenty of encouragement.</p>
+            <SectionHeading eyebrow="The people behind the play" title="Meet the team behind LA Sports World" />
+            <p className="max-w-xl text-base leading-7 text-navy/60 lg:ml-auto">LA Sports World is led by co-owners Eitan Jalali and Adina Mashiach. As our team grows, we&apos;ll introduce more of the coaches and staff who bring our programs to life.</p>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {staff.map((member, index) => (
-              <article key={member.name} className={`group overflow-hidden rounded-[1.75rem] bg-navy text-white ${index === 0 ? "md:col-span-2 lg:col-span-1" : ""}`}>
-                <div className="relative h-80 overflow-hidden">
-                  <Image src={member.image} alt={member.name} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
-                </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {teamMembers.map((member) => (
+              <article key={member.name} className="group overflow-hidden rounded-[1.75rem] bg-navy text-white">
+                {member.image ? (
+                  <div className="relative h-80 overflow-hidden sm:h-96">
+                    <Image src={member.image} alt={member.name} fill className="object-cover object-top transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
+                  </div>
+                ) : (
+                  <div className="relative grid h-80 place-items-center overflow-hidden bg-[linear-gradient(135deg,#274035,#1c3325_55%,#122019)] sm:h-96" role="img" aria-label={`Photo of ${member.name} coming soon`}>
+                    <div className="brand-grid absolute inset-0 opacity-25" />
+                    <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-gold/30" />
+                    <div className="absolute -bottom-20 -left-12 h-64 w-64 rounded-full border border-white/10" />
+                    <div className="relative grid h-32 w-32 place-items-center rounded-full border border-gold/40 bg-gold/10 font-condensed text-6xl font-extrabold text-gold shadow-2xl shadow-black/20">
+                      {member.name.split(" ").map((part) => part[0]).join("")}
+                    </div>
+                    <p className="absolute bottom-6 text-[10px] font-extrabold uppercase tracking-[.24em] text-white/35">Photo coming soon</p>
+                  </div>
+                )}
                 <div className="p-6">
                   <p className="text-xs font-bold uppercase tracking-[.16em] text-gold">{member.role}</p>
                   <h3 className="mt-2 font-condensed text-3xl font-extrabold uppercase">{member.name}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/60">{member.bio}</p>
+                  {member.bio && <p className="mt-3 text-sm leading-6 text-white/60">{member.bio}</p>}
                 </div>
               </article>
             ))}
