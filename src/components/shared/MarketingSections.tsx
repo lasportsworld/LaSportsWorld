@@ -199,13 +199,14 @@ export type FeatureItem = {
 
 export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; dark?: boolean }) {
   return (
-    <div className={`grid gap-5 ${items.length === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"}`}>
+    <div className={`grid gap-x-8 gap-y-0 ${items.length === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"}`}>
       {items.map((item, index) => {
         const Icon = item.icon;
+        const hasMedia = Boolean(item.image || item.showImagePlaceholder);
         const content = (
           <>
-            {(item.image || item.showImagePlaceholder) && (
-              <div className="relative h-56 overflow-hidden">
+            {hasMedia && (
+              <div className="relative h-56 overflow-hidden rounded-xl">
                 {item.image ? (
                   <Image src={item.image} alt="" fill className={`object-cover ${item.href ? "transition duration-500 group-hover:scale-[1.025]" : ""}`} sizes="(max-width: 768px) 100vw, 50vw" />
                 ) : (
@@ -215,7 +216,7 @@ export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; d
                 <span className="absolute bottom-4 left-5 font-condensed text-6xl font-extrabold text-white/25">0{index + 1}</span>
               </div>
             )}
-            <div className="p-6 sm:p-8">
+            <div className={hasMedia ? "px-1 py-6 sm:py-7" : "py-7 sm:py-8"}>
               {Icon && <Icon className="mb-5 h-8 w-8 text-gold" strokeWidth={1.7} />}
               {item.label && <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[.2em] text-gold">{item.label}</p>}
               <h3 className={`font-condensed text-2xl font-extrabold uppercase ${dark ? "text-white" : "text-navy"}`}>{item.title}</h3>
@@ -224,7 +225,7 @@ export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; d
             </div>
           </>
         );
-        const className = `group overflow-hidden rounded-[1.5rem] border ${item.href ? "transition duration-200 hover:border-gold/45 hover:shadow-lg focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-gold" : ""} ${dark ? "border-white/10 bg-white/[.055]" : "border-navy/8 bg-white"}`;
+        const className = `group border-t ${item.href ? "transition-colors hover:bg-cream/70 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-gold" : ""} ${dark ? "border-white/15 hover:bg-white/[.04]" : "border-navy/12"}`;
         return item.href ? <Link key={item.title} href={item.href} className={className}>{content}</Link> : <article key={item.title} className={className}>{content}</article>;
       })}
     </div>
@@ -233,16 +234,15 @@ export function FeaturePanels({ items, dark = false }: { items: FeatureItem[]; d
 
 export function ProcessTimeline({ steps, light = false }: { steps: Array<{ title: string; description: string }>; light?: boolean }) {
   return (
-    <ol className="relative grid gap-4 lg:grid-cols-5 lg:gap-0">
-      <div className={`absolute left-[10%] right-[10%] top-7 hidden h-px lg:block ${light ? "bg-white/20" : "bg-navy/15"}`} aria-hidden />
+    <ol className={`relative grid border-t lg:grid-cols-5 ${light ? "border-white/18" : "border-navy/14"}`}>
       {steps.map((step, index) => (
-        <li key={step.title} className={`relative grid grid-cols-[3.5rem_1fr] gap-4 rounded-2xl p-4 lg:block lg:px-4 lg:py-0 lg:text-center ${light ? "bg-white/[.045] lg:bg-transparent" : "bg-white lg:bg-transparent"}`}>
-          <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-gold bg-navy font-condensed text-2xl font-extrabold text-white shadow-lg lg:mx-auto">
+        <li key={step.title} className={`relative grid grid-cols-[3rem_1fr] gap-4 border-b py-6 lg:block lg:border-b-0 lg:border-r lg:px-5 lg:py-7 lg:last:border-r-0 ${light ? "border-white/18" : "border-navy/14"}`}>
+          <span className={`relative z-10 font-condensed text-3xl font-extrabold leading-none ${light ? "text-gold" : "text-gold"}`}>
             {String(index + 1).padStart(2, "0")}
           </span>
-          <div className="lg:mt-5">
+          <div>
             <h3 className={`font-condensed text-xl font-extrabold uppercase ${light ? "text-white" : "text-navy"}`}>{step.title}</h3>
-            <p className={`mt-1 text-sm leading-5 ${light ? "text-white/55" : "text-navy/55"}`}>{step.description}</p>
+            <p className={`mt-2 text-sm leading-6 ${light ? "text-white/58" : "text-navy/58"}`}>{step.description}</p>
           </div>
         </li>
       ))}
@@ -252,10 +252,10 @@ export function ProcessTimeline({ steps, light = false }: { steps: Array<{ title
 
 export function Checklist({ items, light = false }: { items: string[]; light?: boolean }) {
   return (
-    <ul className="grid gap-3 sm:grid-cols-2">
+    <ul className="grid gap-x-7 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold ${light ? "bg-white/[.06] text-white/80" : "bg-white text-navy/75"}`}>
-          <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold text-navy"><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
+        <li key={item} className={`flex items-center gap-3 border-t py-3.5 text-sm font-semibold ${light ? "border-white/15 text-white/80" : "border-navy/12 text-navy/75"}`}>
+          <Check className="h-4 w-4 shrink-0 text-gold" strokeWidth={3} />
           {item}
         </li>
       ))}

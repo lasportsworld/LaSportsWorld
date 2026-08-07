@@ -28,7 +28,7 @@ export default function InquiryShell({
     <section className="relative min-h-screen overflow-hidden bg-navy pb-16 pt-24 sm:pt-28 lg:pb-24">
       <div className="brand-grid absolute inset-0 opacity-[.12]" />
       <div className="absolute -left-48 bottom-16 h-96 w-96 rounded-full border border-white/8" />
-      <div className={`absolute -left-28 bottom-36 h-56 w-56 rounded-full border border-gold/20 ${accent}`} />
+      <div className={`absolute -left-24 bottom-36 h-44 w-44 rounded-full ${accent}`} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link href={backHref} className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.15em] text-white/55 transition hover:text-gold">
           <ArrowLeft className="h-4 w-4" /> {backLabel}
@@ -50,7 +50,7 @@ export default function InquiryShell({
             <p className="mt-6 hidden max-w-md border-l-2 border-gold pl-4 text-xs font-semibold leading-5 text-white/58 sm:block">{note}</p>
           </aside>
 
-          <div className="rounded-[2rem] border border-white/15 bg-white p-4 shadow-2xl shadow-black/25 sm:p-7 lg:p-8">
+          <div className="rounded-[1.5rem] border border-white/10 bg-white p-4 shadow-xl shadow-black/15 sm:p-7 lg:p-8">
             {children}
           </div>
         </div>

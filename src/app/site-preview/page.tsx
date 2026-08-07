@@ -341,7 +341,7 @@ function GoogleReviewsHeader({
   summary: GoogleReviewsSummary;
 }) {
   return (
-    <div className="mb-6 rounded-xl bg-[#F4F4F6] px-6 py-5 shadow-sm ring-1 ring-navy/5 sm:px-7">
+    <div className="mb-7 border-y border-navy/10 py-5">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <GoogleReviewsBrand />
@@ -617,7 +617,7 @@ export default async function HomePage() {
           {/* Schools & Organizations horizontal row */}
           <Link
             href="/schools-organizations"
-            className="group mt-5 flex items-center gap-5 rounded-xl border border-navy/12 bg-cream px-6 py-5 transition hover:border-gold/40 hover:shadow-sm"
+            className="group mt-7 flex items-center gap-5 border-y border-navy/12 px-2 py-5 transition-colors hover:bg-cream sm:px-4"
           >
             <svg
               viewBox="0 0 24 24"
@@ -722,7 +722,7 @@ export default async function HomePage() {
       ══════════════════════════════════════ */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-navy/8 bg-white px-6 py-14 text-center shadow-sm sm:px-12">
+          <div className="border-y border-navy/10 bg-white px-6 py-14 text-center sm:px-12">
             <h2 className="text-3xl font-bold text-navy lg:text-4xl">
               Current Programs
             </h2>
@@ -733,7 +733,7 @@ export default async function HomePage() {
             </p>
             <Link
               href="/register"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-navy px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-white shadow-lg transition hover:bg-navy-light"
+              className="button-gold mt-8"
             >
               View Full Schedule <ArrowRight className="h-4 w-4" />
             </Link>

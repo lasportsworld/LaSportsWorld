@@ -66,7 +66,7 @@ export default function HolidayCampsPage() {
             {expectations.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-navy/8 bg-white p-6"
+                className="border-t border-navy/12 py-6"
               >
                 <Icon className="mb-4 h-7 w-7 text-gold" />
                 <div className="text-base font-extrabold text-navy">{title}</div>

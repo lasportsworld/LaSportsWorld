@@ -45,7 +45,7 @@ export default function OrganizationInquiryForm({ initialProgramType = "", initi
   if (state.status === "success") return <InquirySuccess focusRef={successRef} title="Your request is with us." description="Thanks for sharing the shape of your program or event. We’ll review the details and follow up with the most useful next questions." primary={{ label: "Back to Organizations", href: "/schools-organizations" }} secondary={{ label: "Return Home", href: "/" }} />;
 
   return (
-    <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
+    <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate className="scroll-mt-24">
       <InquiryProgress steps={steps} current={step} /><InquiryError message={state.status === "error" ? state.message : undefined} />
       <input type="hidden" name="sourcePage" value={sourcePage} /><input type="hidden" name="entryContext" value={entryContext} /><HoneypotField id="organizationWebsite" />
 

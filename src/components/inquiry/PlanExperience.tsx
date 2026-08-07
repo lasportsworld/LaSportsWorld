@@ -22,7 +22,7 @@ const choices: Array<{ value: PlanPath; label: string; description: string }> = 
 
 function SelectionButton({ label, description, onClick }: { label: string; description: string; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="group flex min-h-28 w-full items-start justify-between gap-4 rounded-2xl border border-navy/10 bg-cream p-5 text-left transition hover:-translate-y-0.5 hover:border-gold hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+    <button type="button" onClick={onClick} className="group flex min-h-32 w-full items-start justify-between gap-5 border-b border-navy/12 px-2 py-6 text-left transition-colors hover:bg-cream/80 focus-visible:relative focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:odd:border-r sm:px-5">
       <span>
         <span className="block text-base font-extrabold text-navy">{label}</span>
         <span className="mt-1.5 block text-sm leading-6 text-navy/50">{description}</span>
@@ -34,7 +34,7 @@ function SelectionButton({ label, description, onClick }: { label: string; descr
 
 function ScheduleHandoff() {
   return (
-    <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-gold/25 bg-gold/8 p-5 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mt-7 flex flex-col gap-4 border-y border-navy/12 bg-cream/55 px-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-4">
       <div className="flex items-start gap-3">
         <CalendarDays className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
         <div>
@@ -59,7 +59,7 @@ export default function PlanExperience({ initialPath = "" }: { initialPath?: Pla
         <p className="text-xs font-extrabold uppercase tracking-[.2em] text-gold">Choose a starting point</p>
         <h2 className="mt-3 font-condensed text-4xl font-extrabold uppercase leading-[.92] text-navy sm:text-5xl">What are you planning?</h2>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-navy/55">Pick the closest fit. You can still change the details inside the form.</p>
-        <div className="mt-7 grid gap-3 sm:grid-cols-2">{choices.map((choice) => <SelectionButton key={choice.value} label={choice.label} description={choice.description} onClick={() => setPath(choice.value)} />)}</div>
+        <div className="mt-7 grid border-t border-navy/12 sm:grid-cols-2">{choices.map((choice) => <SelectionButton key={choice.value} label={choice.label} description={choice.description} onClick={() => setPath(choice.value)} />)}</div>
         <ScheduleHandoff />
       </div>
     );
@@ -73,7 +73,7 @@ export default function PlanExperience({ initialPath = "" }: { initialPath?: Pla
         <p className="mt-6 text-xs font-extrabold uppercase tracking-[.2em] text-gold">One quick question</p>
         <h2 className="mt-3 font-condensed text-4xl font-extrabold uppercase leading-[.92] text-navy sm:text-5xl">{recurring ? "Who is the recurring activity for?" : "Who are you planning for?"}</h2>
         <p className="mt-4 text-sm leading-6 text-navy/55">This keeps the next questions relevant and short.</p>
-        <div className="mt-7 grid gap-3 sm:grid-cols-2">
+        <div className="mt-7 grid border-t border-navy/12 sm:grid-cols-2">
           {recurring ? (
             <>
               <SelectionButton label="A child, family, or small group" description="We’ll ask about the activity, group, goals, schedule, and location." onClick={() => setClarifiedPath("recurring-family")} />
@@ -84,7 +84,7 @@ export default function PlanExperience({ initialPath = "" }: { initialPath?: Pla
               <SelectionButton label="A child or family — coaching" description="For skill-building, confidence, movement, or help choosing a coaching format." onClick={() => setClarifiedPath("family-coaching")} />
               <SelectionButton label="A child or family — party" description="For a birthday or custom celebration experience." onClick={() => setClarifiedPath("family-party")} />
               <SelectionButton label="A school, camp, or organization" description="For programs, enrichment, recurring activities, or events." onClick={() => setClarifiedPath("organization")} />
-              <Link href="/contact?service=general" className="group flex min-h-28 items-start justify-between gap-4 rounded-2xl border border-navy/10 bg-cream p-5 text-left transition hover:border-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+              <Link href="/contact?service=general" className="group flex min-h-32 items-start justify-between gap-5 border-b border-navy/12 px-2 py-6 text-left transition-colors hover:bg-cream/80 focus-visible:relative focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:px-5">
                 <span><span className="block text-base font-extrabold text-navy">Something else</span><span className="mt-1.5 block text-sm leading-6 text-navy/50">Use General Contact for a question that is not a service request.</span></span><ArrowRight className="mt-1 h-5 w-5 text-gold" />
               </Link>
             </>
@@ -112,7 +112,7 @@ export default function PlanExperience({ initialPath = "" }: { initialPath?: Pla
     <div>
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-navy/10 pb-4">
         <div><p className="text-[10px] font-extrabold uppercase tracking-[.16em] text-gold">Planning</p><p aria-live="polite" className="mt-1 text-sm font-extrabold text-navy">{selectedLabel}{clarifiedPath ? " · Refined path" : ""}</p></div>
-        <button type="button" onClick={reset} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-navy/12 px-4 text-xs font-extrabold uppercase tracking-[.12em] text-navy/55 transition hover:border-navy/30 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"><RotateCcw className="h-4 w-4" /> Change plan</button>
+        <button type="button" onClick={reset} className="inline-flex min-h-11 items-center gap-2 px-2 text-xs font-extrabold uppercase tracking-[.12em] text-navy/55 transition hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"><RotateCcw className="h-4 w-4" /> Change plan</button>
       </div>
       <div>{form}</div>
     </div>

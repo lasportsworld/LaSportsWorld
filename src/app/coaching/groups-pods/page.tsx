@@ -78,7 +78,7 @@ export default function GroupCoachingAndPodsPage() {
           </div>
           <div className="grid gap-5 sm:grid-cols-3">
             {groupNeeds.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="rounded-2xl border border-navy/8 bg-white p-7 text-center">
+              <div key={title} className="border-t border-navy/12 py-7 text-center">
                 <Icon className="mx-auto mb-3 h-8 w-8 text-gold" />
                 <div className="text-base font-extrabold text-navy">{title}</div>
                 <p className="mt-1.5 text-sm leading-relaxed text-navy/55">{desc}</p>
