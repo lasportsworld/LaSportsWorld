@@ -15,7 +15,7 @@ const inclusion = [
     desc: "Patient, fundamentals-first coaching that builds real confidence.",
   },
   {
-    title: "Experienced athletes",
+    title: "Experienced Athletes",
     desc: "Coaching that pushes skill development further.",
   },
   {
