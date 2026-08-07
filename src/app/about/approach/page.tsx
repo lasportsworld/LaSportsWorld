@@ -51,7 +51,8 @@ export default function OurApproachPage() {
         title="Our Approach"
         subtitle="We meet every child and group where they are, keep them engaged, and adapt the experience to fit."
         tag="About LASW"
-        image="/images/lasw_slideshow_003.jpg"
+        image="/images/hero-lasw.jpg"
+        imageAlt="Children and coaches connecting during an LA Sports World group activity"
       />
 
       <section className="bg-white py-16 lg:py-20">

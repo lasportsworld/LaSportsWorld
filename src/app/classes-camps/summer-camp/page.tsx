@@ -35,7 +35,8 @@ export default function SummerCampPage() {
         title="Summer Camp"
         subtitle="Our summer programming is being developed. Here is how to be first in line."
         tag="Coming for Summer"
-        image="/images/Summer-Camp-Header-Image.jpg"
+        image="/images/lasw-design-1.jpg"
+        imageAlt="LA Sports World coaches leading an outdoor movement activity with children"
       />
 
       <section className="bg-white py-16 lg:py-20">

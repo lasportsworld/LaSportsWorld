@@ -9,37 +9,37 @@ const programs: Record<string, { title: string; description: string; image?: str
   "summer-camp": {
     title: "Summer Camp",
     description: "Multi-week summer camp for grades Pre-1 through 8th. Sports, activities, and memories.",
-    image: "/images/Summer-Camp-Header-Image.jpg",
+    image: "/images/lasw-design-1.jpg",
   },
   "winter-camp": {
     title: "Winter Camp",
     description: "January break camp for grades Pre-1 through 8th.",
-    image: "/images/Winter-Camp-Header-Image.jpg",
+    image: "/images/lasw-design-2.jpg",
   },
   "day-camp": {
     title: "Day Camp",
     description: "Flexible sessions for school-off days, from one day to a full week.",
-    image: "/images/Day-Camp-Header-Image.jpg",
+    image: "/images/lasw-photo-44.jpg",
   },
   "passover-camp": {
     title: "Passover Camp",
     description: "Our Matza Ballers Passover camp for grades Pre-1 through 6th.",
-    image: "/images/Passover-Camp-Header-Image-3.jpg",
+    image: "/images/sports-clinic.jpg",
   },
   "private-lessons": {
     title: "Private Coaching",
     description: "One-on-one coaching for children ages 6 months to 17 years.",
-    image: "/images/LASW_Private_Lessons_Header_Image.jpg",
+    image: "/images/lasw-photo-43.jpg",
   },
   "clinics": {
     title: "Group Coaching & Pods",
     description: "Recurring small-group coaching for six or more athletes.",
-    image: "/images/LASW_Clinics_Header_Image.jpg",
+    image: "/images/sports-clinic.jpg",
   },
   "parties": {
     title: "Parties & Events",
     description: "Custom sports and activity parties planned around your group, location, and goals.",
-    image: "/images/LASW_Parties_Header_Image.jpg",
+    image: "/images/lasw-photo-real-1.jpg",
   },
   "work-with-us": {
     title: "Work With Us",
@@ -85,6 +85,7 @@ export default async function RegistrationDetailPage({
         subtitle={program.description}
         tag="Sign Up"
         image={program.image}
+        imageAlt={`${program.title} registration at LA Sports World`}
       />
 
       <section className="py-20 bg-navy">

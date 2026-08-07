@@ -27,6 +27,7 @@ export default async function CampDetailPage({ params }: { params: Promise<{ slu
         subtitle={camp.description}
         tag={camp.subtitle}
         image={camp.image}
+        imageAlt={`${camp.title} at LA Sports World`}
       />
 
       <section className="py-20 bg-navy">

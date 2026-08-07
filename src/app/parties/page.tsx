@@ -38,8 +38,8 @@ export default function BirthdayPartiesPage() {
         eyebrow="Parties & Events"
         title="A party they’ll talk about all year"
         description="Organized sports and games, expertly led at your park, home, backyard, or venue."
-        image="/images/LASW_Parties_Header_Image.jpg"
-        imageAlt="Children enjoying an LA Sports World birthday party"
+        image="/images/lasw-event-3.jpg"
+        imageAlt="An outdoor LA Sports World soft-play and activity setup"
         imagePosition="center 42%"
         primaryCta={{ label: "Plan a Party", href: "/parties/request?source=parties-hero" }}
         secondaryCta={{ label: "See the Experience", href: "#experience" }}
@@ -49,8 +49,8 @@ export default function BirthdayPartiesPage() {
       <EditorialSplit
         eyebrow="Your party, in motion"
         title="You bring the guests. We bring the energy."
-        image="/images/gallery-birthday.jpg"
-        imageAlt="Children playing together at a birthday party"
+        image="/images/lasw-photo-real-1.jpg"
+        imageAlt="An LA Sports World coach creating bubbles at a decorated first birthday party"
         imagePosition="center"
         accent="More playing. Less planning."
       >
@@ -88,9 +88,9 @@ export default function BirthdayPartiesPage() {
             </div>
           </div>
           <PhotoMosaic images={[
-            { src: "/images/lasw-event-2.jpg", alt: "Children taking part in an LASW event" },
-            { src: "/images/lasw-event-5.jpg", alt: "LASW party activity" },
-            { src: "/images/lasw-photo-real-1.jpg", alt: "Children celebrating together" },
+            { src: "/images/lasw-event-2.jpg", alt: "Inflatable activity tunnel set up for an LASW event" },
+            { src: "/images/lasw-event-5.jpg", alt: "LA Sports World coaches ready to lead party games" },
+            { src: "/images/lasw-event-1.jpg", alt: "Outdoor party activity stations arranged on a lawn" },
           ]} />
         </div>
       </section>
@@ -112,8 +112,8 @@ export default function BirthdayPartiesPage() {
         title="Give them the best kind of tired"
         description="Tell us the date, age, and kind of energy you want. We’ll turn it into a party plan."
         cta={{ label: "Plan a Party", href: "/parties/request?source=parties-final-cta" }}
-        image="/images/lasw-event-6.jpg"
-        imageAlt="Kids enjoying an active LA Sports World event"
+        image="/images/lasw-event-4.jpg"
+        imageAlt="A child enjoying an LA Sports World soft-play activity"
       />
     </>
   );

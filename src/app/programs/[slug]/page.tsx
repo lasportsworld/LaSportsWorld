@@ -32,6 +32,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
         subtitle={program.description}
         tag={program.subtitle}
         image={program.image}
+        imageAlt={`${program.title} at LA Sports World`}
       />
 
       <section className="py-20 bg-navy">

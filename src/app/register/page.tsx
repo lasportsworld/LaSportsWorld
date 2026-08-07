@@ -16,7 +16,8 @@ export default function RegisterPage() {
         title="Register"
         subtitle="Browse everything currently open for registration and grab your spot."
         tag="Sign Up"
-        image="/images/hero-sports-4.jpg"
+        image="/images/sports-clinic.jpg"
+        imageAlt="Children taking part in an indoor LA Sports World sports activity"
       />
 
       <section className="bg-cream py-16 lg:py-20">

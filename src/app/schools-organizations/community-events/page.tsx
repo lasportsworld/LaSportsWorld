@@ -40,6 +40,7 @@ export default function CommunityEventsPage() {
         subtitle="A children's activity area or active program, built into your larger event."
         tag="Schools & Organizations"
         image="/images/lasw-event-3.jpg"
+        imageAlt="An outdoor soft-play and inflatable activity setup for young children"
       />
 
       <section className="bg-white py-16 lg:py-20">

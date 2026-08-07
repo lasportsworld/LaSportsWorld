@@ -13,10 +13,10 @@ export const siteConfig = {
 };
 
 export const sports = [
-  { name: "Basketball", icon: "/images/basketball_icon.jpg" },
-  { name: "Flag Football", icon: "/images/football_icon.jpg" },
-  { name: "Soccer", icon: "/images/soccer_icon.jpg" },
-  { name: "Baseball", icon: "/images/summer_camp_icon.jpg" },
+  { name: "Basketball", icon: null },
+  { name: "Flag Football", icon: null },
+  { name: "Soccer", icon: null },
+  { name: "Baseball", icon: null },
   { name: "Volleyball", icon: null },
   { name: "Surfing", icon: null },
   { name: "Street Hockey", icon: null },
@@ -28,7 +28,7 @@ export const programs = [
     slug: "private-lessons",
     title: "Private Coaching",
     subtitle: "1-on-1 Coaching",
-    image: "/images/LASW_Private_Lessons_Header_Image.jpg",
+    image: "/images/lasw-photo-43.jpg",
     description:
       "One-on-one coaching tailored to your child's needs, experience, and goals, from first exposure through focused development.",
     sports: ["Basketball", "Soccer", "Football", "Baseball", "Volleyball", "Surfing"],
@@ -45,7 +45,7 @@ export const programs = [
     slug: "clinics",
     title: "Group Coaching & Pods",
     subtitle: "Small-Group Coaching",
-    image: "/images/LASW_Clinics_Header_Image.jpg",
+    image: "/images/sports-clinic.jpg",
     description:
       "Eight- or ten-week programs for groups of six or more athletes. We cover sport fundamentals, teamwork, and proper technique for first-timers through advanced players.",
     sports: ["Basketball", "Soccer", "Football", "Baseball", "Volleyball"],
@@ -62,7 +62,7 @@ export const programs = [
     slug: "parties",
     title: "Parties & Events",
     subtitle: "Custom Sports Parties",
-    image: "/images/LASW_Parties_Header_Image.jpg",
+    image: "/images/lasw-photo-real-1.jpg",
     description:
       "Plan an active birthday experience around the age group, guest count, location, and sports your child enjoys.",
     sports: ["Any Two Sports of Your Choice"],
@@ -82,7 +82,7 @@ export const camps = [
     slug: "summer",
     title: "Summer Camp",
     subtitle: "Grades Pre-1 through 8th",
-    image: "/images/Summer-Camp-Header-Image.jpg",
+    image: "/images/lasw-design-1.jpg",
     description:
       "Our flagship multi-week summer camp blends elite sports training with unforgettable activities. Campers are grouped by grade into divisions and enjoy everything from beach days to amusement parks.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Surfing", "Volleyball", "Color War", "Capture the Flag"],
@@ -93,7 +93,7 @@ export const camps = [
     slug: "winter",
     title: "Winter Camp",
     subtitle: "January Break",
-    image: "/images/Winter-Camp-Header-Image.jpg",
+    image: "/images/lasw-design-2.jpg",
     description:
       "Three weeks of skill enhancement and fun during winter break. Campers in three divisions (Pre-1–2, 3rd–5th, 6th–8th) enjoy sports plus special activities and optional travel events.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Kickball", "Street Hockey", "Volleyball"],
@@ -103,7 +103,7 @@ export const camps = [
     slug: "day",
     title: "Day Camp",
     subtitle: "School's Out? We're On!",
-    image: "/images/Day-Camp-Header-Image.jpg",
+    image: "/images/lasw-photo-44.jpg",
     description:
       "Flexible camp sessions for school-off days, from one day to a full week. LA Sports World keeps kids active and engaged whenever school is out.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Surfing", "Volleyball", "Ultimate Frisbee"],
@@ -113,7 +113,7 @@ export const camps = [
     slug: "passover",
     title: "Passover Camp",
     subtitle: "Matza Ballers",
-    image: "/images/Passover-Camp-Header-Image-3.jpg",
+    image: "/images/sports-clinic.jpg",
     description:
       "Our Passover camp, \"Matza Ballers,\" runs during the holiday for grades Pre-1 through 6th. It combines skill development, movement, and Mensch values.",
     sports: ["Basketball", "Flag Football", "Baseball", "Soccer", "Surfing", "Volleyball", "Color War"],

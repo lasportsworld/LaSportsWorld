@@ -29,6 +29,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         subtitle="Have a general question or need help choosing where to start? We’d love to hear from you."
         tag="Get in Touch"
         image="/images/lasw-photo-real-2.jpg"
+        imageAlt="LA Sports World coaches leading a movement activity with young children"
       />
 
       <section className="py-20 bg-navy">

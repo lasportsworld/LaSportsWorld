@@ -37,8 +37,8 @@ export default function CoachStandardsPage() {
       <EditorialSplit
         eyebrow="The standard"
         title="A coach kids want to learn from and adults can rely on"
-        image="/images/lasw_slideshow_004.jpg"
-        imageAlt="Coach guiding a young athlete"
+        image="/images/lasw-action-1.jpg"
+        imageAlt="An LA Sports World coach supporting a young child during soft play"
         imagePosition="center 30%"
         accent="Safe. Prepared. Fully present."
       >
@@ -73,8 +73,8 @@ export default function CoachStandardsPage() {
         title="Talk with us about safety or fit"
         description="Whether you are a parent or an organization, we want you to feel confident about the people leading your program."
         cta={{ label: "Contact LA Sports World", href: "/contact" }}
-        image="/images/lasw_slideshow_013.jpg"
-        imageAlt="Coach helping children during an LA Sports World activity"
+        image="/images/lasw-event-5.jpg"
+        imageAlt="Two LA Sports World coaches ready to lead an outdoor activity"
       />
     </>
   );

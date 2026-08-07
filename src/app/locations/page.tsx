@@ -15,6 +15,7 @@ export default function LocationsPage() {
         subtitle="Drop-off, pick-up, and activity locations across Los Angeles."
         tag="Where We Are"
         image="/images/hero-la-bg.jpg"
+        imageAlt="Young children lining up with an LA Sports World coach in a gym"
       />
 
       <section className="py-20 bg-navy">

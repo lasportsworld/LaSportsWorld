@@ -24,8 +24,8 @@ export default function AboutPage() {
         eyebrow="Our Story"
         title="Sports are the setting. Confidence is the outcome."
         description="LA Sports World creates thoughtful, high-energy experiences that help kids move, connect, learn, and feel proud of what they can do."
-        image="/images/lasw_slideshow_005.jpg"
-        imageAlt="LA Sports World coach connecting with young athletes"
+        image="/images/hero-lasw.jpg"
+        imageAlt="Children and families gathered for an LA Sports World group activity"
         imagePosition="center 35%"
         primaryCta={{ label: "Meet Our Coaches", href: "#coaches" }}
         secondaryCta={{ label: "Our Approach", href: "/about/approach" }}
@@ -35,8 +35,8 @@ export default function AboutPage() {
       <EditorialSplit
         eyebrow="The idea behind LASW"
         title="You bring the kids. We bring the coaching."
-        image="/images/lasw_slideshow_008.jpg"
-        imageAlt="Coach working closely with youth athletes"
+        image="/images/about-img.jpg"
+        imageAlt="LA Sports World coaches engaging children during an indoor program"
         imagePosition="center 28%"
         accent="Individual attention. Group energy."
       >
@@ -54,9 +54,9 @@ export default function AboutPage() {
             </div>
           </div>
           <PhotoMosaic images={[
-            { src: "/images/kids-action-1.jpg", alt: "Children taking part in a sports activity" },
-            { src: "/images/hero-football-boy.jpg", alt: "Young athlete holding a football" },
-            { src: "/images/soccer-player.jpg", alt: "Youth soccer player in action" },
+            { src: "/images/lasw-design-1.jpg", alt: "LA Sports World coaches leading a movement activity outdoors" },
+            { src: "/images/lasw-photo-45.jpg", alt: "Children running during an outdoor flag football activity" },
+            { src: "/images/lasw-event-4.jpg", alt: "A child exploring an outdoor soft-play course" },
           ]} />
         </div>
       </section>

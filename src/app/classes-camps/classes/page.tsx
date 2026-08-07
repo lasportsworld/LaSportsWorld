@@ -40,7 +40,8 @@ export default function ClassesPage() {
         title="Classes"
         subtitle="Structured, ongoing classes that build skills and confidence week over week."
         tag="Classes & Camps"
-        image="/images/LASW_Clinics_Header_Image.jpg"
+        image="/images/sports-clinic.jpg"
+        imageAlt="Children taking part in an indoor LA Sports World sports activity"
       />
 
       <section className="bg-white py-16 lg:py-20">

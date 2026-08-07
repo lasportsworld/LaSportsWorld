@@ -4,10 +4,11 @@ interface PageHeroProps {
   title: string;
   subtitle?: string;
   image?: string;
+  imageAlt?: string;
   tag?: string;
 }
 
-export default function PageHero({ title, subtitle, image, tag }: PageHeroProps) {
+export default function PageHero({ title, subtitle, image, imageAlt = "", tag }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-navy pt-24 text-white sm:pt-28">
       <div className="brand-grid absolute inset-0 -z-10 opacity-[.12]" />
@@ -19,7 +20,7 @@ export default function PageHero({ title, subtitle, image, tag }: PageHeroProps)
         </div>
         {image ? (
           <div className="relative h-72 overflow-hidden rounded-tl-[5rem] rounded-br-[5rem] shadow-2xl sm:h-96 lg:h-[430px]">
-            <Image src={image} alt={title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            <Image src={image} alt={imageAlt} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
           </div>
         ) : (

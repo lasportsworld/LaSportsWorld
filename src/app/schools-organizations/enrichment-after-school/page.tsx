@@ -45,7 +45,8 @@ export default function EnrichmentPage() {
         title="Enrichment & After-School"
         subtitle="An engaging activity partner that complements your school day."
         tag="Schools & Organizations"
-        image="/images/kids-action-2.jpg"
+        image="/images/lasw-design-1.jpg"
+        imageAlt="LA Sports World coaches leading a movement activity with young children"
       />
 
       <section className="bg-white py-16 lg:py-20">

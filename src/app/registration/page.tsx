@@ -48,7 +48,8 @@ export default function RegistrationPage() {
         title="Registration"
         subtitle="Choose a scheduled program to view details and register."
         tag="Sign Up"
-        image="/images/hero-sports-4.jpg"
+        image="/images/sports-clinic.jpg"
+        imageAlt="Children taking part in an indoor LA Sports World sports activity"
       />
 
       <section className="py-20 bg-navy">

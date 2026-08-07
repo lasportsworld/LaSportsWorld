@@ -16,8 +16,8 @@ export const metadata = createPageMetadata({
 });
 
 const services = [
-  { title: "School PE & enrichment", description: "Consistent, age-appropriate programming designed to fit your calendar, space, and student groups.", href: "/schools-organizations/school-pe", image: "/images/kids-sports-3.jpg", label: "Schools" },
-  { title: "Camp activity programming", description: "Coach-led sports blocks and specialty activities that add structure and variety to your camp day.", href: "/schools-organizations/camps-activity-programming", image: "/images/Day-Camp-Header-Image.jpg", label: "Camps" },
+  { title: "School PE & enrichment", description: "Consistent, age-appropriate programming designed to fit your calendar, space, and student groups.", href: "/schools-organizations/school-pe", image: "/images/lasw-photo-44.jpg", label: "Schools" },
+  { title: "Camp activity programming", description: "Coach-led sports blocks and specialty activities that add structure and variety to your camp day.", href: "/schools-organizations/camps-activity-programming", image: "/images/lasw_slideshow_004.jpg", label: "Camps" },
   { title: "Community events", description: "Scalable activity zones, clinics, and soft-play experiences for organizations and neighborhood events.", href: "/schools-organizations/community-events", image: "/images/lasw-event-3.jpg", label: "Events" },
 ];
 
@@ -43,7 +43,7 @@ export default function OrganizationsPage() {
         eyebrow="Schools & Organizations"
         title="A complete activity program, brought to you"
         description="Flexible sports, enrichment, and event programming for schools, camps, nonprofits, businesses, and community organizations across Los Angeles."
-        image="/images/hero-kids-group.jpg"
+        image="/images/lasw-design-1.jpg"
         imageAlt="Children participating in an organized LA Sports World group activity"
         imagePosition="center 38%"
         primaryCta={{ label: "Talk About Your Program", href: "/schools-organizations/request?source=organizations-hero" }}
@@ -55,7 +55,7 @@ export default function OrganizationsPage() {
         eyebrow="A true operating partner"
         title="More than an instructor at the door"
         image="/images/lasw-event-1.jpg"
-        imageAlt="LA Sports World coaches leading a large group activity"
+        imageAlt="Outdoor activity stations prepared for an LA Sports World program"
         imagePosition="center"
         accent="Built to work in the real world"
       >
@@ -99,7 +99,8 @@ export default function OrganizationsPage() {
         title="Tell us what your organization needs"
         description="Share the setting, audience, timing, and idea—even if the details are still taking shape."
         cta={{ label: "Talk About Your Program", href: "/schools-organizations/request?source=organizations-final-cta" }}
-        imageAlt="LA Sports World organization programming"
+        image="/images/about-us.jpg"
+        imageAlt="LA Sports World coaches leading children in a gym"
       />
     </>
   );

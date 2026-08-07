@@ -14,7 +14,8 @@ export default function GalleryPage() {
         title="Gallery"
         subtitle="Action shots, camp memories, and proud moments from our community."
         tag="Photos"
-        image="/images/gallery-kids-1.jpg"
+        image="/images/lasw-photo-45.jpg"
+        imageAlt="Children running during an outdoor flag football activity"
       />
       <GalleryGrid />
     </>

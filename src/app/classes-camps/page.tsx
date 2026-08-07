@@ -17,9 +17,9 @@ export const metadata = createPageMetadata({
 });
 
 const programs = [
-  { title: "Classes", description: "Ongoing and pop-up programs that turn weekly movement into steady confidence and new skills.", href: "/classes-camps/classes", image: "/images/LASW_Clinics_Header_Image.jpg", label: "Weekly & pop-up" },
-  { title: "Holiday Camps", description: "Full, active days built around school breaks with variety, structure, and plenty of movement.", href: "/classes-camps/holiday-camps", image: "/images/Winter-Camp-Header-Image.jpg", label: "School-break energy" },
-  { title: "Summer Camp", description: "A community-focused summer program in development. Join the interest list to hear first.", href: "/classes-camps/summer-camp", image: "/images/Summer-Camp-Header-Image.jpg", label: "Coming soon" },
+  { title: "Classes", description: "Ongoing and pop-up programs that turn weekly movement into steady confidence and new skills.", href: "/classes-camps/classes", image: "/images/sports-clinic.jpg", label: "Weekly & pop-up" },
+  { title: "Holiday Camps", description: "Full, active days built around school breaks with variety, structure, and plenty of movement.", href: "/classes-camps/holiday-camps", image: "/images/lasw_slideshow_008.jpg", label: "School-break energy" },
+  { title: "Summer Camp", description: "A community-focused summer program in development. Join the interest list to hear first.", href: "/classes-camps/summer-camp", image: "/images/lasw-design-1.jpg", label: "Coming soon" },
 ];
 
 const expectations = [
@@ -35,7 +35,7 @@ export default function ClassesCampsPage() {
         eyebrow="Scheduled Programs"
         title="Where movement becomes community"
         description="Join organized classes and camps filled with sports, variety, encouraging coaches, and the kind of fun kids ask to do again."
-        image="/images/Summer-Camp-Header-Image.jpg"
+        image="/images/lasw-photo-45.jpg"
         imageAlt="Children participating in an LA Sports World camp"
         imagePosition="center 45%"
         primaryCta={{ label: "View Open Programs", href: "#open-programs" }}
@@ -56,7 +56,7 @@ export default function ClassesCampsPage() {
       <EditorialSplit
         eyebrow="What it feels like"
         title="Structured enough to grow. Joyful enough to belong."
-        image="/images/Day-Camp-Header-Image.jpg"
+        image="/images/lasw-photo-44.jpg"
         imageAlt="Kids enjoying a day camp activity"
         imagePosition="center 38%"
         reverse
@@ -89,7 +89,7 @@ export default function ClassesCampsPage() {
         title="Find the program that fits your family"
         description="See everything open for registration, or reach out if you need help finding the right class or camp."
         cta={{ label: "Explore the Schedule", href: "/register" }}
-        image="/images/hero-kids-camp-2.jpg"
+        image="/images/lasw-design-2.jpg"
         imageAlt="Kids participating in a group sports activity"
       />
     </>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   CalendarDays,
@@ -13,7 +14,6 @@ import {
   EditorialSplit,
   FeaturePanels,
   PageCTA,
-  PhotoPlaceholder,
   ProcessTimeline,
   SectionHeading,
   ServiceHero,
@@ -32,6 +32,8 @@ const formats = [
     title: "Private Coaching",
     description: "One-on-one coaching with individualized attention, pacing, and feedback.",
     href: "/coaching/private-coaching",
+    image: "/images/lasw_slideshow_005.jpg",
+    imageAlt: "A child practicing basketball footwork during an individual drill",
     details: [
       ["Best for", "Focused skill-building, confidence, and individual progress"],
       ["Format", "One athlete with one coach"],
@@ -43,6 +45,8 @@ const formats = [
     title: "Group Coaching & Pods",
     description: "Shared coaching for a small group that learns, moves, and progresses together.",
     href: "/coaching/groups-pods",
+    image: "/images/lasw_slideshow_008.jpg",
+    imageAlt: "A youth basketball group together after practice",
     details: [
       ["Best for", "Friends, classmates, siblings, and recurring groups"],
       ["Format", "A small group with a matched coach"],
@@ -75,7 +79,8 @@ export default function CoachingPage() {
         eyebrow="Coaching Overview"
         title="Coaching that meets kids where they are"
         description="LA Sports World offers two flexible ways to coach: individualized Private Coaching and social Group Coaching & Pods. Explore both and choose the format that fits."
-        imageAlt="Future LA Sports World coaching overview photo"
+        image="/images/lasw-design-2.jpg"
+        imageAlt="LA Sports World coaches leading a basketball activity outdoors"
         primaryCta={{ label: "Request Coaching", href: "/coaching/request?source=coaching-overview" }}
         secondaryCta={{ label: "Explore Formats", href: "#formats" }}
         note="Two formats · One thoughtful, flexible approach"
@@ -84,7 +89,8 @@ export default function CoachingPage() {
       <EditorialSplit
         eyebrow="What LASW coaching means"
         title="Built around the child or group in front of us"
-        imageAlt="Future photo showing LA Sports World coaching"
+        image="/images/lasw-photo-43.jpg"
+        imageAlt="An LA Sports World coach encouraging two children during an outdoor activity"
         accent="Flexible by design"
       >
         <p>Coaching is not a one-size-fits-all package. We shape the experience around the people participating, the sport they want to explore, and the progress they want to make.</p>
@@ -102,7 +108,9 @@ export default function CoachingPage() {
           <div className="grid gap-6 lg:grid-cols-2">
             {formats.map((format) => (
               <article key={format.title} className="overflow-hidden rounded-[1.75rem] border border-navy/10 bg-cream shadow-sm">
-                <PhotoPlaceholder className="h-64 border-0 border-b border-navy/10 sm:h-72" />
+                <div className="relative h-64 overflow-hidden border-b border-navy/10 sm:h-72">
+                  <Image src={format.image} alt={format.imageAlt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                </div>
                 <div className="p-6 sm:p-8">
                   <p className="font-condensed text-6xl font-extrabold leading-none text-gold/25">{format.number}</p>
                   <h3 className="mt-2 font-condensed text-3xl font-extrabold uppercase text-navy sm:text-4xl">{format.title}</h3>
@@ -149,7 +157,9 @@ export default function CoachingPage() {
       <EditorialSplit
         eyebrow="Standards, trust & fit"
         title="The right match is more than technical skill"
-        imageAlt="Future photo showing a trusted LA Sports World coach"
+        image="/images/lasw-event-5.jpg"
+        imageAlt="Two LA Sports World coaches prepared for an outdoor sports session"
+        imagePosition="center 35%"
         reverse
         dark
       >
@@ -164,7 +174,8 @@ export default function CoachingPage() {
         title="Let’s find the coaching format that fits"
         description="Tell us about your child or group. We’ll help you choose the format, schedule, and coaching setup that makes sense."
         cta={{ label: "Request Coaching", href: "/coaching/request?source=coaching-overview" }}
-        imageAlt="Future LA Sports World coaching inquiry photo"
+        image="/images/lasw-photo-45.jpg"
+        imageAlt="Children running during an outdoor flag football activity"
       />
     </>
   );

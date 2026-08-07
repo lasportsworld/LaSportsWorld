@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Activity,
   CalendarDays,
@@ -15,7 +16,6 @@ import {
   EditorialSplit,
   FeaturePanels,
   PageCTA,
-  PhotoPlaceholder,
   ProcessTimeline,
   SectionHeading,
   ServiceHero,
@@ -71,7 +71,9 @@ export default function PrivateCoachingPage() {
         eyebrow="Coaching"
         title="One-on-one coaching built around your child"
         description="Personalized support shaped around your child’s experience, interests, pace, and goals, with the flexibility to work for your family."
-        imageAlt="Future LA Sports World private coaching hero photo"
+        image="/images/lasw-photo-43.jpg"
+        imageAlt="An LA Sports World coach giving focused guidance to two children"
+        imagePosition="center 38%"
         primaryCta={{ label: "Request Private Coaching", href: inquiryHref }}
         secondaryCta={{ label: "How It Works", href: "#how-it-works" }}
         note="Personal goals · Flexible location · Thoughtful coach matching"
@@ -80,7 +82,8 @@ export default function PrivateCoachingPage() {
       <EditorialSplit
         eyebrow="A coaching plan that fits"
         title="Focused attention for the child in front of us"
-        imageAlt="Future photo of a child receiving one-on-one coaching"
+        image="/images/lasw-action-1.jpg"
+        imageAlt="An LA Sports World coach giving a young child focused support during play"
         reverse
         accent="Their pace. Their goals."
       >
@@ -125,7 +128,9 @@ export default function PrivateCoachingPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.88fr_1.12fr] lg:items-center lg:gap-16 lg:px-8">
           <div className="relative">
-            <PhotoPlaceholder className="aspect-[4/5] rounded-[2rem] shadow-2xl shadow-navy/10 sm:aspect-[5/4] lg:aspect-[4/5]" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/10 sm:aspect-[5/4] lg:aspect-[4/5]">
+              <Image src="/images/sports-clinic.jpg" alt="Children building confidence through an indoor LA Sports World activity" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
+            </div>
             <div className="absolute -bottom-5 right-4 max-w-xs rounded-2xl bg-gold p-5 text-navy shadow-xl sm:right-8">
               <HeartHandshake className="h-6 w-6" />
               <p className="mt-3 font-condensed text-2xl font-extrabold uppercase leading-none">Progress feels different when support feels personal.</p>
@@ -189,7 +194,8 @@ export default function PrivateCoachingPage() {
         title="Tell us what would help your child thrive"
         description="Share a few details about your child, their interests, and your goals. We’ll review the request and help shape a private coaching setup that fits."
         cta={{ label: "Request Private Coaching", href: inquiryHref }}
-        imageAlt="Future LA Sports World private coaching inquiry photo"
+        image="/images/lasw-design-2.jpg"
+        imageAlt="LA Sports World coaches leading children through an outdoor basketball activity"
       />
     </>
   );

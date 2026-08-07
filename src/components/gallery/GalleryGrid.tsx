@@ -4,14 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 
 const galleryImages = [
-  { src: "/images/lasw_slideshow_001.jpg", alt: "Youth basketball training", category: "Basketball" },
-  { src: "/images/lasw_slideshow_003.jpg", alt: "Camp action", category: "Camp" },
-  { src: "/images/lasw_slideshow_004.jpg", alt: "Football drills", category: "Football" },
-  { src: "/images/lasw_slideshow_005.jpg", alt: "Group training session", category: "Training" },
-  { src: "/images/lasw_slideshow_008.jpg", alt: "Coaching moment", category: "Training" },
-  { src: "/images/lasw_slideshow_013.jpg", alt: "Summer camp fun", category: "Camp" },
-  { src: "/images/lasw_slideshow_0014.jpg", alt: "Camp highlights", category: "Camp" },
-  { src: "/images/lasw_slideshow_0015.jpg", alt: "Sports activities", category: "Training" },
+  { src: "/images/lasw_slideshow_001.jpg", alt: "A coach talking with children during an outdoor ball activity", category: "Basketball" },
+  { src: "/images/lasw_slideshow_003.jpg", alt: "A coach guiding children through an outdoor sports activity", category: "Camp" },
+  { src: "/images/lasw_slideshow_004.jpg", alt: "Young children playing together on a grass field", category: "Football" },
+  { src: "/images/lasw_slideshow_005.jpg", alt: "A child practicing a basketball cone drill outdoors", category: "Training" },
+  { src: "/images/lasw_slideshow_008.jpg", alt: "A youth basketball team posing together in a gym", category: "Training" },
+  { src: "/images/lasw-design-1.jpg", alt: "LA Sports World coaches leading a movement activity outdoors", category: "Camp" },
+  { src: "/images/lasw-photo-45.jpg", alt: "Children running during an outdoor flag football game", category: "Camp" },
+  { src: "/images/sports-clinic.jpg", alt: "Children participating in an indoor ball activity", category: "Training" },
 ];
 
 const categories = ["All", "Basketball", "Football", "Soccer", "Camp", "Training"];

@@ -17,7 +17,8 @@ export default function CampsPage() {
         title="Our Camps"
         subtitle="Skill-building, fun, and lasting memories across every season."
         tag="Seasonal Programs"
-        image="/images/Summer-Camp-Header-Image.jpg"
+        image="/images/lasw-photo-45.jpg"
+        imageAlt="Children running during an outdoor LA Sports World activity"
       />
 
       <section className="py-20 bg-navy">

@@ -35,6 +35,7 @@ export default function ServiceAreaPage() {
         subtitle="We serve Los Angeles, with a primary focus on the Westside and nearby communities."
         tag="About LASW"
         image="/images/hero-la-bg.jpg"
+        imageAlt="Young children lining up with an LA Sports World coach in a gym"
       />
 
       <section className="bg-white py-16 lg:py-20">

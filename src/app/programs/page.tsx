@@ -17,7 +17,8 @@ export default function ProgramsPage() {
         title="Our Programs"
         subtitle="Private coaching, group coaching and pods, and active party experiences for children across Los Angeles."
         tag="Training"
-        image="/images/hero-sports-7.jpg"
+        image="/images/lasw-photo-44.jpg"
+        imageAlt="Children and LA Sports World coaches gathered for an outdoor flag football session"
       />
 
       <section className="py-20 bg-navy">

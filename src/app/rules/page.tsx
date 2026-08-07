@@ -15,7 +15,8 @@ export default function RulesPage() {
         title="Camp Rules"
         subtitle="To ensure a safe, fun, and productive experience for every camper."
         tag="Policies"
-        image="/images/hero-kids-camp.jpg"
+        image="/images/lasw-photo-45.jpg"
+        imageAlt="Children running during a supervised outdoor flag football activity"
       />
 
       <section className="py-20 bg-navy">
