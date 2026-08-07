@@ -137,7 +137,7 @@ export default function EnrichmentPage() {
             options.
           </p>
           <Link
-            href="/schools-organizations#organization-inquiry"
+            href="/schools-organizations/request?type=enrichment-after-school&source=enrichment-after-school"
             className="button-gold mt-7"
           >
             Discuss an Enrichment Program <ArrowRight className="h-4 w-4" />

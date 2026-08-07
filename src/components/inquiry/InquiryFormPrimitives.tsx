@@ -30,6 +30,7 @@ export function Field({
   helper,
   error,
   required,
+  optional,
   children,
 }: {
   label: string;
@@ -37,12 +38,14 @@ export function Field({
   helper?: string;
   error?: string;
   required?: boolean;
+  optional?: boolean;
   children: ReactNode;
 }) {
   return (
     <div>
       <label htmlFor={htmlFor} className="mb-2 block text-sm font-extrabold text-navy">
         {label} {required && <span className="text-gold" aria-hidden>*</span>}
+        {optional && <span className="ml-1 font-semibold text-navy/38">(optional)</span>}
       </label>
       {children}
       {helper && !error && <p className="mt-1.5 text-xs leading-5 text-navy/45">{helper}</p>}
@@ -82,7 +85,7 @@ export function ChoiceCard({
   onChange: () => void;
 }) {
   return (
-    <label className={`block cursor-pointer rounded-2xl border p-4 transition ${checked ? "border-gold bg-gold/8 ring-2 ring-gold/15" : "border-navy/10 bg-cream hover:border-navy/25"}`}>
+    <label className={`block cursor-pointer rounded-2xl border p-4 transition focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-gold ${checked ? "border-gold bg-gold/8 ring-2 ring-gold/15" : "border-navy/10 bg-cream hover:border-navy/25"}`}>
       <input type="radio" name={name} value={value} checked={checked} onChange={onChange} className="sr-only" />
       <span className="flex items-start gap-3">
         <span className={`mt-0.5 h-5 w-5 shrink-0 rounded-full border-2 p-1 ${checked ? "border-gold" : "border-navy/25"}`}><span className={`block h-full w-full rounded-full ${checked ? "bg-gold" : ""}`} /></span>
@@ -92,11 +95,11 @@ export function ChoiceCard({
   );
 }
 
-export function CheckboxChip({ name, value, checked, onChange }: { name: string; value: string; checked: boolean; onChange: () => void }) {
+export function CheckboxChip({ name, value, label = value, checked, onChange }: { name: string; value: string; label?: string; checked: boolean; onChange: () => void }) {
   return (
-    <label className={`cursor-pointer rounded-full border px-4 py-2.5 text-sm font-bold transition ${checked ? "border-gold bg-gold text-navy" : "border-navy/12 bg-cream text-navy/65 hover:border-navy/30"}`}>
+    <label className={`cursor-pointer rounded-full border px-4 py-2.5 text-sm font-bold transition focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-gold ${checked ? "border-gold bg-gold text-navy" : "border-navy/12 bg-cream text-navy/65 hover:border-navy/30"}`}>
       <input type="checkbox" name={name} value={value} checked={checked} onChange={onChange} className="sr-only" />
-      {value}
+      {label}
     </label>
   );
 }

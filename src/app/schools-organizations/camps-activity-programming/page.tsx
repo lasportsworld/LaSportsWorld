@@ -128,7 +128,7 @@ export default function OrgCampsPage() {
             Tell us what you&apos;re already running and where you need support.
           </p>
           <Link
-            href="/schools-organizations#organization-inquiry"
+            href="/schools-organizations/request?type=camps-activity&source=camps-activity-programming"
             className="button-gold mt-7"
           >
             Discuss Camp Programming <ArrowRight className="h-4 w-4" />

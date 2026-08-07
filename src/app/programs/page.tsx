@@ -61,7 +61,7 @@ export default function ProgramsPage() {
                   href={`/programs/${program.slug}`}
                   className="button-gold"
                 >
-                  {program.cta} <ArrowRight className="w-4 h-4" />
+                  View {program.title} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

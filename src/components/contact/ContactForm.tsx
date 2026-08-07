@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Send } from "lucide-react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
-import { participantAgeOptions } from "@/lib/participant-age";
 
 const initialState: ContactFormState = { status: "idle" };
 
@@ -71,10 +70,10 @@ export default function ContactForm({
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
           <Link
-            href="/schools-organizations"
+            href="/schools-organizations/request?source=contact"
             className="button-gold"
           >
-            Go to Organization Form <ArrowRight className="h-4 w-4" />
+            Start Organization Request <ArrowRight className="h-4 w-4" />
           </Link>
           <button
             type="button"
@@ -83,6 +82,20 @@ export default function ContactForm({
           >
             Choose something else
           </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (service === "birthday-party") {
+    return (
+      <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
+        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Party Inquiry</p>
+        <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Plan a Party form</h3>
+        <p className="text-white/60 text-sm leading-relaxed">Share the age, group, activity ideas, and location—even if the party details are still taking shape.</p>
+        <div className="flex flex-wrap gap-3 pt-2">
+          <Link href="/parties/request?source=contact" className="button-gold">Plan a Party <ArrowRight className="h-4 w-4" /></Link>
+          <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Choose something else</button>
         </div>
       </div>
     );
@@ -182,43 +195,6 @@ export default function ContactForm({
             <label htmlFor="contactEmail" className={labelClass}>Email (optional)</label>
             <input id="contactEmail" type="email" name="email" autoComplete="email" placeholder="your@email.com" className={inputClass} />
           </div>
-
-          {service === "birthday-party" && (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="eventDate" className={labelClass}>Event Date</label>
-                  <input id="eventDate" type="date" name="field_event_date" className={inputClass} />
-                </div>
-                <div>
-                  <label htmlFor="neighborhood" className={labelClass}>Neighborhood</label>
-                  <input id="neighborhood" name="field_neighborhood" className={inputClass} />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="partyChildAge" className={labelClass}>Child&apos;s Age</label>
-                  <select id="partyChildAge" name="field_child_age" className={inputClass} defaultValue="">
-                    <option value="">Choose age...</option>
-                    {participantAgeOptions.map((age) => <option key={age.value} value={age.label}>{age.label}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="guestCount" className={labelClass}>Estimated Guest Count</label>
-                  <input id="guestCount" type="number" min="1" name="field_guest_count" className={inputClass} />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="activityInterests" className={labelClass}>Activity Interests</label>
-                <input
-                  id="activityInterests"
-                  name="field_activity_interests"
-                  placeholder="e.g. basketball, soft play"
-                  className={inputClass}
-                />
-              </div>
-            </>
-          )}
 
           <div>
             <label htmlFor="details" className={labelClass}>

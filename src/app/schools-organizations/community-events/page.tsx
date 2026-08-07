@@ -124,7 +124,7 @@ export default function CommunityEventsPage() {
             Tell us about your event and what you have in mind.
           </p>
           <Link
-            href="/schools-organizations#organization-inquiry"
+            href="/schools-organizations/request?type=community-event&source=community-events"
             className="button-gold mt-7"
           >
             Discuss an Event <ArrowRight className="h-4 w-4" />

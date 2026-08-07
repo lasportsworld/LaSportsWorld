@@ -19,6 +19,11 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
   const { slug } = await params;
   const program = programs.find((p) => p.slug === slug);
   if (!program) notFound();
+  const inquiryHref = program.slug === "private-lessons"
+    ? "/coaching/request?format=private&source=legacy-private-lessons"
+    : program.slug === "clinics"
+      ? "/coaching/request?format=group&source=legacy-clinics"
+      : "/parties/request?source=legacy-parties";
 
   return (
     <>
@@ -84,10 +89,10 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                   Ready to Start?
                 </h3>
                 <p className="text-white/60 text-sm mb-6">
-                  Register for {program.title.toLowerCase()} or contact us to learn more.
+                  Tell us what you need and we’ll guide you to the right next step.
                 </p>
                 <Link
-                  href="/registration"
+                  href={inquiryHref}
                   className="button-gold mb-3 w-full"
                 >
                   {program.cta}

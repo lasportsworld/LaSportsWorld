@@ -116,7 +116,7 @@ export default function SchoolPEPage() {
             stepping in front of your students.
           </p>
           <Link
-            href="/schools-organizations#organization-inquiry"
+            href="/schools-organizations/request?type=school-pe&source=school-pe"
             className="button-gold mt-7"
           >
             Discuss a PE Program <ArrowRight className="h-4 w-4" />

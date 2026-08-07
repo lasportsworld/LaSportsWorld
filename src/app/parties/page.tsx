@@ -41,7 +41,7 @@ export default function BirthdayPartiesPage() {
         image="/images/LASW_Parties_Header_Image.jpg"
         imageAlt="Children enjoying an LA Sports World birthday party"
         imagePosition="center 42%"
-        primaryCta={{ label: "Plan a Party", href: "/contact?service=birthday-party" }}
+        primaryCta={{ label: "Plan a Party", href: "/parties/request?source=parties-hero" }}
         secondaryCta={{ label: "See the Experience", href: "#experience" }}
         note="Custom activities · Equipment included · We come to you"
       />
@@ -111,7 +111,7 @@ export default function BirthdayPartiesPage() {
         eyebrow="Let’s celebrate"
         title="Give them the best kind of tired"
         description="Tell us the date, age, and kind of energy you want. We’ll turn it into a party plan."
-        cta={{ label: "Plan a Party", href: "/contact?service=birthday-party" }}
+        cta={{ label: "Plan a Party", href: "/parties/request?source=parties-final-cta" }}
         image="/images/lasw-event-6.jpg"
         imageAlt="Kids enjoying an active LA Sports World event"
       />

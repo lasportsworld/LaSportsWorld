@@ -26,7 +26,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     <>
       <PageHero
         title="Contact Us"
-        subtitle="Questions about a program or camp? We'd love to hear from you."
+        subtitle="Have a general question or need help choosing where to start? We’d love to hear from you."
         tag="Get in Touch"
         image="/images/lasw-photo-real-2.jpg"
       />
@@ -41,7 +41,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   Contact LA Sports World
                 </h2>
                 <p className="text-white/60 leading-relaxed">
-                  Ask about registration, plan a party, or tell us what kind of program you need. We&apos;ll route your message to the right next step.
+                  Use this page for general questions, registration help, or to choose the right service. Coaching, party, and organization requests will move you directly into the matching LASW inquiry experience.
                 </p>
               </div>
 

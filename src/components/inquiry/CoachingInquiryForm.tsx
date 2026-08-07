@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { useActionState, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, CheckCircle2, Send } from "lucide-react";
 import { submitCoachingInquiry, type CoachingInquiryState } from "@/app/actions/coaching-inquiry";
 import type { CoachingFormat, CoachingInquiryErrors, CoachingInquiryField } from "@/lib/inquiries/coaching";
 import { formatParticipantAge, isSupportedParticipantAge, participantAgeOptions } from "@/lib/participant-age";
@@ -15,6 +13,7 @@ import {
   TextArea,
   TextInput,
 } from "./InquiryFormPrimitives";
+import { HoneypotField, InquiryActions, InquiryError, InquirySuccess, PrivacyNote, ReviewGrid } from "./InquiryFormShared";
 
 const steps = ["Your Family", "Coaching Needs", "Schedule & Location", "Review"];
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -152,35 +151,18 @@ export default function CoachingInquiryForm({
   const errorFor = (field: CoachingInquiryField) => errors[field] || state.fieldErrors?.[field];
 
   if (state.status === "success") {
-    return (
-      <div ref={successRef} tabIndex={-1} className="flex min-h-[610px] flex-col justify-center outline-none">
-        <div className="grid h-16 w-16 place-items-center rounded-full bg-gold/15 text-gold"><CheckCircle2 className="h-8 w-8" /></div>
-        <p className="mt-8 text-xs font-extrabold uppercase tracking-[.22em] text-gold">Request received</p>
-        <h2 className="mt-3 font-condensed text-5xl font-extrabold uppercase leading-[.92] text-navy sm:text-6xl">We’ve got it.</h2>
-        <p className="mt-5 max-w-xl text-base leading-7 text-navy/62">Thanks for telling us what you’re looking for. We’ll review the details and reach out with the best next step for your family.</p>
-        <div className="mt-9 flex flex-wrap gap-3">
-          <Link href="/coaching" className="button-gold">Back to Coaching</Link>
-          <Link href="/" className="inline-flex min-h-13 items-center rounded-xl border border-navy/15 px-5 text-xs font-extrabold uppercase tracking-[.12em] text-navy transition hover:border-navy/35">Return Home</Link>
-        </div>
-      </div>
-    );
+    return <InquirySuccess focusRef={successRef} description="Thanks for telling us what you’re looking for. We’ll review the details and reach out with the best next step for your family." primary={{ label: "Back to Coaching", href: "/coaching" }} secondary={{ label: "Return Home", href: "/" }} />;
   }
 
   return (
     <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
       <InquiryProgress steps={steps} current={step} />
 
-      {state.status === "error" && state.message && (
-        <div aria-live="polite" className="mt-4">
-          <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">{state.message}</p>
-        </div>
-      )}
+      <InquiryError message={state.status === "error" ? state.message : undefined} />
 
       <input type="hidden" name="sourcePage" value="/coaching/request" />
       <input type="hidden" name="entryContext" value={entryContext} />
-      <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden>
-        <label htmlFor="website">Website</label><input id="website" name="website" tabIndex={-1} autoComplete="off" />
-      </div>
+      <HoneypotField id="coachingWebsite" />
 
       <fieldset hidden={step !== 0} className="mt-6 space-y-4">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">First, tell us about your family</legend>
@@ -260,34 +242,23 @@ export default function CoachingInquiryForm({
       <fieldset hidden={step !== 3} className="mt-6 space-y-5">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">Review your coaching request</legend>
         <p className="text-sm leading-6 text-navy/50">Make sure the essentials look right. You can go back to adjust anything before sending.</p>
-        <div className="grid gap-3 rounded-2xl bg-cream p-5 sm:grid-cols-2 sm:p-6">
-          {[
-            ["Family", `${values.parentGuardianName} · ${values.childName}, ${values.childAge ? formatParticipantAge(Number(values.childAge)) : "age not selected"}`],
-            ["Contact", `${values.email} · ${values.phone}`],
-            ["Interest", values.sportActivity],
-            ["Format", formatLabel(values.coachingFormat)],
-            ...(values.coachingFormat === "group" ? [["Group size", values.approximateGroupSize]] : []),
-            ["Goals", values.goals],
-            ["Availability", `${values.preferredDays.join(", ")} · ${values.preferredTimes.join(", ")}`],
-            ["Location & timing", `${values.neighborhoodLocation} · ${values.desiredStartTiming}`],
-          ].map(([label, value]) => <div key={label} className="border-b border-navy/8 pb-3"><p className="text-[10px] font-extrabold uppercase tracking-[.16em] text-gold">{label}</p><p className="mt-1 text-sm leading-6 text-navy/70">{value}</p></div>)}
-        </div>
-        <Field label="Additional notes" htmlFor="additionalNotes" helper="Optional. Share anything else that would help us understand the request.">
+        <ReviewGrid items={[
+          { label: "Family", value: `${values.parentGuardianName} · ${values.childName}, ${values.childAge ? formatParticipantAge(Number(values.childAge)) : "age not selected"}` },
+          { label: "Contact", value: `${values.email} · ${values.phone}` },
+          { label: "Interest", value: values.sportActivity },
+          { label: "Format", value: formatLabel(values.coachingFormat) },
+          ...(values.coachingFormat === "group" ? [{ label: "Group size", value: values.approximateGroupSize }] : []),
+          { label: "Goals", value: values.goals },
+          { label: "Availability", value: `${values.preferredDays.join(", ")} · ${values.preferredTimes.join(", ")}` },
+          { label: "Location & timing", value: `${values.neighborhoodLocation} · ${values.desiredStartTiming}` },
+        ]} />
+        <Field label="Additional notes" htmlFor="additionalNotes" helper="Share anything else that would help us understand the request." optional>
           <TextArea id="additionalNotes" name="additionalNotes" rows={4} value={values.additionalNotes} onChange={(e) => setValue("additionalNotes", e.target.value)} />
         </Field>
       </fieldset>
 
-      <div className="mt-7 flex flex-col-reverse gap-3 border-t border-navy/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
-        {step > 0 ? <button type="button" onClick={() => setStep((current) => current - 1)} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-navy/12 px-4 text-xs font-extrabold uppercase tracking-[.13em] text-navy/60 transition hover:border-navy/30 hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:w-auto"><ArrowLeft className="h-4 w-4" /> Back</button> : <span className="hidden sm:block" />}
-        {step < steps.length - 1 ? (
-          <button type="button" onClick={goNext} className="button-gold w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold sm:w-auto sm:min-w-48">Continue <ArrowRight className="h-4 w-4" /></button>
-        ) : (
-          <button type="submit" disabled={isPending} className="button-gold w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:min-w-48">{isPending ? "Sending…" : <>Send Request <Send className="h-4 w-4" /></>}</button>
-        )}
-      </div>
-      <p className="mt-4 text-center text-xs text-navy/45">
-        <Link href="/privacy" className="underline decoration-navy/20 underline-offset-4 hover:text-navy">Privacy Policy</Link>
-      </p>
+      <InquiryActions step={step} totalSteps={steps.length} isPending={isPending} onBack={() => setStep((current) => current - 1)} onNext={goNext} submitLabel="Send Coaching Request" />
+      <PrivacyNote>We’ll only use these details to respond to your request</PrivacyNote>
     </form>
   );
 }

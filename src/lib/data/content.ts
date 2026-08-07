@@ -39,7 +39,7 @@ export const programs = [
       "Advanced Techniques",
       "High School Prep",
     ],
-    cta: "Request Coaching",
+    cta: "Request Private Coaching",
   },
   {
     slug: "clinics",
@@ -56,7 +56,7 @@ export const programs = [
       "Weight Training Access",
       "8–10 Week Program",
     ],
-    cta: "Explore Group Coaching",
+    cta: "Plan a Group",
   },
   {
     slug: "parties",
@@ -73,7 +73,7 @@ export const programs = [
       "Options for different ages and group sizes",
       "Clear quote before confirmation",
     ],
-    cta: "Book a Party",
+    cta: "Plan a Party",
   },
 ];
 

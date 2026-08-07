@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
@@ -71,6 +71,9 @@ export default async function RegistrationDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (slug === "private-lessons") permanentRedirect("/coaching/request?format=private&source=legacy-registration");
+  if (slug === "clinics") permanentRedirect("/coaching/request?format=group&source=legacy-registration");
+  if (slug === "parties") permanentRedirect("/parties/request?source=legacy-registration");
   if (!programs[slug]) notFound();
 
   const program = programs[slug];
