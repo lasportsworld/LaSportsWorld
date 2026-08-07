@@ -20,7 +20,7 @@ const stepFields: PartyInquiryField[][] = [
   ["estimatedChildCount", "experiences"], ["neighborhood", "venueType"], [],
 ];
 
-export default function PartyInquiryForm({ entryContext = "parties-overview" }: { entryContext?: string }) {
+export default function PartyInquiryForm({ entryContext = "parties-overview", sourcePage = "/parties/request" }: { entryContext?: string; sourcePage?: string }) {
   const [step, setStep] = useState(0);
   const [values, setValues] = useState<Values>({ parentGuardianName: "", email: "", phone: "", childName: "", childAge: "", preferredDate: "", preferredStartTime: "", estimatedChildCount: "", approximateAgeRange: "", experiences: [], neighborhood: "", venueType: "", approximateLocation: "", preferredDuration: "", additionalNotes: "" });
   const [errors, setErrors] = useState<PartyInquiryErrors>({});
@@ -66,7 +66,7 @@ export default function PartyInquiryForm({ entryContext = "parties-overview" }: 
     <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
       <InquiryProgress steps={steps} current={step} />
       <InquiryError message={state.status === "error" ? state.message : undefined} />
-      <input type="hidden" name="sourcePage" value="/parties/request" /><input type="hidden" name="entryContext" value={entryContext} /><HoneypotField id="partyWebsite" />
+      <input type="hidden" name="sourcePage" value={sourcePage} /><input type="hidden" name="entryContext" value={entryContext} /><HoneypotField id="partyWebsite" />
 
       <fieldset hidden={step !== 0} className="mt-6 space-y-4">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">Who are we celebrating?</legend>

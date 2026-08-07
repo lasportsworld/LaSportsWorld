@@ -19,6 +19,7 @@ const routes = [
   "/gallery",
   "/parties",
   "/parties/request",
+  "/plan",
   "/privacy",
   "/register",
   "/schools-organizations",

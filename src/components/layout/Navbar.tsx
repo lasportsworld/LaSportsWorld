@@ -129,7 +129,7 @@ export default function Navbar() {
         </div>
 
         <Link
-          href="/contact"
+          href="/plan"
           className="button-gold hidden min-h-11 px-5 py-2.5 lg:inline-flex"
         >
           Plan an Activity
@@ -186,7 +186,7 @@ export default function Navbar() {
             View Schedule
           </Link>
           <Link
-            href="/contact"
+            href="/plan"
             className="button-gold mt-4 flex w-full"
             onClick={() => setMobileOpen(false)}
           >

@@ -785,7 +785,7 @@ export default async function HomePage() {
             </div>
             <div className="flex flex-col items-center gap-3 sm:items-start">
               <Link
-                href="/contact"
+                href="/plan"
                 className="inline-block rounded-lg bg-white px-8 py-3.5 text-sm font-extrabold uppercase tracking-wide text-navy shadow-lg transition hover:bg-gold hover:text-white"
               >
                 Tell Us What You Need

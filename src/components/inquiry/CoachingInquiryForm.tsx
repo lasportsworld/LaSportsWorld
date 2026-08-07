@@ -54,9 +54,11 @@ function formatLabel(format: Values["coachingFormat"]) {
 export default function CoachingInquiryForm({
   initialFormat = "",
   entryContext = "coaching-overview",
+  sourcePage = "/coaching/request",
 }: {
   initialFormat?: Values["coachingFormat"];
   entryContext?: string;
+  sourcePage?: string;
 }) {
   const [step, setStep] = useState(0);
   const [values, setValues] = useState<Values>({
@@ -160,7 +162,7 @@ export default function CoachingInquiryForm({
 
       <InquiryError message={state.status === "error" ? state.message : undefined} />
 
-      <input type="hidden" name="sourcePage" value="/coaching/request" />
+      <input type="hidden" name="sourcePage" value={sourcePage} />
       <input type="hidden" name="entryContext" value={entryContext} />
       <HoneypotField id="coachingWebsite" />
 

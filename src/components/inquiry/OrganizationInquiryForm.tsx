@@ -11,9 +11,9 @@ const initialState: OrganizationInquiryState = { status: "idle" };
 type Values = { contactName: string; workEmail: string; phone: string; organizationName: string; roleTitle: string; programType: OrganizationProgramType | ""; ageGradeRange: string; approximateParticipantCount: string; engagementType: EngagementType | ""; serviceNeeds: string; desiredTiming: string; frequency: string; location: string; spaceType: SpaceType | ""; goalsRequirements: string; additionalNotes: string };
 const stepFields: OrganizationInquiryField[][] = [["contactName", "workEmail", "phone", "organizationName"], ["programType", "approximateParticipantCount", "engagementType", "serviceNeeds"], [], ["goalsRequirements"]];
 
-export default function OrganizationInquiryForm({ initialProgramType = "", entryContext = "organizations-overview" }: { initialProgramType?: OrganizationProgramType | ""; entryContext?: string }) {
+export default function OrganizationInquiryForm({ initialProgramType = "", initialEngagementType = "", entryContext = "organizations-overview", sourcePage = "/schools-organizations/request" }: { initialProgramType?: OrganizationProgramType | ""; initialEngagementType?: EngagementType | ""; entryContext?: string; sourcePage?: string }) {
   const [step, setStep] = useState(0);
-  const [values, setValues] = useState<Values>({ contactName: "", workEmail: "", phone: "", organizationName: "", roleTitle: "", programType: initialProgramType, ageGradeRange: "", approximateParticipantCount: "", engagementType: "", serviceNeeds: "", desiredTiming: "", frequency: "", location: "", spaceType: "", goalsRequirements: "", additionalNotes: "" });
+  const [values, setValues] = useState<Values>({ contactName: "", workEmail: "", phone: "", organizationName: "", roleTitle: "", programType: initialProgramType, ageGradeRange: "", approximateParticipantCount: "", engagementType: initialEngagementType, serviceNeeds: "", desiredTiming: "", frequency: "", location: "", spaceType: "", goalsRequirements: "", additionalNotes: "" });
   const [errors, setErrors] = useState<OrganizationInquiryErrors>({});
   const [state, formAction, isPending] = useActionState(submitOrganizationInquiry, initialState);
   const formRef = useRef<HTMLFormElement>(null);
@@ -47,7 +47,7 @@ export default function OrganizationInquiryForm({ initialProgramType = "", entry
   return (
     <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
       <InquiryProgress steps={steps} current={step} /><InquiryError message={state.status === "error" ? state.message : undefined} />
-      <input type="hidden" name="sourcePage" value="/schools-organizations/request" /><input type="hidden" name="entryContext" value={entryContext} /><HoneypotField id="organizationWebsite" />
+      <input type="hidden" name="sourcePage" value={sourcePage} /><input type="hidden" name="entryContext" value={entryContext} /><HoneypotField id="organizationWebsite" />
 
       <fieldset hidden={step !== 0} className="mt-6 space-y-4">
         <legend className="font-condensed text-3xl font-extrabold uppercase text-navy">Who should we speak with?</legend>

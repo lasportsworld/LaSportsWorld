@@ -112,7 +112,7 @@ export default function AboutPage() {
         eyebrow="Find your way in"
         title="Find the right LA Sports World program"
         description="Explore coaching, classes, camps, parties, and organization programs for your family or community."
-        cta={{ label: "Plan an Activity", href: "/contact" }}
+        cta={{ label: "Plan an Activity", href: "/plan" }}
         image="/images/about-us.jpg"
         imageAlt="LA Sports World coaches with a group of children"
       />
