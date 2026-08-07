@@ -63,7 +63,7 @@ export default function PartyInquiryForm({ entryContext = "parties-overview", so
 
   const venueHelper = values.venueType === "home" ? "A street or nearby cross streets are enough for now." : values.venueType === "park" ? "Share the park name if you know it." : "A venue name, address, or general area is enough.";
   return (
-    <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate className="scroll-mt-24">
+    <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
       <InquiryProgress steps={steps} current={step} />
       <InquiryError message={state.status === "error" ? state.message : undefined} />
       <input type="hidden" name="sourcePage" value={sourcePage} /><input type="hidden" name="entryContext" value={entryContext} /><HoneypotField id="partyWebsite" />

@@ -55,7 +55,7 @@ export default function SchoolPEPage() {
             {situations.map((s) => (
               <div
                 key={s}
-                className="border-t border-navy/12 px-1 py-4 text-sm font-bold text-navy"
+                className="rounded-xl border border-navy/8 bg-cream px-5 py-4 text-sm font-bold text-navy"
               >
                 {s}
               </div>
@@ -95,7 +95,7 @@ export default function SchoolPEPage() {
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {delivery.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="border-t border-navy/12 py-6">
+              <div key={title} className="rounded-2xl border border-navy/8 bg-cream p-6">
                 <Icon className="mb-3 h-7 w-7 text-gold" />
                 <div className="text-base font-extrabold text-navy">{title}</div>
                 <p className="mt-1.5 text-sm leading-relaxed text-navy/55">{desc}</p>

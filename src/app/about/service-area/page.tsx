@@ -73,7 +73,7 @@ export default function ServiceAreaPage() {
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {whereWeWork.map(({ icon: Icon, title }) => (
-              <div key={title} className="border-t border-navy/12 py-6 text-center">
+              <div key={title} className="rounded-2xl border border-navy/8 bg-white p-6 text-center">
                 <Icon className="mx-auto mb-3 h-7 w-7 text-gold" />
                 <div className="text-sm font-extrabold text-navy">{title}</div>
               </div>

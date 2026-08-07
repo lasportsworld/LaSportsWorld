@@ -84,7 +84,7 @@ export default function SummerCampPage() {
               <Link
                 key={opt.title}
                 href={opt.href}
-                className="group border-t border-navy/12 py-6 transition-colors hover:bg-white"
+                className="group rounded-2xl border border-navy/8 bg-cream p-6 transition hover:border-gold/40 hover:shadow-sm"
               >
                 <div className="text-base font-extrabold text-navy">
                   {opt.title}

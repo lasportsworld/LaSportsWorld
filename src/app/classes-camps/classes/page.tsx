@@ -66,7 +66,7 @@ export default function ClassesPage() {
             {expectations.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="border-t border-navy/12 py-6"
+                className="rounded-2xl border border-navy/8 bg-white p-6"
               >
                 <Icon className="mb-4 h-7 w-7 text-gold" />
                 <div className="text-base font-extrabold text-navy">{title}</div>
@@ -102,7 +102,7 @@ export default function ClassesPage() {
             <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-gold" />
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
-            <div className="border-t border-navy/12 py-6">
+            <div className="rounded-2xl border border-navy/8 bg-white p-6">
               <div className="text-sm font-extrabold uppercase tracking-wide text-navy/50">
                 Ages
               </div>
@@ -111,7 +111,7 @@ export default function ClassesPage() {
                 on each session in the registration list above.
               </p>
             </div>
-            <div className="border-t border-navy/12 py-6">
+            <div className="rounded-2xl border border-navy/8 bg-white p-6">
               <div className="text-sm font-extrabold uppercase tracking-wide text-navy/50">
                 What to bring
               </div>
@@ -120,7 +120,7 @@ export default function ClassesPage() {
                 provide all sport equipment.
               </p>
             </div>
-            <div className="border-t border-navy/12 py-6">
+            <div className="rounded-2xl border border-navy/8 bg-white p-6">
               <div className="text-sm font-extrabold uppercase tracking-wide text-navy/50">
                 Weather &amp; changes
               </div>
@@ -129,7 +129,7 @@ export default function ClassesPage() {
                 families as early as possible with next steps.
               </p>
             </div>
-            <div className="border-t border-navy/12 py-6">
+            <div className="rounded-2xl border border-navy/8 bg-white p-6">
               <div className="text-sm font-extrabold uppercase tracking-wide text-navy/50">
                 Updates
               </div>

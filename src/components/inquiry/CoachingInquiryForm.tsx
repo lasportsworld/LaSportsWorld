@@ -157,7 +157,7 @@ export default function CoachingInquiryForm({
   }
 
   return (
-    <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate className="scroll-mt-24">
+    <form ref={formRef} action={formAction} onSubmit={validateBeforeSubmit} noValidate>
       <InquiryProgress steps={steps} current={step} />
 
       <InquiryError message={state.status === "error" ? state.message : undefined} />

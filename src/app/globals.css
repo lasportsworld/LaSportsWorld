@@ -27,27 +27,6 @@ body {
   font-family: var(--font-sans), Arial, sans-serif;
 }
 
-:where(
-  a[href],
-  button:not(:disabled),
-  summary,
-  select,
-  input[type="checkbox"],
-  input[type="radio"],
-  label:has(input[type="checkbox"]),
-  label:has(input[type="radio"])
-) {
-  cursor: pointer;
-}
-
-:where(a[href], button:not(:disabled)):hover {
-  filter: brightness(0.96);
-}
-
-button:disabled {
-  cursor: not-allowed;
-}
-
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
