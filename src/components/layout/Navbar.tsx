@@ -74,11 +74,13 @@ export default function Navbar() {
       <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src="/images/logo-color.png"
+            src="/images/horizontal-logo.png"
             alt="LA Sports World"
-            width={180}
-            height={60}
-            className={`w-auto object-contain transition-all duration-300 ${scrolled ? "h-10" : "h-14"}`}
+            width={320}
+            height={132}
+            className={`h-auto object-contain transition-all duration-300 ${
+              scrolled ? "w-32 sm:w-36" : "w-36 sm:w-44"
+            }`}
             priority
           />
         </Link>
