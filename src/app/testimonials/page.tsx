@@ -6,7 +6,7 @@ import { GOOGLE_REVIEW_WRITE_URL, getGoogleReviews } from "@/lib/google-reviews"
 
 export const metadata: Metadata = {
   title: "Google Reviews | LA Sports World",
-  description: "Read Google reviews from families who have experienced LA Sports World coaching, parties, camps, and programs.",
+  description: "Read Google reviews from families who have experienced LA Sports World pods, groups, private events, camps, and programs.",
   alternates: { canonical: "/testimonials" },
 };
 
@@ -64,7 +64,7 @@ export default async function TestimonialsPage() {
           <div className="flex min-h-[360px] flex-col justify-center border-y border-navy/12 px-2 py-12 sm:px-10">
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-gold-dark">Find the right next step</p>
             <h2 className="mt-4 max-w-xl font-condensed text-4xl font-extrabold uppercase leading-none text-navy sm:text-5xl">Ready to plan something for your family or community?</h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-navy/58">Tell us what you have in mind and we’ll guide you to the coaching, party, or program experience that fits.</p>
+            <p className="mt-5 max-w-xl text-base leading-7 text-navy/58">Tell us what you have in mind and we’ll guide you to the pod, group, private event, or program experience that fits.</p>
             <Link href="/plan" className="mt-8 inline-flex w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-navy transition hover:text-gold">Plan an activity <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>

@@ -4,9 +4,10 @@ import PageHero from "@/components/shared/PageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Camps & Activity Programming | LA Sports World",
+  title: "Programming for Schools & Businesses | LA Sports World",
   description:
     "Activity blocks, clinics, and programming that supplement an existing camp or organization without requiring a full camp takeover.",
+  alternates: { canonical: "/schools-businesses/programming" },
 };
 
 const programOptions = [
@@ -39,9 +40,9 @@ export default function OrgCampsPage() {
   return (
     <>
       <PageHero
-        title="Camps & Activity Programming"
-        subtitle="Activity blocks, clinics, and programming that supplement your camp. We do not need to run the whole thing."
-        tag="Schools & Organizations"
+        title="Programming"
+        subtitle="Activity blocks, clinics, and recurring programming that supplement your school, camp, business, or community schedule."
+        tag="Schools & Businesses"
         image="/images/lasw-photo-44.jpg"
         imageAlt="Children and LA Sports World coaches gathered for an outdoor sports program"
       />
@@ -129,7 +130,7 @@ export default function OrgCampsPage() {
             Tell us what you&apos;re already running and where you need support.
           </p>
           <Link
-            href="/schools-organizations/request?type=camps-activity&source=camps-activity-programming"
+            href="/schools-businesses/request?type=camps-activity&source=programming"
             className="button-gold mt-7"
           >
             Discuss Camp Programming <ArrowRight className="h-4 w-4" />

@@ -11,9 +11,9 @@ import {
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Birthday Parties | LA Sports World",
-  description: "LA Sports World brings organized sports, games, and activities to your child's birthday party.",
-  path: "/parties",
+  title: "Parties & Private Events | LA Sports World",
+  description: "LA Sports World brings organized sports, games, and activities to birthday parties and private events.",
+  path: "/parties-private-events",
 });
 
 const experiences = [
@@ -35,13 +35,13 @@ export default function BirthdayPartiesPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Parties & Events"
+        eyebrow="Parties & Private Events"
         title="A party they’ll talk about all year"
         description="Organized sports and games, expertly led at your park, home, backyard, or venue."
         image="/images/lasw-event-3.jpg"
         imageAlt="An outdoor LA Sports World soft-play and activity setup"
         imagePosition="center 42%"
-        primaryCta={{ label: "Plan a Party", href: "/parties/request?source=parties-hero" }}
+        primaryCta={{ label: "Plan a Party or Event", href: "/parties-private-events/request?source=parties-hero" }}
         secondaryCta={{ label: "See the Experience", href: "#experience" }}
         note="Custom activities · Equipment included · We come to you"
       />
@@ -111,7 +111,7 @@ export default function BirthdayPartiesPage() {
         eyebrow="Let’s celebrate"
         title="Give them the best kind of tired"
         description="Tell us the date, age, and kind of energy you want. We’ll turn it into a party plan."
-        cta={{ label: "Plan a Party", href: "/parties/request?source=parties-final-cta" }}
+        cta={{ label: "Plan a Party or Event", href: "/parties-private-events/request?source=parties-final-cta" }}
         image="/images/lasw-event-4.jpg"
         imageAlt="A child enjoying an LA Sports World soft-play activity"
       />

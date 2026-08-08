@@ -70,12 +70,12 @@ export function validateOrganizationInquiry(data: FormData): Result {
     ...(spaceSet.has(spaceTypeValue) ? { spaceType: spaceTypeValue as SpaceType } : {}),
     goalsRequirements,
     ...(text(data, "additionalNotes") ? { additionalNotes: text(data, "additionalNotes") } : {}),
-    source: { page: text(data, "sourcePage") || "/schools-organizations/request", ...(text(data, "entryContext") ? { entryContext: text(data, "entryContext") } : {}), submittedAt: new Date().toISOString() },
+    source: { page: text(data, "sourcePage") || "/schools-businesses/request", ...(text(data, "entryContext") ? { entryContext: text(data, "entryContext") } : {}), submittedAt: new Date().toISOString() },
   }};
 }
 
 export const organizationProgramLabels: Record<OrganizationProgramType, string> = {
-  "school-pe": "School PE", "enrichment-after-school": "Enrichment / after-school", "camps-activity": "Camps & activity programming", "community-event": "Community / organization event", "unsure-other": "Other / help me choose",
+  "school-pe": "PE curriculum", "enrichment-after-school": "After-school programming", "camps-activity": "Programming", "community-event": "School / business event", "unsure-other": "Other / help me choose",
 };
 export const engagementLabels: Record<EngagementType, string> = { "one-time": "One-time program or event", recurring: "Recurring programming", unsure: "Not sure yet" };
 export const spaceLabels: Record<SpaceType, string> = { indoor: "Indoor", outdoor: "Outdoor", both: "Indoor & outdoor", unsure: "Not sure yet" };

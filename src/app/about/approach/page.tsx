@@ -38,10 +38,10 @@ const execution = [
 ];
 
 const services = [
-  { title: "Coaching", href: "/coaching" },
-  { title: "Parties", href: "/parties" },
+  { title: "Pods & Groups", href: "/pods-groups" },
+  { title: "Parties & Private Events", href: "/parties-private-events" },
   { title: "Classes & Camps", href: "/classes-camps" },
-  { title: "Schools & Organizations", href: "/schools-organizations" },
+  { title: "Schools & Businesses", href: "/schools-businesses" },
 ];
 
 export default function OurApproachPage() {

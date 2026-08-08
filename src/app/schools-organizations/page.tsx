@@ -10,15 +10,15 @@ import {
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Schools & Organizations | LA Sports World",
-  description: "Turnkey sports and activity programming for schools, camps, businesses, nonprofits, and community organizations.",
-  path: "/schools-organizations",
+  title: "Schools & Businesses | LA Sports World",
+  description: "Turnkey sports and activity programming for schools, businesses, camps, nonprofits, and community partners.",
+  path: "/schools-businesses",
 });
 
 const services = [
-  { title: "School PE & enrichment", description: "Consistent, age-appropriate programming designed to fit your calendar, space, and student groups.", href: "/schools-organizations/school-pe", image: "/images/lasw-photo-44.jpg", label: "Schools" },
-  { title: "Camp activity programming", description: "Coach-led sports blocks and specialty activities that add structure and variety to your camp day.", href: "/schools-organizations/camps-activity-programming", image: "/images/lasw_slideshow_004.jpg", label: "Camps" },
-  { title: "Community events", description: "Scalable activity zones, clinics, and soft-play experiences for organizations and neighborhood events.", href: "/schools-organizations/community-events", image: "/images/lasw-event-3.jpg", label: "Events" },
+  { title: "PE curriculum & after-school", description: "Consistent, age-appropriate programming designed to fit your calendar, space, and student groups.", href: "/schools-businesses/pe-curriculum-after-school", image: "/images/lasw-photo-44.jpg", label: "Schools" },
+  { title: "Programming", description: "Coach-led sports blocks and specialty activities that add structure and variety to your camp, workplace, or community program.", href: "/schools-businesses/programming", image: "/images/lasw_slideshow_004.jpg", label: "Programs" },
+  { title: "Events", description: "Scalable activity zones, clinics, and soft-play experiences for private, business, and community events.", href: "/schools-businesses/events", image: "/images/lasw-event-3.jpg", label: "Events" },
 ];
 
 const capabilities = [
@@ -40,13 +40,13 @@ export default function OrganizationsPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Schools & Organizations"
+        eyebrow="Schools & Businesses"
         title="A complete activity program, brought to you"
         description="Flexible sports, enrichment, and event programming for schools, camps, nonprofits, businesses, and community organizations across Los Angeles."
         image="/images/lasw-design-1.jpg"
         imageAlt="Children participating in an organized LA Sports World group activity"
         imagePosition="center 38%"
-        primaryCta={{ label: "Talk About Your Program", href: "/schools-organizations/request?source=organizations-hero" }}
+        primaryCta={{ label: "Talk About Your Program", href: "/schools-businesses/request?source=schools-businesses-hero" }}
         secondaryCta={{ label: "Explore Services", href: "#organization-services" }}
         note="Program design · Coaches · Equipment · On-site delivery"
       />
@@ -96,9 +96,9 @@ export default function OrganizationsPage() {
 
       <PageCTA
         eyebrow="Start a conversation"
-        title="Tell us what your organization needs"
+        title="Tell us what your school or business needs"
         description="Share the setting, audience, timing, and idea—even if the details are still taking shape."
-        cta={{ label: "Talk About Your Program", href: "/schools-organizations/request?source=organizations-final-cta" }}
+        cta={{ label: "Talk About Your Program", href: "/schools-businesses/request?source=schools-businesses-final-cta" }}
         image="/images/about-us.jpg"
         imageAlt="LA Sports World coaches leading children in a gym"
       />

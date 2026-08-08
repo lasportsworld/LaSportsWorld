@@ -3,10 +3,10 @@ import { ArrowRight } from "lucide-react";
 
 const recoveryLinks = [
   ["Home", "/"],
-  ["Coaching", "/coaching"],
-  ["Parties & Events", "/parties"],
+  ["Pods & Groups", "/pods-groups"],
+  ["Parties & Private Events", "/parties-private-events"],
   ["Classes & Camps", "/classes-camps"],
-  ["Schools & Organizations", "/schools-organizations"],
+  ["Schools & Businesses", "/schools-businesses"],
 ] as const;
 
 export default function NotFound() {

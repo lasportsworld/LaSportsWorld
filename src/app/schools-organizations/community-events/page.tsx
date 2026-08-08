@@ -4,9 +4,10 @@ import PageHero from "@/components/shared/PageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Community & Organization Events | LA Sports World",
+  title: "Events for Schools & Businesses | LA Sports World",
   description:
     "A children's activity area or active program within your larger community event, fundraiser, or gathering.",
+  alternates: { canonical: "/schools-businesses/events" },
 };
 
 const components = [
@@ -36,9 +37,9 @@ export default function CommunityEventsPage() {
   return (
     <>
       <PageHero
-        title="Community & Organization Events"
+        title="Events"
         subtitle="A children's activity area or active program, built into your larger event."
-        tag="Schools & Organizations"
+        tag="Schools & Businesses"
         image="/images/lasw-event-3.jpg"
         imageAlt="An outdoor soft-play and inflatable activity setup for young children"
       />
@@ -125,7 +126,7 @@ export default function CommunityEventsPage() {
             Tell us about your event and what you have in mind.
           </p>
           <Link
-            href="/schools-organizations/request?type=community-event&source=community-events"
+            href="/schools-businesses/request?type=community-event&source=events"
             className="button-gold mt-7"
           >
             Discuss an Event <ArrowRight className="h-4 w-4" />

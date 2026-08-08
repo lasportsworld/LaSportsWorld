@@ -20,7 +20,7 @@ export async function submitOrganizationInquiry(_previous: OrganizationInquirySt
   delivery.set("phone", inquiry.phone);
   delivery.set("sourcePage", inquiry.source.page);
   delivery.set("timestamp", inquiry.source.submittedAt);
-  delivery.set("field_inquiry_type", "Schools & Organizations");
+  delivery.set("field_inquiry_type", "Schools & Businesses");
   delivery.set("field_organization_name", inquiry.organizationName);
   if (inquiry.roleTitle) delivery.set("field_role_title", inquiry.roleTitle);
   delivery.set("field_program_type", organizationProgramLabels[inquiry.programType]);

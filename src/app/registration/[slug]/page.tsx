@@ -32,12 +32,12 @@ const programs: Record<string, { title: string; description: string; image?: str
     image: "/images/lasw-photo-43.jpg",
   },
   "clinics": {
-    title: "Group Coaching & Pods",
+    title: "Pods & Groups",
     description: "Recurring small-group coaching for six or more athletes.",
     image: "/images/sports-clinic.jpg",
   },
   "parties": {
-    title: "Parties & Events",
+    title: "Parties & Private Events",
     description: "Custom sports and activity parties planned around your group, location, and goals.",
     image: "/images/lasw-photo-real-1.jpg",
   },
@@ -71,9 +71,9 @@ export default async function RegistrationDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  if (slug === "private-lessons") permanentRedirect("/coaching/request?format=private&source=legacy-registration");
-  if (slug === "clinics") permanentRedirect("/coaching/request?format=group&source=legacy-registration");
-  if (slug === "parties") permanentRedirect("/parties/request?source=legacy-registration");
+  if (slug === "private-lessons") permanentRedirect("/pods-groups/request?format=private&source=legacy-registration");
+  if (slug === "clinics") permanentRedirect("/pods-groups/request?format=group&source=legacy-registration");
+  if (slug === "parties") permanentRedirect("/parties-private-events/request?source=legacy-registration");
   if (!programs[slug]) notFound();
 
   const program = programs[slug];

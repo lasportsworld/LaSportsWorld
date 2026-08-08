@@ -14,8 +14,8 @@ const programLabels: Record<string, string> = {
   "day-camp": "Day Camp",
   "passover-camp": "Passover Camp",
   "private-lessons": "Private Coaching",
-  "clinics": "Group Coaching & Pods",
-  "parties": "Parties & Events",
+  "clinics": "Pods & Groups",
+  "parties": "Parties & Private Events",
   "work-with-us": "Work With Us",
 };
 

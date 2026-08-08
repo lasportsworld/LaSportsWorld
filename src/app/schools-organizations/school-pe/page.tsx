@@ -4,9 +4,10 @@ import PageHero from "@/components/shared/PageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "School PE Programs | LA Sports World",
+  title: "PE Curriculum & After-School | LA Sports World",
   description:
-    "Structured physical education programming delivered directly at your school. Choose recurring, supplemental, or temporary coverage.",
+    "Structured PE curriculum and after-school programming delivered directly at your school and shaped around your students, schedule, and space.",
+  alternates: { canonical: "/schools-businesses/pe-curriculum-after-school" },
 };
 
 const situations = [
@@ -37,9 +38,9 @@ export default function SchoolPEPage() {
   return (
     <>
       <PageHero
-        title="School PE Programs"
-        subtitle="Structured, high-quality physical education programming, delivered directly at your school."
-        tag="Schools & Organizations"
+        title="PE Curriculum & After-School"
+        subtitle="Structured physical education and engaging after-school programming, delivered directly at your school."
+        tag="Schools & Businesses"
         image="/images/lasw-photo-44.jpg"
         imageAlt="Children and LA Sports World coaches gathered for an outdoor sports session"
       />
@@ -117,10 +118,10 @@ export default function SchoolPEPage() {
             stepping in front of your students.
           </p>
           <Link
-            href="/schools-organizations/request?type=school-pe&source=school-pe"
+            href="/schools-businesses/request?type=school-pe&source=pe-curriculum-after-school"
             className="button-gold mt-7"
           >
-            Discuss a PE Program <ArrowRight className="h-4 w-4" />
+            Discuss PE or After-School <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

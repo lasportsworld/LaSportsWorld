@@ -8,15 +8,10 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 const navLinks = [
   {
-    label: "Coaching",
-    href: "/coaching",
-    children: [
-      { label: "Coaching Overview", href: "/coaching" },
-      { label: "Private Coaching", href: "/coaching/private-coaching" },
-      { label: "Group Coaching & Pods", href: "/coaching/groups-pods" },
-    ],
+    label: "Pods & Groups",
+    href: "/pods-groups",
   },
-  { label: "Parties", href: "/parties" },
+  { label: "Parties & Private Events", href: "/parties-private-events" },
   {
     label: "Classes & Camps",
     href: "/classes-camps",
@@ -24,28 +19,28 @@ const navLinks = [
       { label: "Overview", href: "/classes-camps" },
       { label: "Classes", href: "/classes-camps/classes" },
       { label: "Holiday Camps", href: "/classes-camps/holiday-camps" },
-      { label: "Summer Camp", href: "/classes-camps/summer-camp" },
+      { label: "Summer Camp (Coming Soon!)", href: "/classes-camps/summer-camp" },
     ],
   },
   {
-    label: "Schools & Organizations",
-    href: "/schools-organizations",
+    label: "Schools & Businesses",
+    href: "/schools-businesses",
+    b2b: true,
     children: [
-      { label: "Overview", href: "/schools-organizations" },
-      { label: "School PE Programs", href: "/schools-organizations/school-pe" },
-      { label: "Enrichment & After-School", href: "/schools-organizations/enrichment-after-school" },
-      { label: "Camps & Activity Programming", href: "/schools-organizations/camps-activity-programming" },
-      { label: "Community & Organization Events", href: "/schools-organizations/community-events" },
+      { label: "Overview", href: "/schools-businesses" },
+      { label: "Events", href: "/schools-businesses/events" },
+      { label: "Programming", href: "/schools-businesses/programming" },
+      { label: "PE Curriculum & After-School", href: "/schools-businesses/pe-curriculum-after-school" },
     ],
   },
   {
     label: "About",
     href: "/about",
     children: [
-      { label: "About LASW", href: "/about" },
+      { label: "Our Story", href: "/about" },
       { label: "Our Approach", href: "/about/approach" },
-      { label: "Coach Standards & Safety", href: "/about/coaches-safety" },
-      { label: "Service Area", href: "/about/service-area" },
+      { label: "Our Team", href: "/about/team" },
+      { label: "Safety & Standards", href: "/about/safety-standards" },
     ],
   },
 ];
@@ -96,8 +91,9 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold text-navy/80 transition hover:text-navy ${
-                  isActive(link.href) ? "text-navy" : ""
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold transition hover:text-navy ${
+                  link.b2b ? "border-b border-gold/45 text-navy" : "text-navy/80"
+                } ${isActive(link.href) ? "text-navy" : ""
                 }`}
               >
                 {link.label}
@@ -122,12 +118,6 @@ export default function Navbar() {
             </div>
           ))}
 
-          <Link
-            href="/register"
-            className="px-3 py-2 text-sm font-bold text-navy/80 transition hover:text-navy ml-1"
-          >
-            View Schedule
-          </Link>
         </div>
 
         <Link
@@ -158,7 +148,8 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`block py-2.5 text-base font-bold text-navy ${
-                  isActive(link.href) ? "text-gold" : ""
+                  link.b2b ? "border-l-2 border-gold pl-3" : ""
+                } ${isActive(link.href) ? "text-gold" : ""
                 }`}
                 onClick={() => setMobileOpen(false)}
               >
@@ -180,13 +171,6 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <Link
-            href="/register"
-            className="block py-2.5 text-base font-bold text-navy"
-            onClick={() => setMobileOpen(false)}
-          >
-            View Schedule
-          </Link>
           <Link
             href="/plan"
             className="button-gold mt-4 flex w-full"

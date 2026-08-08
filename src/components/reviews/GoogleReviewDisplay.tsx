@@ -81,7 +81,7 @@ export function LaswTrustCard({ className = "" }: { className?: string }) {
         <h3 className="mt-3 font-condensed text-3xl font-extrabold uppercase leading-none text-navy">Safety is part of every plan</h3>
         <p className="mt-4 text-sm leading-6 text-navy/58">Every coach is Live Scanned and background checked, with programming shaped around the children, setting, and goals in front of us.</p>
       </div>
-      <Link href="/about/coaches-safety" className="mt-8 inline-flex w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-navy transition hover:text-gold">Our coaching standards <ArrowRight className="h-4 w-4" /></Link>
+      <Link href="/about/safety-standards" className="mt-8 inline-flex w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-navy transition hover:text-gold">Our safety standards <ArrowRight className="h-4 w-4" /></Link>
     </aside>
   );
 }

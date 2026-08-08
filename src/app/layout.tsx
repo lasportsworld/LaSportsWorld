@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lasportsworld.com"),
   title: "LA Sports World | Youth Sports Coaching Los Angeles",
   description:
-    "Youth sports coaching, classes, camps, and parties in Los Angeles for ages 6 months to 17 years.",
+    "Youth pods, groups, classes, camps, and private events in Los Angeles for ages 6 months to 17 years.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "LA Sports World",
     title: "LA Sports World | Youth Sports Coaching Los Angeles",
     description:
-      "Mobile sports coaching, parties, classes, camps, and organization programs for children across Los Angeles.",
+      "Mobile pods, groups, private events, classes, camps, and school or business programs for children across Los Angeles.",
     images: [
       {
         url: "/images/hero-lasw.jpg",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LA Sports World | Youth Sports Coaching Los Angeles",
     description:
-      "Mobile sports coaching, parties, classes, camps, and organization programs for children across Los Angeles.",
+      "Mobile pods, groups, private events, classes, camps, and school or business programs for children across Los Angeles.",
     images: ["/images/hero-lasw.jpg"],
   },
 };

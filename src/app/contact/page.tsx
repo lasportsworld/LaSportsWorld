@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Contact Us | LA Sports World",
-  description: "Get in touch with LA Sports World about coaching, parties, classes, camps, and organization programs.",
+  description: "Get in touch with LA Sports World about pods, groups, private events, classes, camps, and school or business programs.",
   path: "/contact",
 });
 
@@ -42,7 +42,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   Contact LA Sports World
                 </h2>
                 <p className="text-white/60 leading-relaxed">
-                  Use this page for general questions, registration help, or to choose the right service. Coaching, party, and organization requests will move you directly into the matching LASW inquiry experience.
+                  Use this page for general questions, registration help, or to choose the right service. Pods and groups, private events, and school or business requests will move you directly into the matching LASW inquiry experience.
                 </p>
               </div>
 

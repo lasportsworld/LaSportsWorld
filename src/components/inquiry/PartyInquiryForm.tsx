@@ -20,7 +20,7 @@ const stepFields: PartyInquiryField[][] = [
   ["estimatedChildCount", "experiences"], ["neighborhood", "venueType"], [],
 ];
 
-export default function PartyInquiryForm({ entryContext = "parties-overview", sourcePage = "/parties/request" }: { entryContext?: string; sourcePage?: string }) {
+export default function PartyInquiryForm({ entryContext = "parties-private-events-overview", sourcePage = "/parties-private-events/request" }: { entryContext?: string; sourcePage?: string }) {
   const [step, setStep] = useState(0);
   const [values, setValues] = useState<Values>({ parentGuardianName: "", email: "", phone: "", childName: "", childAge: "", preferredDate: "", preferredStartTime: "", estimatedChildCount: "", approximateAgeRange: "", experiences: [], neighborhood: "", venueType: "", approximateLocation: "", preferredDuration: "", additionalNotes: "" });
   const [errors, setErrors] = useState<PartyInquiryErrors>({});
@@ -59,7 +59,7 @@ export default function PartyInquiryForm({ entryContext = "parties-overview", so
   const goNext = () => { const next = validateStep(step); if (Object.keys(next).length) { setErrors(next); focusFirstError(next); return; } setErrors({}); setStep((current) => Math.min(current + 1, 3)); formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); };
   const validateBeforeSubmit = (event: React.FormEvent<HTMLFormElement>) => { const all = [0, 1, 2].reduce<PartyInquiryErrors>((result, index) => ({ ...result, ...validateStep(index) }), {}); if (!Object.keys(all).length) return; event.preventDefault(); setErrors(all); const invalidStep = stepFields.findIndex((fields) => fields.some((field) => all[field])); if (invalidStep >= 0) setStep(invalidStep); focusFirstError(all); };
 
-  if (state.status === "success") return <InquirySuccess focusRef={successRef} title="Your party request is in." description="Thanks for sharing what you know so far. We’ll review the details and follow up with the right questions and next steps for your celebration." primary={{ label: "Back to Parties", href: "/parties" }} secondary={{ label: "Return Home", href: "/" }} />;
+  if (state.status === "success") return <InquirySuccess focusRef={successRef} title="Your request is in." description="Thanks for sharing what you know so far. We’ll review the details and follow up with the right questions and next steps for your celebration or private event." primary={{ label: "Back to Parties & Private Events", href: "/parties-private-events" }} secondary={{ label: "Return Home", href: "/" }} />;
 
   const venueHelper = values.venueType === "home" ? "A street or nearby cross streets are enough for now." : values.venueType === "park" ? "Share the park name if you know it." : "A venue name, address, or general area is enough.";
   return (

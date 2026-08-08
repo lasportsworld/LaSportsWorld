@@ -10,9 +10,9 @@ const initialState: ContactFormState = { status: "idle" };
 
 const SERVICES = [
   { value: "", label: "Select what you need..." },
-  { value: "coaching", label: "Coaching" },
-  { value: "birthday-party", label: "Birthday Party" },
-  { value: "school-organization", label: "School / Organization" },
+  { value: "coaching", label: "Pods & Groups" },
+  { value: "birthday-party", label: "Parties & Private Events" },
+  { value: "school-organization", label: "Schools & Businesses" },
   { value: "general", label: "General Question" },
 ];
 
@@ -42,12 +42,12 @@ export default function ContactForm({
   if (service === "coaching") {
     return (
       <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
-        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Coaching Inquiry</p>
-        <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Request Coaching form</h3>
+        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Pods & Groups Inquiry</p>
+        <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Pods & Groups form</h3>
         <p className="text-white/60 text-sm leading-relaxed">Share your child’s goals, preferred format, and schedule so we can recommend the right setup.</p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <Link href="/coaching/request?source=contact" className="button-gold">
-            Request Coaching <ArrowRight className="h-4 w-4" />
+          <Link href="/pods-groups/request?source=contact" className="button-gold">
+            Plan a Pod or Group <ArrowRight className="h-4 w-4" />
           </Link>
           <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Choose something else</button>
         </div>
@@ -59,21 +59,21 @@ export default function ContactForm({
     return (
       <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
         <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">
-          Schools &amp; Organizations
+          Schools &amp; Businesses
         </p>
         <h3 className="font-condensed font-bold text-white text-2xl uppercase">
-          Use the Organization Form
+          Use the Schools & Businesses Form
         </h3>
         <p className="text-white/60 text-sm leading-relaxed">
-          School, camp, business, and organization inquiries go through a separate
+          School, camp, and business inquiries go through a separate
           form so we can route your request correctly.
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
           <Link
-            href="/schools-organizations/request?source=contact"
+            href="/schools-businesses/request?source=contact"
             className="button-gold"
           >
-            Start Organization Request <ArrowRight className="h-4 w-4" />
+            Start Program Request <ArrowRight className="h-4 w-4" />
           </Link>
           <button
             type="button"
@@ -90,11 +90,11 @@ export default function ContactForm({
   if (service === "birthday-party") {
     return (
       <div className="bg-navy-light border border-gold/30 rounded-3xl p-8 space-y-4">
-        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Party Inquiry</p>
-        <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Plan a Party form</h3>
+        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">Party or Private Event Inquiry</p>
+        <h3 className="font-condensed font-bold text-white text-2xl uppercase">Use the Party & Private Event form</h3>
         <p className="text-white/60 text-sm leading-relaxed">Share the age, group, activity ideas, and location—even if the party details are still taking shape.</p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <Link href="/parties/request?source=contact" className="button-gold">Plan a Party <ArrowRight className="h-4 w-4" /></Link>
+          <Link href="/parties-private-events/request?source=contact" className="button-gold">Plan a Party or Event <ArrowRight className="h-4 w-4" /></Link>
           <button type="button" onClick={() => setService("")} className="text-xs font-extrabold uppercase tracking-wide text-white/50 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">Choose something else</button>
         </div>
       </div>

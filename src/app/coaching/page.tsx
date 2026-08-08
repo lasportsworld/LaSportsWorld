@@ -31,7 +31,7 @@ const formats = [
     number: "01",
     title: "Private Coaching",
     description: "One-on-one coaching with individualized attention, pacing, and feedback.",
-    href: "/coaching/private-coaching",
+    href: "/pods-groups/request?format=private&source=private-option",
     image: "/images/lasw_slideshow_005.jpg",
     imageAlt: "A child practicing basketball footwork during an individual drill",
     details: [
@@ -42,9 +42,9 @@ const formats = [
   },
   {
     number: "02",
-    title: "Group Coaching & Pods",
+    title: "Pods & Groups",
     description: "Shared coaching for a small group that learns, moves, and progresses together.",
-    href: "/coaching/groups-pods",
+    href: "/pods-groups",
     image: "/images/lasw_slideshow_008.jpg",
     imageAlt: "A youth basketball group together after practice",
     details: [
@@ -78,10 +78,10 @@ export default function CoachingPage() {
       <ServiceHero
         eyebrow="Coaching Overview"
         title="Coaching that meets kids where they are"
-        description="LA Sports World offers two flexible ways to coach: individualized Private Coaching and social Group Coaching & Pods. Explore both and choose the format that fits."
+        description="LA Sports World offers flexible pods, groups, and tailored private options built around the children, goals, location, and schedule."
         image="/images/lasw-design-2.jpg"
         imageAlt="LA Sports World coaches leading a basketball activity outdoors"
-        primaryCta={{ label: "Request Coaching", href: "/coaching/request?source=coaching-overview" }}
+        primaryCta={{ label: "Plan a Pod or Group", href: "/pods-groups/request?source=pods-groups-overview" }}
         secondaryCta={{ label: "Explore Formats", href: "#formats" }}
         note="Two formats · One thoughtful, flexible approach"
       />
@@ -173,7 +173,7 @@ export default function CoachingPage() {
         eyebrow="Ready when you are"
         title="Let’s find the coaching format that fits"
         description="Tell us about your child or group. We’ll help you choose the format, schedule, and coaching setup that makes sense."
-        cta={{ label: "Request Coaching", href: "/coaching/request?source=coaching-overview" }}
+        cta={{ label: "Plan a Pod or Group", href: "/pods-groups/request?source=pods-groups-overview" }}
         image="/images/lasw-photo-45.jpg"
         imageAlt="Children running during an outdoor flag football activity"
       />

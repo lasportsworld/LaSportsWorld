@@ -9,8 +9,9 @@ import {
 } from "@/components/shared/MarketingSections";
 
 export const metadata: Metadata = {
-  title: "Coach Standards & Safety | LA Sports World",
+  title: "Safety & Standards | LA Sports World",
   description: "Safety, engagement, and professional conduct are core to how every LA Sports World coach shows up.",
+  alternates: { canonical: "/about/safety-standards" },
 };
 
 const standards = [
@@ -24,14 +25,14 @@ export default function CoachStandardsPage() {
   return (
     <>
       <ServiceHero
-        eyebrow="Our Coaches"
+        eyebrow="Safety & Standards"
         title="Good coaching starts with trust"
         description="Safety, engagement, preparation, and professional conduct are not extras. They shape every LA Sports World experience."
         image="/images/about-us.jpg"
         imageAlt="LA Sports World coaches leading children in a group activity"
         imagePosition="center 28%"
         primaryCta={{ label: "Ask a Question", href: "/contact" }}
-        secondaryCta={{ label: "Meet the Team", href: "/about#coaches" }}
+        secondaryCta={{ label: "Meet the Team", href: "/about/team" }}
       />
 
       <EditorialSplit

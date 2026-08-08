@@ -46,7 +46,7 @@ const stepFields: CoachingInquiryField[][] = [
 
 function formatLabel(format: Values["coachingFormat"]) {
   if (format === "private") return "Private Coaching";
-  if (format === "group") return "Group Coaching & Pods";
+  if (format === "group") return "Pods & Groups";
   if (format === "unsure") return "Not sure / help me choose";
   return "Not selected";
 }
@@ -54,7 +54,7 @@ function formatLabel(format: Values["coachingFormat"]) {
 export default function CoachingInquiryForm({
   initialFormat = "",
   entryContext = "coaching-overview",
-  sourcePage = "/coaching/request",
+  sourcePage = "/pods-groups/request",
 }: {
   initialFormat?: Values["coachingFormat"];
   entryContext?: string;
@@ -153,7 +153,7 @@ export default function CoachingInquiryForm({
   const errorFor = (field: CoachingInquiryField) => errors[field] || state.fieldErrors?.[field];
 
   if (state.status === "success") {
-    return <InquirySuccess focusRef={successRef} description="Thanks for telling us what you’re looking for. We’ll review the details and reach out with the best next step for your family." primary={{ label: "Back to Coaching", href: "/coaching" }} secondary={{ label: "Return Home", href: "/" }} />;
+    return <InquirySuccess focusRef={successRef} description="Thanks for telling us what you’re looking for. We’ll review the details and reach out with the best next step for your family." primary={{ label: "Back to Pods & Groups", href: "/pods-groups" }} secondary={{ label: "Return Home", href: "/" }} />;
   }
 
   return (
@@ -201,7 +201,7 @@ export default function CoachingInquiryForm({
           <legend className="mb-3 text-sm font-extrabold text-navy">Coaching format <span className="text-gold" aria-hidden>*</span></legend>
           <div className="grid gap-3">
             <ChoiceCard name="coachingFormat" value="private" title="Private Coaching" description="One-on-one attention and fully individualized pacing." checked={values.coachingFormat === "private"} onChange={() => setValue("coachingFormat", "private")} />
-            <ChoiceCard name="coachingFormat" value="group" title="Group Coaching & Pods" description="Small-group coaching with shared energy and interaction." checked={values.coachingFormat === "group"} onChange={() => setValue("coachingFormat", "group")} />
+            <ChoiceCard name="coachingFormat" value="group" title="Pods & Groups" description="Small-group coaching with shared energy and interaction." checked={values.coachingFormat === "group"} onChange={() => setValue("coachingFormat", "group")} />
             <ChoiceCard name="coachingFormat" value="unsure" title="Not sure / help me choose" description="Tell us your goals and we’ll recommend the best fit." checked={values.coachingFormat === "unsure"} onChange={() => setValue("coachingFormat", "unsure")} />
           </div>
           {errorFor("coachingFormat") && <p id="coachingFormat-error" className="mt-2 text-xs font-semibold text-red-700">{errorFor("coachingFormat")}</p>}
@@ -259,7 +259,7 @@ export default function CoachingInquiryForm({
         </Field>
       </fieldset>
 
-      <InquiryActions step={step} totalSteps={steps.length} isPending={isPending} onBack={() => setStep((current) => current - 1)} onNext={goNext} submitLabel="Send Coaching Request" />
+      <InquiryActions step={step} totalSteps={steps.length} isPending={isPending} onBack={() => setStep((current) => current - 1)} onNext={goNext} submitLabel="Send Activity Request" />
       <PrivacyNote>We’ll only use these details to respond to your request</PrivacyNote>
     </form>
   );

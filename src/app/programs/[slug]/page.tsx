@@ -20,10 +20,10 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
   const program = programs.find((p) => p.slug === slug);
   if (!program) notFound();
   const inquiryHref = program.slug === "private-lessons"
-    ? "/coaching/request?format=private&source=legacy-private-lessons"
+    ? "/pods-groups/request?format=private&source=legacy-private-lessons"
     : program.slug === "clinics"
-      ? "/coaching/request?format=group&source=legacy-clinics"
-      : "/parties/request?source=legacy-parties";
+      ? "/pods-groups/request?format=group&source=legacy-clinics"
+      : "/parties-private-events/request?source=legacy-parties";
 
   return (
     <>

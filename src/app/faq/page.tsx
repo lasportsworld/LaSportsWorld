@@ -21,7 +21,7 @@ const categories = [
       },
       {
         q: "What areas do you serve?",
-        a: "We're based on LA's Westside and serve neighborhoods including Beverly Hills, Beverlywood, Culver City, Westwood, La Cienega, La Brea, Brentwood, and Bel Air. Broader LA service may be available depending on the program. See our Service Area page.",
+        a: "We're based on LA's Westside and serve neighborhoods including Beverly Hills, Beverlywood, Culver City, Westwood, La Cienega, La Brea, Brentwood, and Bel Air. Broader LA service may be available depending on the program.",
       },
       {
         q: "How much does it cost?",
@@ -38,8 +38,8 @@ const categories = [
     title: "Coaching",
     questions: [
       {
-        q: "What's the difference between Private Coaching and Group Coaching & Pods?",
-        a: "Private Coaching is one-on-one and focused on a single athlete's goals. Group Coaching & Pods is for an existing group of friends or teammates, or one we help you form.",
+        q: "What are Pods & Groups?",
+        a: "Pods & Groups are flexible small-group activities for friends, teammates, classmates, or a group we help you form. Private one-on-one coaching is also available as a tailored option.",
       },
       {
         q: "What sports do you coach?",
@@ -89,11 +89,11 @@ const categories = [
   },
   {
     id: "schools-organizations",
-    title: "Schools & Organizations",
+    title: "Schools & Businesses",
     questions: [
       {
         q: "Do you work with schools?",
-        a: "Yes. We offer PE programs, enrichment and after-school activities, camp support, and community events. See our Schools & Organizations page for details.",
+        a: "Yes. We offer PE curriculum, after-school activities, program support, and events for schools and businesses. See our Schools & Businesses page for details.",
       },
       {
         q: "Can you supplement an existing camp instead of running the whole thing?",

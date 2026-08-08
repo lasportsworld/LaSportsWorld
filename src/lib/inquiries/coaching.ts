@@ -118,7 +118,7 @@ export function validateCoachingInquiry(formData: FormData): ValidationResult {
       desiredStartTiming,
       ...(additionalNotes ? { additionalNotes } : {}),
       source: {
-        page: text(formData, "sourcePage") || "/coaching/request",
+        page: text(formData, "sourcePage") || "/pods-groups/request",
         ...(text(formData, "entryContext") ? { entryContext: text(formData, "entryContext") } : {}),
         ...(text(formData, "landingPage") ? { landingPage: text(formData, "landingPage") } : {}),
         submittedAt: new Date().toISOString(),
@@ -129,6 +129,6 @@ export function validateCoachingInquiry(formData: FormData): ValidationResult {
 
 export const coachingFormatLabels: Record<CoachingFormat, string> = {
   private: "Private Coaching",
-  group: "Group Coaching & Pods",
+  group: "Pods & Groups",
   unsure: "Not sure / help me choose",
 };

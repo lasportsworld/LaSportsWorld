@@ -10,12 +10,12 @@ import type { PlanPath } from "./plan-options";
 type ClarifiedPath = "family-coaching" | "family-party" | "organization" | "recurring-family" | "recurring-organization";
 
 const choices: Array<{ value: PlanPath; label: string; description: string }> = [
-  { value: "private-coaching", label: "Private coaching", description: "One-on-one support built around a child’s goals and pace." },
-  { value: "group-coaching", label: "Group coaching", description: "A pod, friend group, or small group that wants to train together." },
-  { value: "birthday-party", label: "Birthday party", description: "Coach-led sports, games, soft play, or activity stations." },
-  { value: "school-after-school", label: "School / after-school program", description: "PE, enrichment, or recurring programming for students." },
+  { value: "private-coaching", label: "Private one-on-one option", description: "Individual support available within our Pods & Groups planning flow." },
+  { value: "group-coaching", label: "Pod or group", description: "A friend group, family pod, or small group that wants to move together." },
+  { value: "birthday-party", label: "Party or private event", description: "Coach-led sports, games, soft play, or activity stations." },
+  { value: "school-after-school", label: "PE curriculum / after-school", description: "PE, enrichment, or recurring programming for students." },
   { value: "camp-programming", label: "Camp programming", description: "Sports blocks, activity rotations, or full-day support." },
-  { value: "community-event", label: "Community / organization event", description: "A one-time event, clinic, or scalable activity zone." },
+  { value: "community-event", label: "School / business event", description: "A one-time event, clinic, or scalable activity zone." },
   { value: "custom-recurring", label: "Custom recurring activity", description: "A repeating experience that does not fit a standard program." },
   { value: "unsure", label: "Not sure", description: "Answer one quick question and we’ll point you in the right direction." },
 ];
@@ -77,13 +77,13 @@ export default function PlanExperience({ initialPath = "" }: { initialPath?: Pla
           {recurring ? (
             <>
               <SelectionButton label="A child, family, or small group" description="We’ll ask about the activity, group, goals, schedule, and location." onClick={() => setClarifiedPath("recurring-family")} />
-              <SelectionButton label="A school, camp, or organization" description="We’ll ask about the audience, cadence, setting, and program goals." onClick={() => setClarifiedPath("recurring-organization")} />
+              <SelectionButton label="A school, camp, or business" description="We’ll ask about the audience, cadence, setting, and program goals." onClick={() => setClarifiedPath("recurring-organization")} />
             </>
           ) : (
             <>
               <SelectionButton label="A child or family — coaching" description="For skill-building, confidence, movement, or help choosing a coaching format." onClick={() => setClarifiedPath("family-coaching")} />
               <SelectionButton label="A child or family — party" description="For a birthday or custom celebration experience." onClick={() => setClarifiedPath("family-party")} />
-              <SelectionButton label="A school, camp, or organization" description="For programs, enrichment, recurring activities, or events." onClick={() => setClarifiedPath("organization")} />
+              <SelectionButton label="A school, camp, or business" description="For programs, enrichment, recurring activities, or events." onClick={() => setClarifiedPath("organization")} />
               <Link href="/contact?service=general" className="group flex min-h-28 items-start justify-between gap-4 rounded-2xl border border-navy/10 bg-cream p-5 text-left transition hover:border-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
                 <span><span className="block text-base font-extrabold text-navy">Something else</span><span className="mt-1.5 block text-sm leading-6 text-navy/50">Use General Contact for a question that is not a service request.</span></span><ArrowRight className="mt-1 h-5 w-5 text-gold" />
               </Link>

@@ -5,8 +5,8 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Request a Program | LA Sports World",
-  description: "Discuss school, enrichment, camp, or community programming with LA Sports World.",
-  path: "/schools-organizations/request",
+  description: "Discuss school, business, camp, after-school, or event programming with LA Sports World.",
+  path: "/schools-businesses/request",
 });
 
 export default async function OrganizationRequestPage({ searchParams }: { searchParams: Promise<{ type?: string; source?: string }> }) {
@@ -14,16 +14,16 @@ export default async function OrganizationRequestPage({ searchParams }: { search
   const initialProgramType: OrganizationProgramType | "" = organizationProgramTypes.includes(params.type as OrganizationProgramType) ? params.type as OrganizationProgramType : "";
   return (
     <InquiryShell
-      eyebrow="Schools & Organizations"
+      eyebrow="Schools & Businesses"
       title="Tell us what your program needs"
       description="Give us the setting, audience, timing, and objective—even if the details are still taking shape."
-      backHref="/schools-organizations"
-      backLabel="Back to Organizations"
+      backHref="/schools-businesses"
+      backLabel="Back to Schools & Businesses"
       highlights={["Flexible for early-stage ideas", "Built around your setting", "Clear operational follow-up"]}
       note="A useful first conversation does not require a finished brief."
       variant="organization"
     >
-      <OrganizationInquiryForm initialProgramType={initialProgramType} entryContext={params.source || params.type || "organizations-overview"} />
+      <OrganizationInquiryForm initialProgramType={initialProgramType} entryContext={params.source || params.type || "schools-businesses-overview"} sourcePage="/schools-businesses/request" />
     </InquiryShell>
   );
 }

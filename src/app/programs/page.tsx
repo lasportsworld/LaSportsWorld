@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Programs | LA Sports World",
-  description: "Private Coaching, Group Coaching & Pods, and Parties & Events for families in Los Angeles.",
+  description: "Pods, groups, private options, and activity-led private events for families in Los Angeles.",
 };
 
 export default function ProgramsPage() {

@@ -24,7 +24,7 @@ const otherOptions = [
   {
     title: "Private & Group Coaching",
     desc: "Custom coaching built around your child's schedule.",
-    href: "/coaching",
+    href: "/pods-groups",
   },
 ];
 

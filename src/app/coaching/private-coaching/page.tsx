@@ -28,7 +28,7 @@ export const metadata = createPageMetadata({
   path: "/coaching/private-coaching",
 });
 
-const inquiryHref = "/coaching/request?format=private&source=private-coaching";
+const inquiryHref = "/pods-groups/request?format=private&source=private-option";
 
 const sports = ["Basketball", "Flag football", "Soccer", "Volleyball", "Baseball", "Fitness & movement"];
 const goals = ["Beginner fundamentals", "Confidence", "Coordination", "Sport-specific development", "Tryout preparation", "Consistent movement"];

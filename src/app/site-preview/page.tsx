@@ -76,18 +76,18 @@ const miniFeatures = [
 /* ─── Photo service cards ─── */
 const serviceCards = [
   {
-    title: "Coaching",
+    title: "Pods & Groups",
     description:
       "Ongoing coaching and small group sessions tailored to your goals.",
     image: "/images/lasw_slideshow_003.jpg",
-    href: "/coaching",
+    href: "/pods-groups",
   },
   {
-    title: "Parties & Events",
+    title: "Parties & Private Events",
     description:
       "Unforgettable birthday parties and special events. Zero stress.",
     image: "/images/lasw-photo-real-1.jpg",
-    href: "/parties",
+    href: "/parties-private-events",
   },
   {
     title: "Classes & Camps",
@@ -375,7 +375,7 @@ export default async function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/parties"
+                href="/parties-private-events"
                 className="button-gold"
               >
                 Book a Party <ArrowRight className="h-4 w-4" />
@@ -457,9 +457,9 @@ export default async function HomePage() {
             ))}
           </div>
 
-          {/* Schools & Organizations horizontal row */}
+          {/* Schools & Businesses horizontal row */}
           <Link
-            href="/schools-organizations"
+            href="/schools-businesses"
             className="group mt-5 flex items-center gap-5 rounded-xl border border-navy/12 bg-cream px-6 py-5 transition hover:border-gold/40 hover:shadow-sm"
           >
             <svg
@@ -479,11 +479,11 @@ export default async function HomePage() {
             </svg>
             <div className="flex-1">
               <div className="text-base font-extrabold text-navy">
-                Schools &amp; Organizations
+                Schools &amp; Businesses
               </div>
               <div className="mt-0.5 text-sm text-navy/55">
-                Enrich your programs with turnkey sports and activities for
-                students.
+                Turnkey sports and activities for students, teams, employees,
+                and community audiences.
               </div>
             </div>
             <ArrowRight className="h-5 w-5 shrink-0 text-gold transition group-hover:translate-x-1" />

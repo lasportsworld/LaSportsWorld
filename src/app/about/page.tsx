@@ -12,7 +12,7 @@ import {
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "About Us | LA Sports World",
+  title: "Our Story | LA Sports World",
   description: "Learn about LA Sports World, our coaches, and our mission to develop youth athletes in Los Angeles.",
   path: "/about",
 });
@@ -27,7 +27,7 @@ export default function AboutPage() {
         image="/images/hero-lasw.jpg"
         imageAlt="Children and families gathered for an LA Sports World group activity"
         imagePosition="center 35%"
-        primaryCta={{ label: "Meet Our Coaches", href: "#coaches" }}
+        primaryCta={{ label: "Meet Our Team", href: "/about/team" }}
         secondaryCta={{ label: "Our Approach", href: "/about/approach" }}
         note="Los Angeles · Mobile programming · Built around kids"
       />
@@ -104,14 +104,14 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
-          <div className="mt-10 text-center"><Link href="/about/coaches-safety" className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.16em] text-navy hover:text-gold">Coach standards & safety <ArrowRight className="h-4 w-4" /></Link></div>
+          <div className="mt-10 text-center"><Link href="/about/safety-standards" className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.16em] text-navy hover:text-gold">Safety & standards <ArrowRight className="h-4 w-4" /></Link></div>
         </div>
       </section>
 
       <PageCTA
         eyebrow="Find your way in"
         title="Find the right LA Sports World program"
-        description="Explore coaching, classes, camps, parties, and organization programs for your family or community."
+        description="Explore pods, groups, classes, camps, private events, and programs for your family, school, business, or community."
         cta={{ label: "Plan an Activity", href: "/plan" }}
         image="/images/about-us.jpg"
         imageAlt="LA Sports World coaches with a group of children"

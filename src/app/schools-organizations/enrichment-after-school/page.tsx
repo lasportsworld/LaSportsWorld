@@ -44,7 +44,7 @@ export default function EnrichmentPage() {
       <PageHero
         title="Enrichment & After-School"
         subtitle="An engaging activity partner that complements your school day."
-        tag="Schools & Organizations"
+        tag="Schools & Businesses"
         image="/images/lasw-design-1.jpg"
         imageAlt="LA Sports World coaches leading a movement activity with young children"
       />
@@ -138,7 +138,7 @@ export default function EnrichmentPage() {
             options.
           </p>
           <Link
-            href="/schools-organizations/request?type=enrichment-after-school&source=enrichment-after-school"
+            href="/schools-businesses/request?type=enrichment-after-school&source=pe-curriculum-after-school"
             className="button-gold mt-7"
           >
             Discuss an Enrichment Program <ArrowRight className="h-4 w-4" />

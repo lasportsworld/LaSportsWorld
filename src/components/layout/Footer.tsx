@@ -4,17 +4,17 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/data/content";
 
 const services = [
-  { label: "Coaching", href: "/coaching" },
-  { label: "Parties & Events", href: "/parties" },
+  { label: "Pods & Groups", href: "/pods-groups" },
+  { label: "Parties & Private Events", href: "/parties-private-events" },
   { label: "Classes & Camps", href: "/classes-camps" },
-  { label: "Schools & Organizations", href: "/schools-organizations" },
-  { label: "View Schedule", href: "/register" },
+  { label: "Schools & Businesses", href: "/schools-businesses" },
 ];
 
 const aboutLinks = [
   { label: "Our Story", href: "/about" },
-  { label: "Our Team", href: "/about#coaches" },
-  { label: "Service Area", href: "/about/service-area" },
+  { label: "Our Approach", href: "/about/approach" },
+  { label: "Our Team", href: "/about/team" },
+  { label: "Safety & Standards", href: "/about/safety-standards" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
 ];

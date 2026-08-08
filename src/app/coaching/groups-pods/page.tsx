@@ -4,10 +4,10 @@ import PageHero from "@/components/shared/PageHero";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Group Coaching & Pods | LA Sports World",
+  title: "Pods & Groups | LA Sports World",
   description:
     "Bring an existing group or let us help form one. Flexible, recurring group coaching delivered wherever you are.",
-  path: "/coaching/groups-pods",
+  path: "/pods-groups",
 });
 
 const groupNeeds = [
@@ -51,9 +51,9 @@ export default function GroupCoachingAndPodsPage() {
   return (
     <>
       <PageHero
-        title="Group Coaching & Pods"
-        subtitle="Bring an existing group, or let us help you form one. Recurring coaching for kids who train better together."
-        tag="Coaching"
+        title="Pods & Groups"
+        subtitle="Bring an existing group, or let us help you form one. Flexible coaching and recurring activities for kids who move better together."
+        tag="Customer programs"
         image="/images/lasw-photo-44.jpg"
         imageAlt="A group of children and LA Sports World coaches at an outdoor flag football session"
       />
@@ -61,11 +61,12 @@ export default function GroupCoachingAndPodsPage() {
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-base leading-relaxed text-navy/65">
-            You can bring an existing group of friends, teammates, or classmates.
+            You can bring an existing group of friends, teammates, or classmates,
             or ask us to help form one. You may know this kind of recurring group
             programming as a &ldquo;pod.&rdquo; It&apos;s the same thing, just a
             familiar name for parents who&apos;ve organized one before.
           </p>
+          <p className="mt-4 text-sm leading-relaxed text-navy/50">Looking for individual attention instead? Private one-on-one coaching is available as a tailored option through the same planning process.</p>
         </div>
       </section>
 
@@ -153,10 +154,10 @@ export default function GroupCoachingAndPodsPage() {
             we&apos;ll follow up with a plan.
           </p>
           <Link
-            href="/coaching/request?format=group&source=group-coaching-pods"
+            href="/pods-groups/request?format=group&source=pods-groups"
             className="button-gold mt-7"
           >
-            Plan a Group <ArrowRight className="h-4 w-4" />
+            Plan a Pod or Group <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

@@ -43,7 +43,7 @@ export const programs = [
   },
   {
     slug: "clinics",
-    title: "Group Coaching & Pods",
+    title: "Pods & Groups",
     subtitle: "Small-Group Coaching",
     image: "/images/sports-clinic.jpg",
     description:
@@ -60,7 +60,7 @@ export const programs = [
   },
   {
     slug: "parties",
-    title: "Parties & Events",
+    title: "Parties & Private Events",
     subtitle: "Custom Sports Parties",
     image: "/images/lasw-photo-real-1.jpg",
     description:

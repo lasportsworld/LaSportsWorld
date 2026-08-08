@@ -67,7 +67,7 @@ export function validatePartyInquiry(data: FormData): Result {
     ...(text(data, "approximateLocation") ? { approximateLocation: text(data, "approximateLocation") } : {}),
     ...(text(data, "preferredDuration") ? { preferredDuration: text(data, "preferredDuration") } : {}),
     ...(text(data, "additionalNotes") ? { additionalNotes: text(data, "additionalNotes") } : {}),
-    source: { page: text(data, "sourcePage") || "/parties/request", ...(text(data, "entryContext") ? { entryContext: text(data, "entryContext") } : {}), submittedAt: new Date().toISOString() },
+    source: { page: text(data, "sourcePage") || "/parties-private-events/request", ...(text(data, "entryContext") ? { entryContext: text(data, "entryContext") } : {}), submittedAt: new Date().toISOString() },
   }};
 }
 
