@@ -23,17 +23,6 @@ const navLinks = [
     ],
   },
   {
-    label: "Schools & Businesses",
-    href: "/schools-businesses",
-    b2b: true,
-    children: [
-      { label: "Overview", href: "/schools-businesses" },
-      { label: "Events", href: "/schools-businesses/events" },
-      { label: "Programming", href: "/schools-businesses/programming" },
-      { label: "PE Curriculum & After-School", href: "/schools-businesses/pe-curriculum-after-school" },
-    ],
-  },
-  {
     label: "About",
     href: "/about",
     children: [
@@ -41,6 +30,17 @@ const navLinks = [
       { label: "Our Approach", href: "/about/approach" },
       { label: "Our Team", href: "/about/team" },
       { label: "Safety & Standards", href: "/about/safety-standards" },
+    ],
+  },
+  {
+    label: "Schools & Businesses",
+    href: "/schools-businesses",
+    dividerBefore: true,
+    children: [
+      { label: "Overview", href: "/schools-businesses" },
+      { label: "Events", href: "/schools-businesses/events" },
+      { label: "Programming", href: "/schools-businesses/programming" },
+      { label: "PE Curriculum & After-School", href: "/schools-businesses/pe-curriculum-after-school" },
     ],
   },
 ];
@@ -85,15 +85,14 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <div
               key={link.label}
-              className="relative"
+              className={`relative ${link.dividerBefore ? "ml-3 border-l border-navy/15 pl-3" : ""}`}
               onMouseEnter={() => link.children && setOpenDropdown(link.label)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <Link
                 href={link.href}
-                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold transition hover:text-navy ${
-                  link.b2b ? "border-b border-gold/45 text-navy" : "text-navy/80"
-                } ${isActive(link.href) ? "text-navy" : ""
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-bold text-navy/80 transition hover:text-navy ${
+                  isActive(link.href) ? "text-navy" : ""
                 }`}
               >
                 {link.label}
@@ -148,7 +147,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`block py-2.5 text-base font-bold text-navy ${
-                  link.b2b ? "border-l-2 border-gold pl-3" : ""
+                  link.dividerBefore ? "mt-2 border-t border-navy/10 pt-4" : ""
                 } ${isActive(link.href) ? "text-gold" : ""
                 }`}
                 onClick={() => setMobileOpen(false)}
