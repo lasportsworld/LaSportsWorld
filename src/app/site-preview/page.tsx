@@ -2,11 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Shield, Star } from "lucide-react";
 import {
-  GOOGLE_REVIEW_WRITE_URL,
   getGoogleReviews,
-  type GoogleReviewCard as GoogleReviewData,
   type GoogleReviewsSummary,
 } from "@/lib/google-reviews";
+import { ExpandableGoogleReview, LaswTrustCard } from "@/components/reviews/GoogleReviewDisplay";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -122,17 +121,6 @@ function formatReviewCount(count: number) {
   return new Intl.NumberFormat("en-US").format(count);
 }
 
-function GoogleMapsAttribution({ className = "" }: { className?: string }) {
-  return (
-    <span
-      translate="no"
-      className={`text-xs font-normal tracking-normal text-[#5E5E5E] ${className}`}
-    >
-      Google Maps
-    </span>
-  );
-}
-
 function GoogleWord({ className = "" }: { className?: string }) {
   return (
     <span className={`font-extrabold tracking-normal ${className}`}>
@@ -202,7 +190,7 @@ function GoogleRatingBadge({
         <span className="font-condensed text-3xl font-extrabold leading-none text-navy">
           {summary.rating.toFixed(1)}
         </span>
-        <StarRating rating={summary.rating} className="h-3.5 w-3.5" />
+        <StarRating rating={summary.rating} className="h-4 w-4" />
       </span>
       <span className="flex items-center gap-1.5 text-[11px] font-semibold text-navy/45">
         <span className="opacity-75 transition-opacity group-hover:opacity-100">
@@ -241,148 +229,6 @@ function GoogleRatingBadge({
   );
 }
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join("");
-}
-
-function ReviewAvatar({ review }: { review: GoogleReviewData }) {
-  const fallback = (
-    <span className="grid h-10 w-10 place-items-center rounded-full bg-navy text-xs font-extrabold text-white">
-      {getInitials(review.authorName) || "G"}
-    </span>
-  );
-
-  const avatar = review.authorPhotoUri ? (
-    <Image
-      src={review.authorPhotoUri}
-      alt={`${review.authorName} profile`}
-      width={40}
-      height={40}
-      className="h-10 w-10 rounded-full object-cover"
-      referrerPolicy="no-referrer"
-    />
-  ) : (
-    fallback
-  );
-
-  if (!review.authorUri) {
-    return avatar;
-  }
-
-  return (
-    <a
-      href={review.authorUri}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`${review.authorName} on Google Maps`}
-    >
-      {avatar}
-    </a>
-  );
-}
-
-function GoogleReviewCard({ review }: { review: GoogleReviewData }) {
-  const sourceHref = review.googleMapsUri || review.authorUri;
-
-  return (
-    <article className="flex min-h-[330px] flex-col rounded-xl bg-[#F4F4F6] p-6 shadow-sm ring-1 ring-navy/5">
-      <div className="mb-5 flex items-center gap-3">
-        <ReviewAvatar review={review} />
-        <div className="min-w-0">
-          {review.authorUri ? (
-            <a
-              href={review.authorUri}
-              target="_blank"
-              rel="noreferrer"
-              className="block truncate text-sm font-extrabold text-navy hover:text-gold"
-            >
-              {review.authorName}
-            </a>
-          ) : (
-            <div className="truncate text-sm font-extrabold text-navy">
-              {review.authorName}
-            </div>
-          )}
-          {review.relativePublishTimeDescription ? (
-            <span className="block text-xs text-navy/45">
-              {review.relativePublishTimeDescription}
-            </span>
-          ) : null}
-        </div>
-      </div>
-      <StarRating rating={review.rating} className="h-4 w-4" />
-      <p className="mt-3 line-clamp-[7] text-sm font-medium leading-relaxed text-navy/80 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:7]">
-        {review.text}
-      </p>
-      <div className="mt-auto pt-4">
-        {sourceHref ? (
-          <a
-            href={sourceHref}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-semibold text-[#1A73E8] hover:underline"
-          >
-            Read more
-          </a>
-        ) : null}
-      </div>
-    </article>
-  );
-}
-
-function GoogleReviewsHeader({
-  summary,
-}: {
-  summary: GoogleReviewsSummary;
-}) {
-  return (
-    <div className="mb-6 rounded-xl bg-[#F4F4F6] px-6 py-5 shadow-sm ring-1 ring-navy/5 sm:px-7">
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <GoogleReviewsBrand />
-          <div className="mt-2 flex flex-wrap items-center gap-2">
-            <span className="text-2xl font-extrabold text-navy">
-              {summary.rating.toFixed(1)}
-            </span>
-            <StarRating rating={summary.rating} className="h-5 w-5" />
-            <span className="text-sm text-navy/45">
-              ({formatReviewCount(summary.userRatingCount)})
-            </span>
-          </div>
-        </div>
-        <a
-          href={GOOGLE_REVIEW_WRITE_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-[#1A73E8] px-6 py-3 text-sm font-extrabold text-white shadow-sm transition hover:bg-[#1558B0]"
-        >
-          Review us on Google
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function SafetyReviewCard() {
-  return (
-    <aside className="rounded-xl bg-[#F8F6F0] p-7 shadow-sm ring-1 ring-navy/8">
-      <Shield className="mb-5 h-8 w-8 text-navy" />
-      <div className="text-lg font-extrabold text-navy">
-        Safety is our priority
-      </div>
-      <p className="mt-3 max-w-xs text-sm leading-relaxed text-navy/55">
-        All coaches are Live Scanned, background checked, and committed to your
-        child&apos;s well-being.
-      </p>
-    </aside>
-  );
-}
-
 function GoogleReviewsBlock({
   summary,
 }: {
@@ -390,22 +236,19 @@ function GoogleReviewsBlock({
 }) {
   return (
     <div className="relative">
-      <GoogleReviewsHeader summary={summary} />
-
-      {summary.reviews.length ? (
-        <>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-[repeat(2,minmax(0,1fr))_minmax(260px,0.85fr)]">
-            {summary.reviews.slice(0, 2).map((review) => (
-              <GoogleReviewCard key={review.id} review={review} />
-            ))}
-            <SafetyReviewCard />
-          </div>
-          <p className="mt-4 text-xs leading-relaxed text-navy/45">
-            Reviews are shown from <GoogleMapsAttribution />{" "}and ordered by
-            Google&apos;s default relevance.
-          </p>
-        </>
-      ) : <SafetyReviewCard />}
+      <div className="mb-9 flex flex-col gap-6 border-b border-navy/10 pb-7 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-gold-dark">From Los Angeles families</p>
+          <h2 className="mt-3 font-condensed text-4xl font-extrabold uppercase leading-none text-navy sm:text-5xl">Real words from real families</h2>
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-sm text-navy/50"><span className="font-condensed text-3xl font-extrabold text-navy">{summary.rating.toFixed(1)}</span><StarRating rating={summary.rating} className="h-3.5 w-3.5" /><span><GoogleReviewsBrand compact /> · {formatReviewCount(summary.userRatingCount)} reviews</span></div>
+        </div>
+        <Link href="/testimonials" className="inline-flex w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.13em] text-navy transition hover:text-gold">See all reviews <ArrowRight className="h-4 w-4" /></Link>
+      </div>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-[repeat(2,minmax(0,1fr))_minmax(270px,0.82fr)]">
+        {summary.reviews.slice(0, 2).map((review) => <ExpandableGoogleReview key={review.id} review={review} className="min-h-[360px]" />)}
+        <LaswTrustCard className="min-h-[360px]" />
+      </div>
+      <p className="mt-4 text-xs leading-relaxed text-navy/40">Reviews are provided by Google and ordered by Google&apos;s default relevance.</p>
     </div>
   );
 }

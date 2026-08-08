@@ -133,8 +133,7 @@ export async function getGoogleReviews(): Promise<GoogleReviewsSummary | null> {
             review.relativePublishTimeDescription,
         };
       })
-      .filter((review): review is GoogleReviewCard => review !== null)
-      .slice(0, 3);
+      .filter((review): review is GoogleReviewCard => review !== null);
 
     if (!rating && reviews.length === 0) {
       return null;
