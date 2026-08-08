@@ -197,36 +197,30 @@ function GoogleRatingBadge({
   }
 
   const content = (
-    <>
-      <span className="flex flex-col gap-0.5">
-        <span className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-navy/45">
-          Rating
+    <span className="flex flex-col gap-1.5">
+      <span className="flex items-center gap-2">
+        <span className="font-condensed text-3xl font-extrabold leading-none text-navy">
+          {summary.rating.toFixed(1)}
         </span>
-        <span className="flex items-baseline gap-1 font-condensed font-extrabold leading-none text-navy">
-          <span className="text-3xl">{summary.rating.toFixed(1)}</span>
-          <span className="text-xs text-navy/45">/ 5</span>
-        </span>
+        <StarRating rating={summary.rating} className="h-3.5 w-3.5" />
       </span>
-      <span aria-hidden="true" className="h-9 w-px bg-navy/15" />
-      <span className="flex flex-col gap-1">
+      <span className="flex items-center gap-1.5 text-[11px] font-semibold text-navy/45">
         <span className="opacity-75 transition-opacity group-hover:opacity-100">
           <GoogleReviewsBrand compact />
         </span>
-        <span className="flex items-center gap-1.5">
-          <StarRating rating={summary.rating} className="h-3 w-3" />
-          <span className="text-[11px] font-semibold text-navy/45">
-            {summary.userRatingCount
-              ? `${formatReviewCount(summary.userRatingCount)} reviews`
-              : "Reviews"}
-          </span>
+        <span aria-hidden="true">·</span>
+        <span>
+          {summary.userRatingCount
+            ? `${formatReviewCount(summary.userRatingCount)} reviews`
+            : "Reviews"}
         </span>
       </span>
-    </>
+    </span>
   );
 
   if (!summary.googleMapsUri) {
     return (
-      <div className={`${className} inline-flex items-center gap-3 py-1`}>
+      <div className={`${className} inline-flex py-1`}>
         {content}
       </div>
     );
@@ -237,7 +231,7 @@ function GoogleRatingBadge({
       href={summary.googleMapsUri}
       target="_blank"
       rel="noreferrer"
-      className={`${className} group inline-flex items-center gap-3 rounded-md py-1 text-left transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold`}
+      className={`${className} group inline-flex py-1 text-left transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold`}
       aria-label={`Read LA Sports World reviews on Google Maps. ${summary.rating.toFixed(
         1,
       )} out of 5 stars.`}
