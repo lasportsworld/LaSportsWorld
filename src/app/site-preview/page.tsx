@@ -198,8 +198,14 @@ function GoogleRatingBadge({
 
   const content = (
     <>
-      <span className="font-condensed text-3xl font-extrabold leading-none text-navy">
-        {summary.rating.toFixed(1)}
+      <span className="flex flex-col gap-0.5">
+        <span className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-navy/45">
+          Rating
+        </span>
+        <span className="flex items-baseline gap-1 font-condensed font-extrabold leading-none text-navy">
+          <span className="text-3xl">{summary.rating.toFixed(1)}</span>
+          <span className="text-xs text-navy/45">/ 5</span>
+        </span>
       </span>
       <span aria-hidden="true" className="h-9 w-px bg-navy/15" />
       <span className="flex flex-col gap-1">
